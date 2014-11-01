@@ -1,0 +1,224 @@
+"retailer","country","freq","latitude","longitude"
+"H&M","Bangladesh",164,24.000000,90.000000
+"H&M","Bulgaria",19,43.000000,25.000000
+"H&M","Cambodia",33,13.000000,105.000000
+"H&M","China",262,35.000000,105.000000
+"H&M","Egypt",4,27.000000,30.000000
+"H&M","Greece",2,39.000000,22.000000
+"H&M","India",105,20.000000,77.000000
+"H&M","Indonesia",54,-5.000000,120.000000
+"H&M","Italy",25,42.833300,12.833300
+"H&M","Latvia",1,57.000000,25.000000
+"H&M","Netherlands",2,52.500000,5.750000
+"H&M","Pakistan",11,30.000000,70.000000
+"H&M","Poland",1,52.000000,20.000000
+"H&M","Portugal",18,39.500000,-8.000000
+"H&M","Romania",20,46.000000,25.000000
+"H&M","South Korea",30,36.469300,127.624300
+"H&M","Sri Lanka",30,7.000000,81.000000
+"H&M","Sweden",3,62.000000,15.000000
+"H&M","Thailand",1,15.000000,100.000000
+"H&M","Tunisia",4,34.000000,9.000000
+"H&M","Turkey",181,39.000000,35.000000
+"H&M","Ukraine",4,49.000000,32.000000
+"H&M","Vietnam",11,16.000000,106.000000
+"Helly Hansen","Bangladesh",1,24.000000,90.000000
+"Helly Hansen","China",9,35.000000,105.000000
+"Helly Hansen","Denmark",1,56.000000,10.000000
+"Helly Hansen","Germany",1,51.000000,9.000000
+"Helly Hansen","Hong Kong",9,22.250000,114.166700
+"Helly Hansen","Hungary",1,47.000000,20.000000
+"Helly Hansen","Indonesia",3,-5.000000,120.000000
+"Helly Hansen","Laos",1,18.000000,105.000000
+"Helly Hansen","Latvia",1,57.000000,25.000000
+"Helly Hansen","Poland",1,52.000000,20.000000
+"Helly Hansen","Portugal",4,39.500000,-8.000000
+"Helly Hansen","Sri Lanka",1,7.000000,81.000000
+"Helly Hansen","Sweden",1,62.000000,15.000000
+"Helly Hansen","Taiwan",3,23.500000,121.000000
+"Helly Hansen","Thailand",2,15.000000,100.000000
+"Helly Hansen","Turkey",6,39.000000,35.000000
+"Helly Hansen","United Kingdom",1,54.000000,-2.000000
+"Helly Hansen","Vietnam",3,16.000000,106.000000
+"Levis","Argentina",28,-34.000000,-64.000000
+"Levis","Bangladesh",13,24.000000,90.000000
+"Levis","Brazil",1,-10.000000,-55.000000
+"Levis","Bulgaria",7,43.000000,25.000000
+"Levis","Cambodia",11,13.000000,105.000000
+"Levis","China",215,35.000000,105.000000
+"Levis","Colombia",6,4.000000,-72.000000
+"Levis","Dominican Republic",10,19.000000,-70.666700
+"Levis","Egypt",4,27.000000,30.000000
+"Levis","El Salvador",4,13.833300,-88.916700
+"Levis","Guatemala",2,15.500000,-90.250000
+"Levis","Haiti",1,19.000000,-72.416700
+"Levis","Honduras",2,15.000000,-86.500000
+"Levis","Hong Kong",3,22.250000,114.166700
+"Levis","India",57,20.000000,77.000000
+"Levis","Indonesia",4,-5.000000,120.000000
+"Levis","Italy",33,42.833300,12.833300
+"Levis","Japan",15,36.000000,138.000000
+"Levis","Kenya",1,1.000000,38.000000
+"Levis","Lesotho",2,-29.500000,28.500000
+"Levis","Macau",1,22.166700,113.550000
+"Levis","Madagascar",2,-20.000000,47.000000
+"Levis","Malaysia",2,2.500000,112.500000
+"Levis","Mauritius",4,-20.283300,57.550000
+"Levis","Mexico",26,23.000000,-102.000000
+"Levis","Morocco",4,32.000000,-5.000000
+"Levis","Nicaragua",3,13.000000,-85.000000
+"Levis","Pakistan",11,30.000000,70.000000
+"Levis","Peru",1,-10.000000,-76.000000
+"Levis","Philippines",1,13.000000,122.000000
+"Levis","Poland",3,52.000000,20.000000
+"Levis","Portugal",25,39.500000,-8.000000
+"Levis","Romania",5,46.000000,25.000000
+"Levis","South Africa",3,-29.000000,24.000000
+"Levis","South Korea",16,36.469300,127.624300
+"Levis","Sri Lanka",23,7.000000,81.000000
+"Levis","Taiwan",4,23.500000,121.000000
+"Levis","Thailand",20,15.000000,100.000000
+"Levis","Tunisia",3,34.000000,9.000000
+"Levis","Turkey",24,39.000000,35.000000
+"Levis","United Kingdom",1,54.000000,-2.000000
+"Levis","United States",18,38.000000,-97.000000
+"Levis","Uruguay",1,-33.000000,-56.000000
+"Levis","Vietnam",23,16.000000,106.000000
+"Moods of Norway","China",26,35.000000,105.000000
+"Moods of Norway","France",1,46.000000,2.000000
+"Moods of Norway","India",1,20.000000,77.000000
+"Moods of Norway","Italy",6,42.833300,12.833300
+"Moods of Norway","Lithuania",1,56.000000,24.000000
+"Moods of Norway","Pakistan",1,30.000000,70.000000
+"Moods of Norway","Turkey",2,39.000000,35.000000
+"Next","Egypt",1,27.000000,30.000000
+"Nike","Argentina",27,-34.000000,-64.000000
+"Nike","Australia",5,-27.000000,133.000000
+"Nike","Bangladesh",6,24.000000,90.000000
+"Nike","Bosnia",1,44.000000,18.000000
+"Nike","Brazil",56,-10.000000,-55.000000
+"Nike","Bulgaria",1,43.000000,25.000000
+"Nike","Cambodia",5,13.000000,105.000000
+"Nike","Canada",5,60.000000,-95.000000
+"Nike","China",218,35.000000,105.000000
+"Nike","Dominican Republic",1,19.000000,-70.666700
+"Nike","Ecuador",1,-2.000000,-77.500000
+"Nike","Egypt",3,27.000000,30.000000
+"Nike","El Salvador",3,13.833300,-88.916700
+"Nike","Guatemala",6,15.500000,-90.250000
+"Nike","Netherlands",4,52.500000,5.750000
+"Nike","Honduras",6,15.000000,-86.500000
+"Nike","Hong Kong",3,22.250000,114.166700
+"Nike","India",23,20.000000,77.000000
+"Nike","Indonesia",39,-5.000000,120.000000
+"Nike","Israel",1,31.500000,34.750000
+"Nike","Italy",11,42.833300,12.833300
+"Nike","Japan",26,36.000000,138.000000
+"Nike","South Korea",23,36.469300,127.624300
+"Nike","Macau",1,22.166700,113.550000
+"Nike","Malaysia",21,2.500000,112.500000
+"Nike","Mexico",29,23.000000,-102.000000
+"Nike","Moldova",4,47.000000,29.000000
+"Nike","Nicaragua",2,13.000000,-85.000000
+"Nike","Pakistan",9,30.000000,70.000000
+"Nike","Paraguay",1,-23.000000,-58.000000
+"Nike","Peru",4,-10.000000,-76.000000
+"Nike","Philippines",3,13.000000,122.000000
+"Nike","Poland",1,52.000000,20.000000
+"Nike","Portugal",1,39.500000,-8.000000
+"Nike","South Africa",5,-29.000000,24.000000
+"Nike","Spain",2,40.000000,-4.000000
+"Nike","Sri Lanka",20,7.000000,81.000000
+"Nike","Taiwan",16,23.500000,121.000000
+"Nike","Thailand",39,15.000000,100.000000
+"Nike","Turkey",13,39.000000,35.000000
+"Nike","United Kingdom",2,54.000000,-2.000000
+"Nike","United States",67,38.000000,-97.000000
+"Nike","Vietnam",71,16.000000,106.000000
+"Patagonia","China",16,35.000000,105.000000
+"Patagonia","Colombia",1,4.000000,-72.000000
+"Patagonia","Costa Rica",1,10.000000,-84.000000
+"Patagonia","El Salvador",2,13.833300,-88.916700
+"Patagonia","India",1,20.000000,77.000000
+"Patagonia","Israel",1,31.500000,34.750000
+"Patagonia","Japan",2,36.000000,138.000000
+"Patagonia","Jordan",2,31.000000,36.000000
+"Patagonia","Mexico",3,23.000000,-102.000000
+"Patagonia","Nicaragua",1,13.000000,-85.000000
+"Patagonia","Philippines",1,13.000000,122.000000
+"Patagonia","South Korea",1,36.469300,127.624300
+"Patagonia","Sri Lanka",8,7.000000,81.000000
+"Patagonia","Thailand",10,15.000000,100.000000
+"Patagonia","Turkey",1,39.000000,35.000000
+"Patagonia","United States",12,38.000000,-97.000000
+"Patagonia","Vietnam",12,16.000000,106.000000
+"Puma","Argentina",13,-34.000000,-64.000000
+"Puma","Bangladesh",10,24.000000,90.000000
+"Puma","Brazil",6,-10.000000,-55.000000
+"Puma","Cambodia",10,13.000000,105.000000
+"Puma","China",55,35.000000,105.000000
+"Puma","Colombia",1,4.000000,-72.000000
+"Puma","Egypt",1,27.000000,30.000000
+"Puma","El Salvador",2,13.833300,-88.916700
+"Puma","Georgia",2,42.000000,43.500000
+"Puma","Germany",1,51.000000,9.000000
+"Puma","India",22,20.000000,77.000000
+"Puma","Indonesia",4,-5.000000,120.000000
+"Puma","Italy",3,42.833300,12.833300
+"Puma","Kenya",1,1.000000,38.000000
+"Puma","Madagascar",2,-20.000000,47.000000
+"Puma","Malaysia",3,2.500000,112.500000
+"Puma","Mauritius",3,-20.283300,57.550000
+"Puma","Mexico",3,23.000000,-102.000000
+"Puma","Pakistan",2,30.000000,70.000000
+"Puma","Paraguay",1,-23.000000,-58.000000
+"Puma","Philippines",1,13.000000,122.000000
+"Puma","Poland",1,52.000000,20.000000
+"Puma","Portugal",3,39.500000,-8.000000
+"Puma","Romania",3,46.000000,25.000000
+"Puma","Slovakia",1,48.666700,19.500000
+"Puma","South Africa",8,-29.000000,24.000000
+"Puma","South Korea",3,36.469300,127.624300
+"Puma","Swaziland",1,-26.500000,31.500000
+"Puma","Taiwan",4,23.500000,121.000000
+"Puma","Thailand",1,15.000000,100.000000
+"Puma","Turkey",8,39.000000,35.000000
+"Puma","Ukraine",1,49.000000,32.000000
+"Puma","Vietnam",18,16.000000,106.000000
+"Stormberg","China",87,35.000000,105.000000
+"Stormberg","Myanmar",1,22.000000,98.000000
+"Timberland","Argentina",6,-34.000000,-64.000000
+"Timberland","Bangladesh",5,24.000000,90.000000
+"Timberland","Brazil",13,-10.000000,-55.000000
+"Timberland","Cambodia",2,13.000000,105.000000
+"Timberland","China",115,35.000000,105.000000
+"Timberland","Dominican Republic",4,19.000000,-70.666700
+"Timberland","Egypt",4,27.000000,30.000000
+"Timberland","Fiji",1,-18.000000,175.000000
+"Timberland","France",2,46.000000,2.000000
+"Timberland","Germany",1,51.000000,9.000000
+"Timberland","Hungary",1,47.000000,20.000000
+"Timberland","India",29,20.000000,77.000000
+"Timberland","Indonesia",4,-5.000000,120.000000
+"Timberland","Italy",4,42.833300,12.833300
+"Timberland","Japan",1,36.000000,138.000000
+"Timberland","Jordan",1,31.000000,36.000000
+"Timberland","Malaysia",1,2.500000,112.500000
+"Timberland","Mexico",1,23.000000,-102.000000
+"Timberland","Moldova",1,47.000000,29.000000
+"Timberland","Pakistan",1,30.000000,70.000000
+"Timberland","Philippines",2,13.000000,122.000000
+"Timberland","South Korea",1,36.469300,127.624300
+"Timberland","Spain",3,40.000000,-4.000000
+"Timberland","Taiwan",7,23.500000,121.000000
+"Timberland","Thailand",7,15.000000,100.000000
+"Timberland","Tunisia",3,34.000000,9.000000
+"Timberland","Turkey",10,39.000000,35.000000
+"Timberland","United Kingdom",3,54.000000,-2.000000
+"Timberland","United States",7,38.000000,-97.000000
+"Timberland","Vietnam",16,16.000000,106.000000
+"Varner-Gruppen","Bangladesh",46,24.000000,90.000000
+"Varner-Gruppen","China",267,35.000000,105.000000
+"Varner-Gruppen","Egypt",2,27.000000,30.000000
+"Varner-Gruppen","Greece",1,39.000000,22.000000
+"Varner-Gruppen","India",6,20.000000,77.000000

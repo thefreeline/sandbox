@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!-- The comments below (lines 3-6), tell the browser to add a class to the <html> if the browser is Internet Explorer 8 or lower.  IE has it's limitations, so this lets the developer handle the browser easier. -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        
+        <!-- This is your main stylesheet. Make your customization here.-->
+        <!-- It loads after Bootstrap css. If duplicate styles exist (e.g. <h1> style in Bootstrap && <h1> in main.css), precedence should go to main.css -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- This loads jQuery directly from google API -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <!-- This loads some functionality for checking new HTML5 features with various browsers -->
+        <script src="js/modernizer/modernizr-2.6.2.min.js"></script>
+
+        <!-- This is your function for drawing the charts -->
+        <!-- Check out the API documentation http://api.highcharts.com/highcharts -->
+        <script type="text/javascript">
+
+        $(function () {
+                $('#pie1').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Officials/Administrators'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [
+                            ['Caucasian',82.01],
+                            ['African American',12.08],
+                            ['Hispanic',5.90]
+                        ]
+                    }]
+                });
+            });
+
+        $(function () {
+                $('#pie2').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Professionals'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [
+                            ['Caucasian',74.57],
+                            ['African American',17.56],
+                            ['Hispanic',7.87]
+                        ]
+                    }]
+                });
+            });
+            
+            $(function () {
+                $('#pie3').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Skilled Craft'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [73.37,16.39,10.24]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#pie4').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Technicians'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [72.16,17.05,10.79]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#pie5').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Protective Service'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [70.92,17.98,11.10]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#pie6').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Admiminstrative Support'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [65.25,21.25,13.50]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#pie7').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'pie'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Service/Maintenance'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            innerSize: '25%',
+                            dataLabels: {
+                                enabled:false
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        type:'pie',
+                        name: 'Percent of Total: ',
+                        data: [53.61,32.21,14.18]
+                    }]
+                });
+            });                        
+
+            $(function () {
+                $('#highcharts-container').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'bar'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Number of Employees per Sector by Race'
+                    },
+                    xAxis: {
+                        categories: ["Officials/administrators","Professionals","Technicians","Protective service","Admiminstrative support","Skilled craft","Service/maintenance"]
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Caucasian',
+                        data: [303
+                              ,1109
+                              ,324
+                              ,857
+                              ,562
+                              ,305
+                              ,299]
+                    }, {
+                        name: 'African American',
+                        data: [45
+                              ,261
+                              ,76
+                              ,217
+                              ,183
+                              ,68
+                              ,180]
+                    }, {
+                        name: 'Hispanic',
+                        data: [22
+                              ,117
+                              ,48
+                              ,134
+                              ,116
+                              ,43
+                              ,79]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#highcharts-container2').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'bar'
+                    },
+                    exporting: {
+                        enabled: true
+                    },
+                    title: {
+                        text: 'Percentage of Employees per Sector by Race'
+                    },
+                    xAxis: {
+                        categories: ["Officials/administrators","Professionals","Technicians","Protective service","Admiminstrative support","Skilled craft","Service/maintenance"]
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Caucasian',
+                        data: [8.07                              
+                              ,29.51
+                              ,8.61
+                              ,22.79                              
+                              ,14.94                              
+                              ,8.12                              
+                              ,7.96]
+                    }, {
+                        name: 'African American',
+                        data: [4.34
+                              ,25.35
+                              ,7.42
+                              ,21.08
+                              ,17.75
+                              ,6.62
+                              ,17.44]
+                    }, {
+                        name: 'Hispanic',
+                        data: [3.90
+                              ,20.94
+                              ,8.65
+                              ,23.97
+                              ,20.77
+                              ,7.62
+                              ,14.15]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#highcharts-container3').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Chart'
+                    },
+                    xAxis: {
+                        categories: ["Officials/administrators","Professionals","Technicians","Protective service","Admiminstrative support","Skilled craft","Service/maintenance"]
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Total fruit consumption'
+                        },
+                        stackLabels: {
+                            enabled: false,
+                            style: {
+                                fontWeight: 'bold',
+                                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            stacking:'normal',
+                            dataLabels: {
+                                enabled: true,
+                                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                                style: {
+                                    textShadow: '0 0 3px black, 0 0 3px black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Caucasian',
+                        data: [8.07                              
+                              ,29.51
+                              ,8.61
+                              ,22.79                              
+                              ,14.94                              
+                              ,8.12                              
+                              ,7.96]
+                    }, {
+                        name: 'African American',
+                        data: [4.34
+                              ,25.35
+                              ,7.42
+                              ,21.08
+                              ,17.75
+                              ,6.62
+                              ,17.44]
+                    }, {
+                        name: 'Hispanic',
+                        data: [3.90
+                              ,20.94
+                              ,8.65
+                              ,23.97
+                              ,20.77
+                              ,7.62
+                              ,14.15]
+                    }]
+                });
+            });
+
+            $(function () {
+                $('#highcharts-container4').highcharts({
+                    chart: {
+                        /* Javascript uses a different comment structure */
+                        /* Try changing the chart type */
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Percent of Total Employment by Race'
+                    },
+                    xAxis: {
+                        categories: ["Caucasian","African American","Hispanic"]
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            stacking:'normal',
+                            dataLabels: {
+                                enabled: true,
+                                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                                style: {
+                                    textShadow: '0 0 3px black, 0 0 3px black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        name: "Officials/administrators",
+                        data: [8.07, 4.34, 3.90]
+                    },{
+                        name: "Professionals",
+                        data: [29.51,25.35,20.94]
+                    },{
+                        name: "Technicians",
+                        data: [8.61,7.42,8.65]
+                    },{
+                        name: "Protective service",
+                        data: [22.79,21.08,23.97]
+                    },{
+                        name: "Admiminstrative support",
+                        data: [14.94,17.75,20.77]
+                    },{
+                        name: "Skilled craft",
+                        data: [8.12,6.62,7.62]
+                    },{
+                        name: "Service/maintenance",
+                        data: [7.96,17.44,14.15]
+                    }]
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <!-- If earlier than Internet Explorer 7, display a paragraph that tells the user to upgrade :)) -->
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!--
+
+        HERE IS WHERE YOU PLAY!!!
+
+        -->
+
+        <h1 class="text-grey">GEORGIA EMPLOYMENT ANALYSIS</h1>
+        <!--<p class="text-grey">I just wanted to show a class example. More grey text...</p>-->
+        <p><span class="text-grey">State and Local Government - Full-Time Employment and Salary by Race and Ethnic Group</span></p>
+
+        <br />
+        <div style="margin:0 40px">
+            <div style="display:inline-block">Caucasian<div style="width: 38px;background-color: #7cb5ec;height: 12px;display: inline-block;margin: 0 10px;"></div></div>
+            <div style="display:inline-block">African American<div style="width: 38px;background-color: #434348;height: 12px;display: inline-block;margin: 0 10px;"></div></div>
+            <div style="display:inline-block">Hispanic<div style="width: 38px;background-color: #90ed7d;height: 12px;display: inline-block;margin: 0 10px;"></div></div>
+        </div>
+
+        <div class="chart" id="pie1" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+        <div class="chart" id="pie2" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+        <div class="chart" id="pie3" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+        <div class="chart" id="pie4" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+        <div class="chart" id="pie5" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+        <div class="chart" id="pie6" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+        <div class="chart" id="pie7" style="display:inline-block; width: 350px; height: 350px; margin: 0 auto"></div>
+
+        <br />
+
+        <div class="chart" id="highcharts-container" style="display:inline-block; min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <div class="chart" id="highcharts-container2" style="display:inline-block; min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <div class="chart" id="highcharts-container3" style="display:inline-block; min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <div class="chart" id="highcharts-container4" style="display:inline-block; min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+        <!-- Load Highcharts -->
+        <script src="js/highcharts/highcharts.js"></script>
+        <script src="js/highcharts/modules/exporting.src.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="12 2 20 24"
+	 enable-background="new 12 2 20 24" xml:space="preserve">
+<path fill="#E9E9EA" d="M15.4,17.7l3.7-3.9l1.8,1.7l2.9-3.3l2,1.7l1.5-1.9l1.1,1.4c0,2.5,0,2.8,0,4.3C24.3,17.7,23.9,17.7,15.4,17.7
+	z"/>
+<title>redo</title>
+<description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+<line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="17.1" y1="16.6" x2="17.1" y2="17.7"/>
+<line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="18.9" y1="14.7" x2="18.9" y2="17.7"/>
+<line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="20.8" y1="15.5" x2="20.8" y2="17.7"/>
+<line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="22.7" y1="14.1" x2="22.7" y2="17.7"/>
+<line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="24.6" y1="13.7" x2="24.6" y2="17.7"/>
+<line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="26.5" y1="13.7" x2="26.5" y2="17.7"/>
+<polyline fill="none" stroke="#3C64A0" stroke-miterlimit="10" points="15.2,17.6 19,13.8 20.8,15.6 23.7,12.2 25.7,13.9 27.1,12.2 
+	28.3,13.4 "/>
+<g id="Editor" sketch:type="MSPage">
+	<path id="redo" sketch:type="MSShapeGroup" fill="#686868" stroke="#686868" stroke-miterlimit="10" d="M30.5,14.9
+		c0,4.7-3.8,8.5-8.5,8.5s-8.5-3.8-8.5-8.5s3.8-8.5,8.5-8.5v0.9c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5H30.5
+		L30.5,14.9z M22,4.6v4.7L24.8,7L22,4.6z"/>
+</g>
+</svg>
