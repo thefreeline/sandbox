@@ -1,0 +1,616 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/nvd3.css">
+    <script src="js/modernizer/modernizr-2.6.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/jquery-sparklines/jq-sparklines.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/d3/nvd3.js"></script>
+    <link rel="stylesheet" href="css/us-employment.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/typeplate/starter-kit/master/css/typeplate.css">
+    
+
+    
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="header" class="col-md-12">
+    <h1>An Historical Exploration of the U.S. Jobs Landscape</h1>
+    <h2>Providing Insight into the Past 20 Years of the Labor Market</h2>
+    <p></p>
+    </div>
+
+<svg id="svg-rule"><line x1="0" x2="2400" y1="10" y2="10" stroke="#5184AF" stroke-width="10" stroke-linecap="round" stroke-dasharray="1, 20"></line></svg>
+
+    <div class="col-md-10 col-md-offset-1" id="lead-text">
+        <div class="col-md-6">
+            <p>
+            <span style="color: #3F6D84" class="typl8-drop-cap"><strong><span class="firstLetter">O</span>ver the past two decades</strong></span>, the U.S. economy has gained almost 30 million jobs. However, it has not always been a smooth upward trajectory. During the period from 1994 until 2014, the U.S. economy has experienced two recessions. The first downslide, commonly attributed to the burst of the "dot-com" bubble and terrorist attacks of September 11<sup>th</sup>, began in March 2001 and lasted for 8 months. During this period peak unemployment reached 6.3%.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p>The "Great Recession" began in December 2007 and quickly became one of the worst financial landslides in modern history. Many of the United State's largest financial institutions failed and unprecedent actions were quickly taken by the U.S. Treasury to prevent a total collapse. Ultimately, unemployment during this period reached 10% and recovery didn't come for over a year and a half. </p>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2" id="lead-text-highlight">
+            <p>The interactive chart below will allow you to explore the various parts of the U.S. jobs market and discover the winners and losers of the past 20 years.</p>
+        </div>
+        
+    </div>
+
+    <svg id="svg-rule"><line x1="0" x2="2400" y1="10" y2="10" stroke="#5184AF" stroke-width="10" stroke-linecap="round" stroke-dasharray="1, 20"></line></svg>
+
+
+
+    <div class="col-md-12" id="chart-wrapper">
+        <div class="col-md-8 col-md-offset-2" id="chart-container">
+            <div id="chart-refresh">
+                <svg>
+                <path fill="#E9E9EA" d="M15.4,17.7l3.7-3.9l1.8,1.7l2.9-3.3l2,1.7l1.5-1.9l1.1,1.4c0,2.5,0,2.8,0,4.3C24.3,17.7,23.9,17.7,15.4,17.7 z"/>
+                    <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="17.1" y1="16.6" x2="17.1" y2="17.7"/>
+                    <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="18.9" y1="14.7" x2="18.9" y2="17.7"/>
+                    <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="20.8" y1="15.5" x2="20.8" y2="17.7"/>
+                    <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="22.7" y1="14.1" x2="22.7" y2="17.7"/>
+                    <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="24.6" y1="13.7" x2="24.6" y2="17.7"/>
+                    <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="26.5" y1="13.7" x2="26.5" y2="17.7"/>
+                    <polyline fill="none" stroke="#3C64A0" stroke-miterlimit="10" points="15.2,17.6 19,13.8 20.8,15.6 23.7,12.2 25.7,13.9 27.1,12.2 
+                        28.3,13.4 "/>
+                    <g id="Editor" sketch:type="MSPage">
+                        <path id="redo" sketch:type="MSShapeGroup" fill="#686868" stroke="#686868" stroke-miterlimit="10" d="M30.5,14.9
+                            c0,4.7-3.8,8.5-8.5,8.5s-8.5-3.8-8.5-8.5s3.8-8.5,8.5-8.5v0.9c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5H30.5
+                            L30.5,14.9z M22,4.6v4.7L24.8,7L22,4.6z"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div id="chart-title-controls">
+                <h2 id="chart-title">All Jobs in the United States (1994-2014)</h2>
+            </div>
+
+            <div id="chart">
+              <svg id="chart-svg"></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- WINNERS -->
+    <div class="col-md-12" id="winner-header"></div>
+    
+    <div class="col-md-12" id="wl-wrapper">
+        <div class="col-md-3">
+            <svg version="1.1" id="up" x="0px" y="0px" viewBox="460.8 871.6 208.4 352.4" enable-background="new 460.8 871.6 208.4 352.4" xml:space="preserve">
+                <circle fill="#91CB7C" cx="534.6" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="1002.1" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="1032" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="1062" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="912.3" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="1002.1" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="1032" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="1062" r="9"/>
+                <circle fill="#91CB7C" cx="504.7" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="474.8" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="1002.1" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="1032" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="1062" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="1091.9" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="1123.3" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="1091.9" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="1123.3" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="1091.9" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="1123.3" r="9"/>
+                <circle fill="#91CB7C" cx="624.4" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="654.3" cy="972.2" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="912.3" r="9"/>
+                <circle fill="#91CB7C" cx="534.6" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="882.4" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="912.3" r="9"/>
+                <circle fill="#91CB7C" cx="564.6" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="504.7" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="912.3" r="9"/>
+                <circle fill="#91CB7C" cx="594.5" cy="942.2" r="9"/>
+                <circle fill="#91CB7C" cx="624.4" cy="942.2" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1092" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1062.1" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1183.3" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1092" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1062.1" r="9"/>
+                <circle fill="#F26A5E" cx="624.4" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="654.3" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="534.6" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="534.6" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="534.6" cy="1092" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1032.2" r="9"/>
+                <circle fill="#F26A5E" cx="504.7" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="474.8" cy="1123.5" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1183.3" r="9"/>
+                <circle fill="#F26A5E" cx="594.5" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1213.3" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1183.3" r="9"/>
+                <circle fill="#F26A5E" cx="564.6" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="624.4" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="534.6" cy="1183.3" r="9"/>
+                <circle fill="#F26A5E" cx="534.6" cy="1153.4" r="9"/>
+                <circle fill="#F26A5E" cx="504.7" cy="1153.4" r="9"/>
+            </svg>
+
+
+        </div>
+
+        <div class="col-md-9" id="wl-context-wrapper">
+
+            <div class="col-md-12" id="wl-context-wrapper-outer">
+                <div class="col-md-8" id="wl-context">
+                <h1 id="winner-title"></h1>
+                <h2 id="winner-subtitle">A Mixed Story</h2>
+                    <p>Despite the economic hardships of the past two decades, the U.S. economy has showed strong reslience. The United States has added over 10 million jobs in the past 5 years, with growth being recorded for 55 sucessive months. <em>But all growth is not created equal.</em></p>
+                    <p>The food service industry has experienced the largest number of job gains in the past two decades, with increases nearing 3.5 million (<span id='sparkline-food'></span>). This trend conincides with the relative growth of the entire services sector which has gained over 33 millions job during the same timeframe.</p>
+
+                    <p>While a postitive trend in job growth in the services sector may appear to be a good thing, when taken in perspective of the overall economy and the prosperity of American workers, the picture is less hopeful.</p>
+
+                    <p>Take, for example, the loss of 4.8 million (<span id='sparkline-manuf'></span>) manufacturing jobs since 1994. When we begin to compare the wages of these industries, we see that growth in one sector does not compensate for losses in another. According to the Bureau of Labor Statistics, the annual mean wage for employees in the food services and drinking establishments sector is approximately $22,000, in manufacturing this value is $47,830 per annum.</p>
+
+
+                </div>
+                <div class="col-md-4" id="wl-chart"><span id="img-helper"><!-- <img id="chart-food" src="img/food-services-chart-svg.gif"> --></span></div>
+            </div>
+
+            <!-- <div class="col-md-12" id="wl-context-wrapper-outer">
+                <div class="col-md-8" id="wl-context">
+                <h1 id="winner-title">Computer Systems Design</h1>
+                <h2 id="winner-subtitle">Largest Percentage Gain</h2>                                
+                    <p>342.96% Lorem ipsum dolor sit amet, mel labores minimum ea. Vis in libris suavitate. Eu nulla munere dolore ius. Te pro novum integre, pro mandamus rationibus percipitur at.</p>
+
+                    <p>Ne natum facer augue ius. Consequat rationibus ius no. Nostrum mentitum no quo, et pro aliquam antiopam neglegentur, vis nullam possit graeco an. At est stet munere. Eam eius autem feugiat cu, ad odio quas constituam ius.</p>
+                </div>
+                <div class="col-md-4" id="wl-chart"><span id="img-helper"><img id="chart-tech" src="img/tech-chart-svg.gif"></span></div>
+            </div> -->
+
+            
+        </div>
+
+    </div>
+    
+
+
+    <!-- LOSERS -->
+    <!-- <div class="col-md-12" id="loser-header">THE LOSERS</div>
+
+    <div class="col-md-12" id="wl-wrapper">
+    
+        <div class="col-md-9" id="wl-context-wrapper">
+
+            <div class="col-md-12" id="wl-context-wrapper-outer">
+                <div class="col-md-4" id="wl-chart"><span id="img-helper"><img id="chart-durable" src="img/durable-goods-chart-svg.gif"></span></div>
+                <div class="col-md-8" id="wl-context">
+                    <h1 id="loser-title">Durable Goods (Manufacturing)</h1>
+                    <h2 id="loser-subtitle">Largest Net Loss</h2>                      
+                    <p>-2,404,600 Lorem ipsum dolor sit amet, mel labores minimum ea. Vis in libris suavitate. Eu nulla munere dolore ius. Te pro novum integre, pro mandamus rationibus percipitur at.</p>
+
+                    <p>Ne natum facer augue ius. Consequat rationibus ius no. Nostrum mentitum no quo, et pro aliquam antiopam neglegentur, vis nullam possit graeco an. At est stet munere. Eam eius autem feugiat cu, ad odio quas constituam ius.</p>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="wl-context-wrapper-outer">
+                <div class="col-md-4" id="wl-chart"><span id="img-helper"><img id="chart-nondurable" src="img/nondurable-goods-chart-svg.gif"></span></div>
+                <div class="col-md-8" id="wl-context">
+                <h1 id="loser-title">Nondurable Goods (Manufacturing)</h1>
+                <h2 id="loser-subtitle">Largest Percentage Loss</h2>
+                    <p>-37.49% Lorem ipsum dolor sit amet, mel labores minimum ea. Vis in libris suavitate. Eu nulla munere dolore ius. Te pro novum integre, pro mandamus rationibus percipitur at.</p>
+
+                    <p>Ne natum facer augue ius. Consequat rationibus ius no. Nostrum mentitum no quo, et pro aliquam antiopam neglegentur, vis nullam possit graeco an. At est stet munere. Eam eius autem feugiat cu, ad odio quas constituam ius.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <svg version="1.1" id="down" x="0px" y="0px" viewBox="51.7 -36 68.7 100" enable-background="new 51.7 -36 68.7 100" xml:space="preserve">
+                <circle fill="#F26A5E" cx="96" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="18" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="8" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="-2" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="48" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="18" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="8" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="-2" r="3"/>
+                <circle fill="#F26A5E" cx="106" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="116" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="18" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="8" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="-2" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="-12" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="-22" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="-32" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="-12" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="-22" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="-32" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="-12" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="-22" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="-32" r="3"/>
+                <circle fill="#F26A5E" cx="66" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="56" cy="28" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="48" r="3"/>
+                <circle fill="#F26A5E" cx="96" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="58" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="48" r="3"/>
+                <circle fill="#F26A5E" cx="86" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="106" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="48" r="3"/>
+                <circle fill="#F26A5E" cx="76" cy="38" r="3"/>
+                <circle fill="#F26A5E" cx="66" cy="38" r="3"/>
+                </svg>
+        </div> -->
+</div>
+    </div>
+
+    </div>
+
+    <div class="col-md-12" id="footer">
+        <p>Source: Bureau of Labor Statistics</p>
+        <img src="img/mica.png">
+        <p class="footer-attr">Chad Smith</p>
+        <p class="footer-attr">Visual Storytelling</p>
+        <p class="footer-attr">Assignment 2</p>
+    </div>
+
+    
+
+
+<script>
+
+$(document).ready(function() { 
+
+    // Bind refresh event to refresh button
+    $("#chart-refresh").on("click",function(){
+        $("#chart-title").text("All Jobs in the United States (1994-2014)");
+        redrawGraph("Refresh");
+    });
+
+$("#sparkline-food").sparkline([7009.3,7293,7475.2,7640.5,7741.5,7898.8,8115.6,8283,8421.4,8530.7,8737.5,8998.7,9225.5,9517.3,9662,9462.3,9299.3,9488.5,9831.6,10180.8,10503.6], 
+    {
+        type: 'line',
+        lineColor: '#007f3f',
+        fillColor: undefined,
+        spotColor: undefined,
+        minSpotColor: '#000000',
+        maxSpotColor: '#000000'
+    });
+
+$("#sparkline-manuf").sparkline([16854.1,17261.1,17207.8,17297.4,17619.2,17426.6,17283.5,17102.6,15585.1,14868.8,14290.8,14257.6,14211.2,14007.8,13725.1,12559.9,11461.8,11620.2,11836.5,11982.4,12060.5], 
+    {
+        type: 'line',
+        lineColor: '#7f0000',
+        fillColor: undefined,
+        spotColor: undefined,
+        minSpotColor: '#000000',
+        maxSpotColor: '#000000'
+    });
+//Test Color 1
+/*var color = {
+                all: [ 
+                    "#CE4B0B", "#58044F", "#00468D" 
+                ],
+                "Goods":      [ "#FFD7BD", "#F9C7A9", "#F4B795", 
+                                "#EEA881", "#E9986D", "#E3895A", 
+                                "#DE7946", "#D86A32", "#D35A1E", 
+                                "#CE4B0B"
+                ],
+                "Government": [ "#F1B0FF",  "#AD63B0", "#58044F"
+                ],
+                "Services": [   "#CCD2FE", "#B5C2F1", "#9EB2E4", 
+                                "#88A3D8", "#7193CB", "#5A84BF", 
+                                "#4474B2", "#2D65A6", "#165599", 
+                                "#00468D"
+                ]
+            }
+*/
+
+/*    var color = {
+                all:            ["#C9643B","#4066B0","#79CB63"],
+                "Goods":        ["#C9643B","#F2A954","#C9643B"],
+                "Government":   ["#4066B0","#46B6D4","#4066B0","#46B6D4","#4066B0","#46B6D4","#4066B0","#46B6D4","#4066B0","#46B6D4"],
+                "Services":     ["#79CB63","#C6F2A8","#79CB63","#C6F2A8","#79CB63","#C6F2A8","#79CB63","#C6F2A8","#79CB63","#C6F2A8","#79CB63","#C6F2A8","#79CB63","#C6F2A8","#79CB63","#C6F2A8"]
+                }*/
+/*   var color = {
+                all:            ['rgb(141,211,199)','rgb(255,255,179)','rgb(190,186,218)','rgb(251,128,114)','rgb(128,177,211)','rgb(253,180,98)','rgb(179,222,105)','rgb(252,205,229)','rgb(217,217,217)','rgb(188,128,189)','rgb(204,235,197)','rgb(255,237,111)'],
+                "Goods":        ['rgb(141,211,199)','rgb(255,255,179)','rgb(190,186,218)','rgb(251,128,114)','rgb(128,177,211)','rgb(253,180,98)','rgb(179,222,105)','rgb(252,205,229)','rgb(217,217,217)','rgb(188,128,189)','rgb(204,235,197)','rgb(255,237,111)'],
+                "Government":   ['rgb(141,211,199)','rgb(255,255,179)','rgb(190,186,218)','rgb(251,128,114)','rgb(128,177,211)','rgb(253,180,98)','rgb(179,222,105)','rgb(252,205,229)','rgb(217,217,217)','rgb(188,128,189)','rgb(204,235,197)','rgb(255,237,111)'],
+                "Services":     ['rgb(141,211,199)','rgb(255,255,179)','rgb(190,186,218)','rgb(251,128,114)','rgb(128,177,211)','rgb(253,180,98)','rgb(179,222,105)','rgb(252,205,229)','rgb(217,217,217)','rgb(188,128,189)','rgb(204,235,197)','rgb(255,237,111)']
+                }*/
+
+ /*  var color = {
+                all: ["#1F759B", "#3D62A0", "#5B4FA6", "#7A3DAB", "#982AB1", "#B718B7", "#C43D8B", "#D1635F", "#DE8833", "#EBAE07", "#BFB30F", "#93B918", "#67BE21", "#3CC42A"],
+                "Goods": ["#1F759B", "#3D62A0", "#5B4FA6", "#7A3DAB", "#982AB1", "#B718B7", "#C43D8B", "#D1635F", "#DE8833", "#EBAE07", "#BFB30F", "#93B918", "#67BE21", "#3CC42A"],
+                "Government": ["#1F759B", "#3D62A0", "#5B4FA6", "#7A3DAB", "#982AB1", "#B718B7", "#C43D8B", "#D1635F", "#DE8833", "#EBAE07", "#BFB30F", "#93B918", "#67BE21", "#3CC42A"],
+                "Services": ["#1F759B", "#3D62A0", "#5B4FA6", "#7A3DAB", "#982AB1", "#B718B7", "#C43D8B", "#D1635F", "#DE8833", "#EBAE07", "#BFB30F", "#93B918", "#67BE21", "#3CC42A"]
+                }  */
+
+var color = {
+                all: ['rgb(241,238,246)','rgb(116,169,207)','rgb(4,90,141)'],
+                "Goods": ['rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)','rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)','rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)'],
+                "Government": ['rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)','rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)','rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)'],
+                "Services": ['rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)','rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)','rgb(241,238,246)','rgb(189,201,225)','rgb(116,169,207)','rgb(43,140,190)','rgb(4,90,141)']
+                }
+
+                                              
+
+
+    /* Base Color
+    var color = {
+                all:            ["#428F9F","#A15E80","#00468D"],
+                "Goods":        ["#83C2CF","#428F9F","#025D6F"],
+                "Government":   ["#CAA9E5","#B595CF","#A082BA","#8C6EA4","#775B8F","#63487A"],
+                "Services":     ["#CCD2FE","#B5C2F1","#9EB2E4","#88A3D8","#7193CB","#5A84BF","#4474B2","#2D65A6","#165599","#00468D" ]
+                }*/
+
+
+    d3.csv('data/_MASTER_Employment_Data.csv', function(data) {
+
+        //Restructure the data
+        transformed = data.map(function(obj){
+            // Define the new object structure
+            var result= {
+                key: obj.key,
+                category: obj.cat,
+                subcategory: obj.subcat,
+                level: +obj.level,
+                values: []
+            }
+            // Iterate over data object, reassign keys to values array
+            for (var key in obj) {
+                //console.log(obj.key)
+              if (obj.hasOwnProperty(key) && key !== "key" && !isNaN(key) ) {
+                  result.values.push([+key, +obj[key]]);
+              }
+            }
+            //console.log(result);
+            return result;
+        });
+
+        var initialData = transformed.filter(function (obj) { 
+            return obj.subcategory == "All Government" || 
+                   obj.subcategory == "All Services" || 
+                   obj.subcategory == "All Goods"; 
+        })
+        
+
+        nv.addGraph(function() {
+            var chart = nv.models.stackedAreaChart()
+                          .margin({right: 100})
+                          .x(function(d) { return d[0] })   //We can modify the data accessor functions...
+                          .y(function(d) { return d[1] })   //...in case your data is formatted differently.
+                          .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                          .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
+                          .transitionDuration(500)
+                          .showControls(true)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                          .clipEdge(false)
+                          .showLegend(false)
+                          .color( color.all );
+
+            //Format x-axis labels with custom function.
+            chart.xAxis
+                .tickFormat(function(d) { 
+                  return d3.time.format('%Y')(new Date(d*1000)) 
+            }).tickValues([757482400,883712800,1009943200,1136173600,1262404000,1357098400]);
+
+            chart.yAxis
+                .tickFormat(d3.format(',.0f'));
+
+            chart.yAxis.axisLabel("Jobs (000s)")
+
+            d3.select('#chart svg')
+              .datum(initialData)
+              .call(chart);
+
+            /*d3.select('#chart .nv-x')
+                .append("g")
+                    .attr("transform", "translate(303)")
+                .append("line")
+                    .attr("y2","-540")
+                    .attr("x2","0")
+                    .style("stroke","#6F6F6F")
+                    .style("stroke-width","1")
+                    .classed("recession-line",true)
+
+            d3.select('#chart .nv-x')    
+                .append("text")
+                    .text("Great Recession")
+                    .attr("dy",".71em")
+                    .attr("y","-540")
+                    .attr("x","350")
+                    .style("fill","#6F6F6F")
+                    .style("text-anchor","middle")
+                    .classed("recession",true)*/
+
+
+
+            d3.select("#chart .nv-legendWrap")
+                    .attr("transform","translate(-120,-140)")
+
+            d3.selection.prototype.moveToFront = function() {
+              return this.each(function(){
+                this.parentNode.appendChild(this);
+              });
+            };
+
+            d3.selectAll(".recession", function() {
+                var sel = d3.select(this);
+                sel.moveToFront;
+            })
+
+
+            nv.utils.windowResize(chart.update);
+
+            ////////////////////////////////////
+            // DRILLDOWN
+            ////////////////////////////////////
+            
+
+            var areaClick = function() {
+                chart.stacked.dispatch.on("areaClick.toggle", function(e) {
+                    
+                    var cat = e.point.subcategory;
+                    var colorFilter = e.point.category.replace("All ","");
+                    var subcat = cat.replace("All ","");
+                    var key = e.point.key;
+                    var level = e.point.level;
+                    console.log(level)
+                    console.log("Cat: ",cat)
+                    console.log("Subcat: ",subcat)
+                    console.log("Key: ",key)
+
+                    //select the correct data depending on current level
+                    if (e.point.level == 1) {
+                        var data = transformed.filter(function (obj) { return obj.category == cat
+                        && obj.subcategory !== cat })
+                        var colorFilter = cat.replace("All ","");
+                        $("#chart-title").text(subcat);
+                    } else if (e.point.level == 2 ) {
+                        var data = transformed.filter(function (obj) { return obj.subcategory == subcat })
+                        $("#chart-title").text(subcat);
+                    } else if (e.point.level == 3) {
+                        var data = transformed.filter(function (obj) { return obj.key == key })
+                        $("#chart-title").text(key);
+                    } else {
+                        redrawGraph(); 
+                    }
+
+                    console.log("Data: ",data)
+
+                    /*data.sort(d3.ascending(a,b) {
+                        console.log(a,b)
+                    });*/
+
+                    //remove the current chart
+                    d3.selectAll("svg > #chart-svg").remove();
+
+                    //create the new chart
+                    d3.select('#chart svg').datum(data)
+                        .transition()
+                        .duration(500)
+                        .call(chart.color(color[colorFilter])); 
+
+                    d3.select(".nv-legendWrap")
+                        .attr("transform","translate(-120,-140)")
+
+                    areaClick();
+
+                    
+                    
+                })
+            }
+
+            redrawGraph = function(link) {
+                console.log("Redraw")
+                    d3.selectAll("svg > #chart-svg").remove();
+                    
+                    d3.select('#chart svg').datum(initialData)
+                        .transition()
+                        .duration(500)
+                        .call(chart.color(color.all));
+
+                    d3.select(".nv-legendWrap")
+                        .attr("transform","translate(-120,-140)")
+
+                    areaClick();
+                  
+            };
+
+            $("#chart-food").on("click",function(){
+                console.log("Click")
+                var dataFood = transformed.filter(function (obj) { 
+                    return obj.key == "Food Services and Drinking Places"; 
+                })
+
+                d3.selectAll("svg > #chart-svg").remove();
+                
+                d3.select('#chart svg')
+                      .datum(dataFood)
+                      .call(chart.color(["#91CB7C"]));
+            });
+
+            $("#chart-tech").on("click",function(){
+                console.log("Click")
+                var dataFood = transformed.filter(function (obj) { 
+                    return obj.key == "Computer systems design and related services"; 
+                })
+
+                d3.selectAll("svg > #chart-svg").remove();
+                
+                d3.select('#chart svg')
+                      .datum(dataFood)
+                      .call(chart.color(["#91CB7C"]));
+            });
+
+            $("#chart-durable").on("click",function(){
+                console.log("Click")
+                var dataFood = transformed.filter(function (obj) { 
+                    return obj.key == "Durable Goods"; 
+                })
+
+                d3.selectAll("svg > #chart-svg").remove();
+                
+                d3.select('#chart svg')
+                      .datum(dataFood)
+                      .call(chart.color(["#F26A5E"]));
+            });
+
+            $("#chart-nondurable").on("click",function(){
+                console.log("Click")
+                var dataFood = transformed.filter(function (obj) { 
+                    return obj.key == "Nondurable Goods"; 
+                })
+
+                d3.selectAll("svg > #chart-svg").remove();
+                
+                d3.select('#chart svg')
+                      .datum(dataFood)
+                      .call(chart.color(["#F26A5E"]));
+            });
+
+            //console.log(chart)
+            areaClick();
+            return chart;
+        });
+    });
+})
+
+</script>
+</body>
+</html>

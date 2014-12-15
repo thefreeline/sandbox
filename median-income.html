@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- The comments below (lines 3-6), tell the browser to add a class to the <html> if the browser is Internet Explorer 8 or lower.  IE has it's limitations, so this lets the developer handle the browser easier. -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Education Metrics</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        
+        <!-- This is your main stylesheet. Make your customization here.-->
+        <!-- It loads after Bootstrap css. If duplicate styles exist (e.g. <h1> style in Bootstrap && <h1> in main.css), precedence should go to main.css -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- This loads jQuery directly from google API -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <!-- This loads some functionality for checking new HTML5 features with various browsers -->
+        <script src="js/modernizer/modernizr-2.6.2.min.js"></script>
+
+        <!-- This is your function for drawing the charts -->
+        <!-- Check out the API documentation http://api.highcharts.com/highcharts -->
+        <script type="text/javascript">
+            $(function () {
+
+                var dates = [2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996,1995,1994,1993].reverse();
+                
+                var allAttainment = [53231,52876,53075,54167,55356,55597,57777,57772,56936,56671,57016,57024,57357,58545,58560,57510,55266,53985,53478,52047,51063].reverse();
+                
+                var lt9th = [24194,22823,22603,22735,23496,22982,23374,24148,24132,24056,23795,23799,23842,23679,24074,23055,22490,22732,22831,22188,22098].reverse();
+                
+                var noDiploma = [25672,23686,25577,26452,27807,27395,27516,29938,29443,27734,28774,30127,30593,30669,30368,29577,28727,29053,27772,27267,28521].reverse();
+                
+                var diploma = [40701,40424,40828,41542,43058,43235,45452,45551,45571,46037,46654,46156,47440,49409,49802,49057,48882,47745,47621,46739,45560].reverse();
+
+                var someCollege =[49683,49699,49180,52034,52578,54445,56645,57411,57614,58394,58077,58700,60275,60362,61539,59454,57907,56767,56393,55766,55911].reverse();
+
+                var associates = [56185,58295,57926,60645,61675,64009,67557,64719,65281,66484,65824,66113,67317,68313,68750,69368,65494,65802,63924,62573,62837].reverse();
+
+                var ba = [79522,81719,81047,80653,82015,84703,87188,87646,86419,84374,87049,89547,88374,90112,89828,88755,85450,81514,80224,81398,81723].reverse();
+
+                var ma = [95948,93704,94196,96934,99546,100230,101855,102159,96679,98822,99478,99017,103817,105958,103979,101454,98571,94450,98593,94882,95790].reverse();
+
+
+                $('#container').highcharts({
+                    title: {
+                        text: 'Median Household Income',
+                        x: -20 //center
+                    },
+                    subtitle: {
+                        text: 'by Level of Educational Attainment',
+                        x: -20
+                    },
+                    xAxis: {
+                        
+                        categories: dates
+                    },
+                    plotOptions: {
+                        series: {
+                            marker: {
+                                enabled: false
+                            }
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'U.S. Dollars (2013)'
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valuePrefix: '$'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: 'All',
+                        data: allAttainment
+                    }, {
+                        name: '< 9th Grade',
+                        data: lt9th
+                    }, {
+                        name: '9th-12th (No Diploma)',
+                        data: noDiploma
+                    }, {
+                        name: 'HS Diploma or Equiv.',
+                        data: diploma
+                    }, {
+                        name: 'Some College, No Degree',
+                        data: someCollege
+                    }, {
+                        name: 'Associates Degree',
+                        data: associates
+                    }, {
+                        name: 'Bachelors Degree',
+                        data: ba
+                    }, {
+                        name: 'Masters Degree',
+                        data: ma
+                    }]
+                });
+
+                $('#container2').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Tertiary Education Enrollment Rates'
+                        },
+                        subtitle: {
+                            text: 'as a Percentage of U.S. Population Aged 20 -29'
+                        },
+                        xAxis: {
+                            categories: [
+                                '1995',
+                                '2000',
+                                '2005',
+                                '2011'
+                            ]
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'College Degrees',
+                            data: [19.16,20.11,23.15,26.67]
+
+                        }]
+                    });
+
+                    $('#container3').highcharts({
+                        chart: {
+                            type: 'bar'
+                        },
+                        title: {
+                            text: 'Unemployment Rate'
+                        },
+                        subtitle: {
+                            text: 'By Degree Achieved'
+                        },
+                        xAxis: {
+                            categories: ["Doctoral","Professional","Master's","Bachelor's","Associate's","Some Collge, no degree","High School Diploma","Less than High School Diploma"
+                                
+                            ]
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'College Degrees',
+                            data: [2.2,2.3,3.4,4,5.4,7,7.5,11]
+
+                        }]
+                    });
+
+                    $('#container4').highcharts({
+                        chart: {
+                            type: 'bar'
+                        },
+                        title: {
+                            text: 'Median Yearly Income'
+                        },
+                        subtitle: {
+                            text: 'By Degree Achieved'
+                        },
+                        xAxis: {
+                            categories: ["Doctoral","Professional","Master's","Bachelor's","Associate's","Some Collge, no degree","High School Diploma","Less than High School Diploma"
+                                
+                            ]
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'College Degrees',
+                            data: [84396,89128,69108,57616,40404,37804,33852,24544]
+
+                        }]
+                    });
+
+                    $('#container5').highcharts({
+                    title: {
+                        text: 'Median Earnings',
+                        x: -20 //center
+                    },
+                    subtitle: {
+                        text: 'by Age Group and Educational Attainment',
+                        x: -20
+                    },
+                    xAxis: {
+                        
+                        categories: ['25-34','35-44','45-54','55-64']
+                    },
+                    plotOptions: {
+                        series: {
+                            marker: {
+                                enabled: false
+                            }
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'U.S. Dollars (2013)'
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valuePrefix: '$'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: '< 9th Grade',
+                        data: [21001,21925,24471,22468]
+                    }, {
+                        name: '9th-12th (No Diploma)',
+                        data: [24630,26463,27005,26594]
+                    }, {
+                        name: 'HS Diploma or Equiv.',
+                        data: [31075,35360,36979,37237]
+                    }, {
+                        name: 'Some College, No Degree',
+                        data: [32459,40554,45481,42338]
+                    }, {
+                        name: 'Associates Degree',
+                        data: [37660,45445,47977,48383]
+                    }, {
+                        name: 'Bachelors Degree',
+                        data: [46568,61071,66707,60558]
+                    }, {
+                        name: 'Masters Degree',
+                        data: [55699,73926,76390,72407]
+                    }, {
+                        name: 'Doctorate Degree',
+                        data: [66787,90070,92012,100543]
+                    }, {
+                        name: 'Professional Degree',
+                        data: [75498,110858,114675,122045]
+                    }]
+                });
+            });
+
+
+        
+        </script>
+
+    </head>
+    <body>
+        <!-- If earlier than Internet Explorer 7, display a paragraph that tells the user to upgrade :)) -->
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!--
+
+        HERE IS WHERE YOU PLAY!!!
+
+        -->
+
+        <h1 class="text-grey">Median Household Income</h1>
+
+        <!--<p class="text-grey">I just wanted to show a class example. More grey text...</p>-->
+        <p><span class="text-grey">By Educational Attainment</span></p>
+
+        <br />
+        
+        <div class="chart" id="container" style="display:inline-block; min-width: 900px; height: 400px; margin: 0 auto"></div>
+        <br />
+         <div class="chart" id="container2" style="display:inline-block; min-width: 900px; height: 400px; margin: 0 auto"></div>
+
+        <div class="chart" id="container3" style="display:inline-block; min-width: 450px; height: 400px; margin: 0 auto"></div>
+
+        <div class="chart" id="container4" style="display:inline-block; min-width: 450px; height: 400px; margin: 0 auto"></div>
+
+        <div class="chart" id="container5" style="display:inline-block; min-width: 600px; height: 400px; margin: 0 auto"></div>
+
+        <!-- Load Highcharts -->
+        <script src="js/highcharts/highcharts.js"></script>
+        <script src="js/highcharts/modules/exporting.src.js"></script>
+
+    </body>
+</html>

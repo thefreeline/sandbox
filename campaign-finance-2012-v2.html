@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Political Affiliation and Campaign Finance</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
+
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
+
+        <!-- Using an older version of jQuery b/c Highcharts wasn't working with 1.10.2 -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+    <style>
+
+      h1, h2 {
+        color: #fff
+      }
+      body {
+        background-color: #1b1b1b;
+      }
+
+      g.axis path, g.axis line {
+          fill:none; 
+          stroke:#fff;
+          stroke-width:2;
+      }
+      g.axis text, g.bubbles text {
+          fill:white;
+          font-family:arial,sans-serif;
+      }
+
+      g.bubbles line {
+          stroke-width:.5; 
+          stroke:white;
+      }
+
+      g.bubbles circle {
+          fill:steelblue; 
+          stroke:black;
+          stroke-width:.5;
+      }
+      g.bubbles text {
+          text-anchor:middle;
+          alignment-baseline:middle;
+          opacity:0;
+          pointer-events:all;
+          transition:1s;
+      }
+      g.bubbles text:hover {
+          opacity:1;
+      }
+
+      g.threads line {
+          fill:none;
+          stroke:none;
+          opacity:0.5;
+      }
+
+      g.x.axis path {
+        opacity: 0;
+      }
+
+      g.x.axis .tick line{
+        stroke-width: 2px;
+      }
+
+      svg#finance-bubble {
+        border: 1px solid white;
+
+      }
+    </style>
+
+<body>
+<h2>Political campaign contributions compared with strength of political party affiliation.</h2>
+<svg id="finance-bubble" style="height:600px;width:100%"></svg>
+
+<script>
+  
+(function() {
+    //D3 program to fit circles of different sizes along a 
+    //horizontal dimension, shifting them up and down
+    //vertically only as much as is necessary to make
+    //them all fit without overlap.
+    //By Amelia Bellamy-Royds, in response to 
+    //http://stackoverflow.com/questions/20912081/d3-js-circle-packing-along-a-line
+    //inspired by
+    //http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html
+    //Freely released for any purpose under Creative Commons Attribution licence: http://creativecommons.org/licenses/by/3.0/
+    //Author name and link to this page is sufficient attribution.
+    
+d3.csv('data/candidate-summary.csv', function(data) {    
+//create data array//
+
+        /*data = data.map(function(obj){
+          //console.log("Obj",obj)
+            // Define the new object structure
+            var result= {
+                x: +obj.IdeologicalRank,
+                r: +obj.TotalReceipts2,
+                rec: +obj.TotalReceipts2,
+                rep: obj.Representative,
+                st: obj.State,
+                dist: obj.District,
+            }
+            // Iterate over data object, reassign keys to values array
+            for (var key in obj) {
+                //console.log(obj.key)
+              if (obj.hasOwnProperty(key) && key !== "key" && !isNaN(key) ) {
+                  result.values.push([+key, +obj[key]]);
+              }
+            }
+            //console.log(result);
+            return result;
+        });*/
+  //console.log(data)
+        var manipData = $.map( data, function(obj){
+          //create new object map
+          var result = {
+            cong: +obj.CongNumb,
+            year: +obj.Year
+          };
+
+          // Iterate over data object, reassign keys to values array
+            for (var key in obj) {
+                //console.log(obj.key)
+              if (obj.hasOwnProperty(key) && key !== "key" && !isNaN(key) ) {
+                  result.values.push([+key, +obj[key]]);
+              }
+            }
+            //console.log(result);
+            return result;
+        })
+
+        console.log("Manipulated Data",JSON.stringify(manipData))
+
+        var partyNested = d3.nest()
+          .key(function(d) {
+            if (d.x < 0) {
+              return "Democrat";
+            } else if (d.x > 0) {
+              return "Republican";
+            }
+          })
+          .rollup(function(leaves) { 
+            return {"length": leaves.length, 
+                    "rec": d3.sum(leaves, function(d) { return parseFloat(d.rec); }),
+                    "r": d3.sum(leaves, function(d) { return parseFloat(d.rec); }),
+                    "x": d3.mean(leaves, function(d){ return d.x; })
+                   } 
+          })
+          .entries(data);
+
+        partyNested.forEach(function(d) {
+          d.party = d.key;
+          d.rec = d.values.rec;
+          d.r = d.values.rec/10;
+          d.x = d.values.x;
+        })
+
+        //console.log(partyNested)
+
+        var ideoNested = d3.nest()
+          .key(function(d) {
+            if (d.x < -.75) {
+              return "Far Left";
+            } else if (d.x < -.5 && d.x > -.75) {
+              return "Left";
+            } else if (d.x < -.25 && d.x > -.5) {
+              return "Moderate Left";
+            } else if (d.x < 0 && d.x > -.25) {
+              return "Center Left";
+            } else if (d.x < .25 && d.x > .0) {
+              return "Center Right";
+            } else if (d.x < .5 && d.x > .25) {
+              return "Moderate Right";
+            } else if (d.x < .75 && d.x > .5) {
+              return "Right";
+            } else if (d.x > .25) {
+              return "Far Right";
+            }
+          })
+          .rollup(function(leaves) { 
+            return {"length": leaves.length, 
+                    "rec": d3.sum(leaves, function(d) { return parseFloat(d.rec); }),
+                    "r": d3.sum(leaves, function(d) { return parseFloat(d.rec); }),
+                    "x": d3.mean(leaves, function(d){ return d.x; })
+                   } 
+          })
+          .entries(data);
+
+        ideoNested.forEach(function(d) {
+          d.party = d.key;
+          d.rec = d.values.rec;
+          d.r = d.values.rec/10;
+          d.x = d.values.x;
+        })  
+
+        //console.log(ideoNested)  
+//Set up SVG and axis//   
+var svg = d3.select("svg");
+var digits = /(\d*)/;
+var margin = 50; //space in pixels from edges of SVG
+var padding = 1; //space in pixels between circles
+var maxRadius = 5;
+var biggestFirst = true; //should largest circles be added first?
+
+var width = window.getComputedStyle(svg[0][0])["width"];
+    width = digits.exec(width)[0];
+var height = window.getComputedStyle(svg[0][0])["height"];
+    height = Math.min(digits.exec(height)[0], width);
+    
+var baselineHeight = (margin + height)/2;
+
+var xScale = d3.scale.linear()
+        .domain([-1,1])
+        .range([margin,width-margin])
+        .clamp(true)
+        .nice();
+//console.log(xScale)
+
+var colorScale = d3.scale.threshold()
+    .domain([-.75, -.5, -.25, 0, .25, .5, .75])
+    .range(["#343ab4", "#6a81f2", "#97a7fb", "#d5dcff", "#ffdbdb", "#fdbaba", "#ed7979", "#d84c4c"]);
+
+//var rScale = d3.scale.sqrt(10)  
+var rScale = d3.scale.pow(1).exponent(1)
+//var rScale = d3.scale.log()  
+        //make radius proportional to square root of data r
+        .domain([-1,1])
+        .range([1,maxRadius]);
+    
+var formatPercent = d3.format(".0%");
+
+var xAxis = d3.svg.axis()
+    .scale(xScale)
+    .orient("top")
+    .ticks(10)
+    //.tickFormat(formatPercent);
+    
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + margin + ")")
+    .call(xAxis);
+    
+var threads = svg.append("g")
+    .attr("class", "threads");
+
+    
+var bubbleLine = svg.append("g")
+        .attr("class", "bubbles")
+        .attr("transform", 
+              "translate(0," + baselineHeight + ")");
+    
+    bubbleLine.append("line")
+        .attr("x1", xScale.range()[0])
+        .attr("x2", xScale.range()[1]);
+//________________//
+    
+//Create Quadtree to manage data conflicts & define functions//
+    
+var quadtree = d3.geom.quadtree()
+        .x(function(d) { return xScale(d.x); }) 
+        .y(0) //constant, they are all on the same line
+        .extent([[xScale(-1),0],[xScale(2),0]]);
+    //extent sets the domain for the tree
+    //using the format [[minX,minY],[maxX, maxY]]
+    //optional if you're adding all the data at once
+
+var quadroot = quadtree([]);
+          //create an empty adjacency tree; 
+          //the function returns the root node.
+    
+// Find the all nodes in the tree that overlap a given circle.
+// quadroot is the root node of the tree, scaledX and scaledR
+//are the position and dimensions of the circle on screen
+//maxR is the (scaled) maximum radius of dots that have
+//already been positioned.
+//This will be most efficient if you add the circles
+//starting with the smallest.  
+function findNeighbours(root, scaledX, scaledR, maxR) {
+
+  var neighbours = [];
+     // /console.log("Neighbours of " + scaledX + ", radius " + scaledR);
+    
+  root.visit(function(node, x1, y1, x2, y2) {
+      //console.log("visiting (" + x1 + "," +x2+")");
+    var p = node.point; 
+    if (p) {  //this node stores a data point value
+        var overlap, x2=xScale(p.x), r2=rScale(p.r);        
+        if (x2 < scaledX) {
+            //the point is to the left of x
+            overlap = (x2+r2 + padding >= scaledX-scaledR);
+            /*console.log("left:" + x2 + ", radius " + r2 
+                        + (overlap?" overlap": " clear"));*/
+        }      
+        else {
+            //the point is to the right
+            overlap = (scaledX + scaledR + padding >= x2-r2);
+            /*console.log("right:" + x2 + ", radius " + r2 
+                        + (overlap?" overlap": " clear"));//*/
+        }
+        if (overlap) neighbours.push(p);
+    }
+   
+    return (x1-maxR > scaledX + scaledR + padding) 
+            && (x2+maxR < scaledX - scaledR - padding) ;
+      //Returns true if none of the points in this 
+      //section of the tree can overlap the point being
+      //compared; a true return value tells the `visit()` method
+      //not to bother searching the child sections of this tree
+  });
+    
+    return neighbours;
+}
+
+function calculateOffset(maxR){
+    return function(d) {
+      //console.log("r", d.r);
+      //console.log("r scaled", rScale(d.r))
+        neighbours = findNeighbours(quadroot, 
+                                   xScale(d.x),
+                                   rScale(d.r),
+                                   maxR);
+        var n=neighbours.length;
+        //console.log(j + " neighbours");
+        var upperEnd = 0, lowerEnd = 0;      
+        
+        if (n){
+            //for every circle in the neighbour array
+            // calculate how much farther above
+            //or below this one has to be to not overlap;
+            //keep track of the max values
+            var j=n, occupied=new Array(n);
+            while (j--) { 
+                var p = neighbours[j];
+                var hypoteneuse = rScale(d.r)+rScale(p.r)+padding; 
+                //length of line between center points, if only 
+                // "padding" space in between circles
+                
+                var base = xScale(d.x) - xScale(p.x); 
+                // horizontal offset between centres
+                
+                var vertical = Math.sqrt(Math.pow(hypoteneuse,2) -
+                    Math.pow(base, 2));
+                //Pythagorean theorem
+                
+                occupied[j]=[p.offset+vertical, 
+                             p.offset-vertical];
+                //max and min of the zone occupied
+                //by this circle at x=xScale(d.x)
+            }
+            occupied = occupied.sort(
+                function(a,b){
+                    return a[0] - b[0];
+                });
+            //sort by the max value of the occupied block
+            //console.log(occupied);
+            lowerEnd = upperEnd = 1/0;//infinity
+                
+            j=n;
+            while (j--){
+                //working from the end of the "occupied" array,
+                //i.e. the circle with highest positive blocking
+                //value:
+                
+                if (lowerEnd > occupied[j][0]) {  
+                    //then there is space beyond this neighbour  
+                    //inside of all previous compared neighbours
+                    upperEnd = Math.min(lowerEnd,
+                                        occupied[j][0]);
+                    lowerEnd = occupied[j][1];
+                }
+                else {
+                    lowerEnd = Math.min(lowerEnd,
+                                        occupied[j][1]);
+                }
+            //console.log("at " + formatPercent(d.x) + ": "
+              //          + upperEnd + "," + lowerEnd);
+            }
+        }
+            
+            //assign this circle the offset that is smaller
+            //in magnitude:
+        return d.offset = 
+                (Math.abs(upperEnd)<Math.abs(lowerEnd))?
+                        upperEnd : lowerEnd;
+    };
+}
+    
+    //Create circles!//
+var maxR = 0;
+var bubbles = bubbleLine.selectAll("circle")
+    //.data(data.sort(
+      .data(data.sort(
+        biggestFirst?
+            function(a,b){return b.r - a.r;} :
+            function(a,b){return a.r - b.r;}
+        ))          
+    .enter()
+        .append("circle")
+        .attr("r", function(d){
+            var r=rScale(d.r);
+            maxR = Math.max(r,maxR);
+            return r;
+          })
+        .each(function(d, i) {
+            //for each circle, calculate it's position
+            //then add it to the quadtree
+            //so the following circles will avoid it.
+            
+            //console.log("Bubble " + i);
+            var scaledX = xScale(d.x);            
+            d3.select(this)
+                .attr("cx", scaledX)
+                .attr("cy", -baselineHeight + margin)
+                .transition()//.delay(300*i).duration(250)
+                .attr("cy", calculateOffset(maxR))
+                .attr("id","bubble-"+i)
+                .style("fill", function(d) { return isNaN(d.x) ? null : colorScale(d.x); });
+            quadroot.add(d);
+            
+            bubbleLine.append("text")
+                .attr("x", scaledX)
+                .attr("y", d.offset)
+                .text(/*function(d) { return d.rep;}*/);
+            
+            //add a drop line from the centre of this
+            //circle to the axis
+            threads.append("line").datum(d)
+                .attr({x1:scaledX, x2:scaledX, y2:margin})
+                .attr("y1", margin)
+                .transition()//.delay(300*i).duration(250)
+                .attr("y1", (baselineHeight+d.offset));
+        });
+
+// Create tooltip
+
+      //console.log(bubbles)
+
+      var tooltip = d3.select("body")
+        //.data(data)
+        .data(data)
+        .enter()
+        .append("div")
+        .attr("id",function(d,i) { return "tooltip-" + i; })
+        .attr("class","tooltip")
+        .style({"position":"absolute","z-index":"10","visibility":"hidden","height":"auto","width":"auto","background-color":"#fff","padding":"10px","border-radius":"5px","border":"1px solid grey","font-family":"arial"})
+        .html(function(d) { return  "Representative: " + d.rep + "<br />" +
+              "Party Scale: " + d.x + "<br />" +
+              "Total Campaign Receipts (Millions): $" + d.rec + "<br />" +
+              "State: " + d.st + "<br />" + 
+              "District: " + d.dist })
+
+              
+      var tooltipTransition = tooltip.transition()
+        .duration(function(d) { return 1500; })
+        .style("opacity",1)
+
+
+      //Call tooltip
+      var toolitpMouseEvent = bubbles
+        .on("mouseover", function(d,i){ 
+          d3.select(this)
+            .style({"stroke":"white","stroke-width":"1"})
+
+          d3.select("#tooltip-" + i)
+            .style({"position":"absolute","z-index":"10","visibility":"visible","color":"#000"})
+        })
+
+        .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+        .on("mouseout", function(d,i){
+          d3.select(this)
+            .style({"stroke":"black","stroke-width":".5"});
+
+          tooltip
+            .style({"visibility":"hidden","opacity":1});
+        })
+
+    })
+    
+})();
+
+
+</script>
+
+</body>
+
+    
+</body>
+</html>

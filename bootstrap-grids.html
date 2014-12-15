@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Boostrap Grid Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+
+        <!-- Load Bootstrap from your root subfolder -->
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.css"> 
+
+        <!-- Bootstrap CDN (Content Delivery Network) -->
+        <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+        
+        <link rel="stylesheet" href="css/bootstrap-grid.css">
+        <link rel="stylesheet" href="css/bootstrap-grid-mica.css">
+
+        <script src="js/modernizer/modernizr-2.6.2.min.js"></script>
+        <script src="js/jquery/jquery-1.10.2.min.js"></script>
+        <script src="js/highcharts/highcharts.js"></script>
+
+
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <h1 class="bg-primary red text-justify">Bootstrap Grid Sandbox<button type="button" class="btn btn-default btn-sm" id="swapClass" style="float:right">Swap Classes</button></h1>
+        <div id="intro" class="col-md-6 col-md-offset-3">
+        <p>Bootstrap uses a 12 column <em>responsive</em> grid. Bootstrap achieves this responsiveness with the use of classes adhering to an easy to comprehend naming convention that cotrol the width of the element on which the class is applied. The responsive nature cause the column to revert back to 100% width for browser window sizes smaller than the pixel ratios listed below (using the smallest of all applied classes). These classes include:</p>
+
+            <div id="table-container" class="col-md-10 col-md-offset-1 grid-table">
+                <table>
+                    <tr><th>SIZE</th><th>CLASS</th><th>WINDOW SIZE</th></tr>
+                    <tr><td>Extra Small</td><td>.col-xs-%</td><td>0 and above</td></tr>
+                    <tr><td>Small</td><td>.col-sm-%</td><td>768px and above</td></tr>
+                    <tr><td class="td-bold">Medium</td><td class="td-bold">.col-md-%</td><td class="td-bold">992px and above</td></tr>
+                    <tr><td>Large</td><td>.col-lg-%</td><td>1200px and above</td></tr>
+                </table>
+            </div>
+        
+        <h3>For more reading, visit: <br /><a href="http://getbootstrap.com/css/">Bootstrap's CSS Overview Page</a></h3>
+
+        </div>
+
+
+
+
+        <!-- <h2 class="col-md-6">Grid with 1 Column</h2>
+        <div class="col-md-12 blue text-justify">
+            <h3>12 columns wide.</h3>
+            <p>.col-md-12</p>
+        </div>
+
+
+        <h2 class="col-md-12">Grid with 2 Columns</h2>
+        <div class="col-md-6 teal text-justify">
+            <h4>6 columns wide.</h4>
+            <p>.col-md-6</p>
+        </div>
+        <div class="col-md-6 yellow text-justify">
+            <h4>6 columns wide.</h4>
+            <p>.col-md-6</p>
+        </div>
+
+
+        <h2 class="col-md-12 ">Grid with 4 Columns</h2>
+        <div class="col-md-3 red text-justify">
+            <h4>3 columns wide.</h4>
+            <p>.col-md-3</p>
+        </div>
+        <div class="col-md-3 purple text-justify">
+            <h4>3 columns wide.</h4>
+            <p>.col-md-3</p>
+        </div>
+        <div class="col-md-3 red text-justify">
+            <h4>3 columns wide.</h4>
+            <p>.col-md-3</p>
+        </div>
+        <div class="col-md-3 purple text-justify">
+            <h4>3 columns wide.</h4>
+            <p>.col-md-3</p>
+        </div>
+    
+
+        <h2 class="col-md-12 ">Grid with 12 Columns</h2>
+        <div class="col-md-1 teal text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 yellow text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 purple text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 orange text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 teal text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 yellow text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 purple text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 orange text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 teal text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 yellow text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 purple text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div>
+        <div class="col-md-1 orange text-justify">
+            <h4>1 column wide.</h4>
+            <p>.col-md-1</p>
+        </div> -->
+
+
+        <!-- <h2 class="col-md-12 ">Let's Offset!</h2>
+        <div class="col-md-3 col-md-offset-3 teal text-justify">
+            <h4>3 columns wide. Offset by 3 coulmns.</h4>
+            <p>.col-md-3 .col-md-offset-3</p>
+        </div>
+        <div class="col-md-3 col-md-offset-3 yellow text-justify">
+            <h4>3 columns wide. Offset by 3 coulmns.</h4>
+            <p>.col-md-3 .col-md-offset-3</p>
+        </div>
+        <div class="col-md-3 teal text-justify">
+            <h4>3 columns wide. No offset.</h4>
+            <p>.col-md-3 </p>
+        </div>
+        <div class="col-md-3 col-md-offset-3 yellow text-justify">
+            <h4>3 columns wide. Offset by 3 coulmns.</h4>
+            <p>.col-md-3 .col-md-offset-3</p>
+        </div> -->
+
+
+        <!-- <h2 class="col-md-12 ">Let's Nest Some Columns!</h2>
+        <div class="col-md-6 teal text-justify">
+            <h4>6 columns wide.</h4>
+            <p>.col-md-6</p>
+            <div class="col-md-6 blue text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+            </div>
+            <div class="col-md-6 yellow text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+            </div>
+        </div>
+        <div class="col-md-6 yellow text-justify">
+            <h4>6 columns wide.</h4>
+            <p>.col-md-6</p>
+            <div class="col-md-6 blue text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+            </div>
+            <div class="col-md-6 teal text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+            </div>
+        </div> -->
+
+        <!--<h2 class="col-md-12 ">Crazy Nests!</h2>
+         <div class="col-md-6 teal text-justify">
+            <h4>6 columns wide.</h4>
+            <p>.col-md-6</p>
+            <div class="col-md-6 blue text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+                <div class="col-md-6 red text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+                <div class="col-md-6 orange text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 blue text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+                <div class="col-md-6 red text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+                <div class="col-md-6 orange text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 teal text-justify">
+            <h4>6 columns wide.</h4>
+            <p>.col-md-6</p>
+            <div class="col-md-6 blue text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+                <div class="col-md-6 red text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+                <div class="col-md-6 orange text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 blue text-justify">
+                <h4>6 columns wide.</h4>
+                <p>.col-md-6</p>
+                <div class="col-md-6 red text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+                <div class="col-md-6 orange text-justify">
+                    <h4>6 columns wide.</h4>
+                    <p>.col-md-6</p>
+                    <div class="col-md-6 yellow text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                    <div class="col-md-6 purple text-justify">
+                        <p>.col-md-6</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <h2 class="col-md-12"></h2>
+
+        <div class="col-md-3 col-md-offset-1">
+            <h2>Chart Example 1</h2>
+            <p>This is an example of a chart styled with Bootstrap's grid system. The conatiner is 8 parts wide (grids are 12 parts). It has an offset of 2. Offsets add spacing to the left of a container. In order to center a div using the grid system, you take 12 (Grid width) - 8 (container width) to get 4 remaining. Divide this by two (1/2 on the left and 1/2 on the right).</p>
+        </div>
+        <div class="col-md-7" id="chart-container"></div>
+        
+        <h2 class="col-md-12"></h2>
+
+
+        <!-- Load scripts last to avoid having to access DOM on document ready -->        
+        <!--<script src="js/plugins.js"></script>-->
+        <!--<script src="js/main.js"></script>-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script type="text/javascript">
+
+        var chart;
+            $(document).ready(function() { 
+                
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'chart-container', // This is the ID (# CSS) of your chart div
+                        defaultSeriesType: 'bar'
+                    },
+                    title: {
+                        text: 'Historic World Population by Region'
+                    },
+                    subtitle: {
+                        text: 'Source: Wikipedia.org'
+                    },
+                    xAxis: {
+                        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+                        title: {
+                            text: null
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Population (millions)',
+                            align: 'high'
+                        }
+                    },
+                    tooltip: {
+                        formatter: function() {
+                            return ''+
+                                 this.series.name +': '+ this.y +' millions';
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -100,
+                        y: 100,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: '#FFFFFF',
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                        series: [{
+                        name: 'Year 1800',
+                        data: [107, 31, 635, 203, 2]
+                    }, {
+                        name: 'Year 1900',
+                        data: [133, 156, 947, 408, 6]
+                    }, {
+                        name: 'Year 2008',
+                        data: [973, 914, 1000, 732, 34]
+                    }]
+                });
+            });
+
+        $( "#swapClass" ).on( "click", function() {
+          $('*').each(function(index){
+            var classes = $(this).attr('class');
+            
+            if ( typeof classes !== 'undefined' ) {
+                var classArr = classes.split(" ");
+            } else {
+                var classArr = [];
+            }
+            console.log(classes);
+            console.log(classArr);
+
+            switch ( true ) {
+                case classArr.indexOf('teal') > -1:
+                    $(this).removeClass('teal').addClass('teal-border');
+                    break;
+                case classArr.indexOf('teal-border') > -1:
+                    $(this).removeClass('teal-border').addClass('teal');
+                    break;
+                case classArr.indexOf('blue') > -1:
+                    $(this).removeClass('blue').addClass('blue-border');
+                    break;
+                case classArr.indexOf('blue-border') > -1:
+                    $(this).removeClass('blue-border').addClass('blue');
+                    break;
+                case classArr.indexOf('purple') > -1:
+                    $(this).removeClass('purple').addClass('purple-border');
+                    break;
+                case classArr.indexOf('purple-border') > -1:
+                    $(this).removeClass('purple-border').addClass('purple');
+                    break;
+                case classArr.indexOf('green') > -1:
+                    $(this).removeClass('green').addClass('green-border');
+                    break;
+                case classArr.indexOf('green-border') > -1:
+                    $(this).removeClass('green-border').addClass('green');
+                    break;
+                case classArr.indexOf('yellow') > -1:
+                    $(this).removeClass('yellow').addClass('yellow-border');
+                    break;
+                case classArr.indexOf('yellow-border') > -1:
+                    $(this).removeClass('yellow-border').addClass('yellow');
+                    break;
+                case classArr.indexOf('red') > -1:
+                    $(this).removeClass('red').addClass('red-border');
+                    break;
+                case classArr.indexOf('red-border') > -1:
+                    $(this).removeClass('red-border').addClass('red');
+                    break;
+                case classArr.indexOf('orange') > -1:
+                    $(this).removeClass('orange').addClass('orange-border');
+                    break;
+                case classArr.indexOf('orange-border') > -1:
+                    $(this).removeClass('orange-border').addClass('orange');
+                    break;
+            }
+          })
+        });
+         
+        </script>
+    </body>
+</html>

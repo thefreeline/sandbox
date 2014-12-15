@@ -1,0 +1,106 @@
+h1, h2 {
+  color: #fff
+}
+
+body {
+  background-color: #252525;
+  color: #fff;
+}
+
+output {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+label {
+  font-weight: normal;
+}
+
+button#play, button#stop {
+  border: 1px solid;
+  border-radius: 9px;
+  background: #fff;
+  color: #000;
+}
+
+button#play.active, button#stop.active {
+  background: rgb(252, 255, 130);
+}
+
+button#play:hover, button#stop:hover {
+  box-shadow: 0 0 5px #000 inset;
+}
+
+#map object {
+  width: 100%;
+}
+
+#year-range {
+  width: 100%;
+}
+
+g.axis path, g.axis line {
+    fill:none; 
+    stroke:#fff;
+    stroke-width:2;
+}
+g.axis text, g.bubbles text {
+    fill:white;
+    font-family:arial,sans-serif;
+}
+
+g.bubbles line {
+    stroke-width:.5; 
+    stroke:white;
+}
+
+g.bubbles circle {
+    fill:steelblue; 
+    stroke:black;
+    stroke-width:.5;
+}
+g.bubbles text {
+    text-anchor:middle;
+    alignment-baseline:middle;
+    opacity:0;
+    pointer-events:all;
+    transition:1s;
+}
+g.bubbles text:hover {
+    opacity:1;
+}
+
+g.threads line {
+    fill:none;
+    stroke:none;
+    opacity:0.5;
+}
+
+g.x.axis path {
+  opacity: 0;
+}
+
+g.x.axis .tick line{
+  stroke-width: 2px;
+}
+
+g .domain {
+  opacity: 0;
+}
+
+g.grid g.tick line {
+  stroke:#fff;
+  stroke-width: 0.5px;
+  stroke-dasharray: 1px, 2px;
+}
+
+g.grid g.tick text {
+  display:none;
+}
+
+svg#finance-bubble {
+  border: 1px solid white;
+
+}

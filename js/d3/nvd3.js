@@ -1,5 +1,6 @@
 (function(){
 
+var axis; 
 var nv = window.nv || {};
 
 
@@ -40,7 +41,8 @@ if (nv.dev) {
 // then calling Function.prototype.bind with with anything other than a function
 // causes a TypeError to be thrown.
 nv.log = function() {
-  if (nv.dev && console.log && console.log.apply) {}
+  if (nv.dev && console.log && console.log.apply)
+    console.log.apply(console, arguments)
   else if (nv.dev && typeof console.log == "function" && Function.prototype.bind) {
     var log = Function.prototype.bind.call(console.log, console);
     log.apply(console, arguments);
@@ -111,9 +113,7 @@ function d3_time_range(floor, step, number) {
   };
 }
 
-
 d3.time.monthEnd = function(date) {
-
   return new Date(date.getFullYear(), date.getMonth(), 0);
 };
 
@@ -134,44 +134,44 @@ the rectangle. The dispatch is given one object which contains the mouseX/Y loca
 It also has 'pointXValue', which is the conversion of mouseX to the x-axis scale.
 */
 nv.interactiveGuideline = function() {
-	"use strict";
-	var tooltip = nv.models.tooltip();
-	//Public settings
-	var width = null
-	, height = null
+  "use strict";
+  var tooltip = nv.models.tooltip();
+  //Public settings
+  var width = null
+  , height = null
     //Please pass in the bounding chart's top and left margins
     //This is important for calculating the correct mouseX/Y positions.
-	, margin = {left: 0, top: 0}
-	, xScale = d3.scale.linear()
-	, yScale = d3.scale.linear()
-	, dispatch = d3.dispatch('elementMousemove', 'elementMouseout','elementDblclick')
-	, showGuideLine = true
-	, svgContainer = null  
+  , margin = {left: 0, top: 0}
+  , xScale = d3.scale.linear()
+  , yScale = d3.scale.linear()
+  , dispatch = d3.dispatch('elementMousemove', 'elementMouseout','elementDblclick')
+  , showGuideLine = true
+  , svgContainer = null  
     //Must pass in the bounding chart's <svg> container.
     //The mousemove event is attached to this container.
-	;
+  ;
 
-	//Private variables
-	var isMSIE = navigator.userAgent.indexOf("MSIE") !== -1  //Check user-agent for Microsoft Internet Explorer.
-	;
+  //Private variables
+  var isMSIE = navigator.userAgent.indexOf("MSIE") !== -1  //Check user-agent for Microsoft Internet Explorer.
+  ;
 
 
-	function layer(selection) {
-		selection.each(function(data) {
-				var container = d3.select(this);
-				
-				var availableWidth = (width || 960), availableHeight = (height || 400);
+  function layer(selection) {
+    selection.each(function(data) {
+        var container = d3.select(this);
+        
+        var availableWidth = (width || 960), availableHeight = (height || 400);
 
-				var wrap = container.selectAll("g.nv-wrap.nv-interactiveLineLayer").data([data]);
-				var wrapEnter = wrap.enter()
-								.append("g").attr("class", " nv-wrap nv-interactiveLineLayer");
-								
-				
-				wrapEnter.append("g").attr("class","nv-interactiveGuideLine");
-				
-				if (!svgContainer) {
-					return;
-				}
+        var wrap = container.selectAll("g.nv-wrap.nv-interactiveLineLayer").data([data]);
+        var wrapEnter = wrap.enter()
+                .append("g").attr("class", " nv-wrap nv-interactiveLineLayer");
+                
+        
+        wrapEnter.append("g").attr("class","nv-interactiveGuideLine");
+        
+        if (!svgContainer) {
+          return;
+        }
 
                 function mouseHandler() {
                       var d3mouse = d3.mouse(this);
@@ -203,7 +203,7 @@ nv.interactiveGuideline = function() {
                             subtractMargin = false;
 
                          if (d3.event.target.className.baseVal.match("nv-legend"))
-                         	mouseOutAnyReason = true;
+                          mouseOutAnyReason = true;
                           
                       }
 
@@ -221,13 +221,13 @@ nv.interactiveGuideline = function() {
                         || mouseOutAnyReason
                         ) 
                       {
-                      		if (isMSIE) {
-                      			if (d3.event.relatedTarget 
-                      				&& d3.event.relatedTarget.ownerSVGElement === undefined
-                      				&& d3.event.relatedTarget.className.match(tooltip.nvPointerEventsClass)) {
-                      				return;
-                      			}
-                      		}
+                          if (isMSIE) {
+                            if (d3.event.relatedTarget 
+                              && d3.event.relatedTarget.ownerSVGElement === undefined
+                              && d3.event.relatedTarget.className.match(tooltip.nvPointerEventsClass)) {
+                              return;
+                            }
+                          }
                             dispatch.elementMouseout({
                                mouseX: mouseX,
                                mouseY: mouseY
@@ -253,75 +253,75 @@ nv.interactiveGuideline = function() {
                       }
                 }
 
-				svgContainer
-				      .on("mousemove",mouseHandler, true)
-				      .on("mouseout" ,mouseHandler,true)
+        svgContainer
+              .on("mousemove",mouseHandler, true)
+              .on("mouseout" ,mouseHandler,true)
                       .on("dblclick" ,mouseHandler)
-				      ;
+              ;
 
-				 //Draws a vertical guideline at the given X postion.
-				layer.renderGuideLine = function(x) {
-				 	if (!showGuideLine) return;
-				 	var line = wrap.select(".nv-interactiveGuideLine")
-				 	      .selectAll("line")
-				 	      .data((x != null) ? [nv.utils.NaNtoZero(x)] : [], String);
+         //Draws a vertical guideline at the given X postion.
+        layer.renderGuideLine = function(x) {
+          if (!showGuideLine) return;
+          var line = wrap.select(".nv-interactiveGuideLine")
+                .selectAll("line")
+                .data((x != null) ? [nv.utils.NaNtoZero(x)] : [], String);
 
-				 	line.enter()
-				 		.append("line")
-				 		.attr("class", "nv-guideline")
-				 		.attr("x1", function(d) { return d;})
-				 		.attr("x2", function(d) { return d;})
-				 		.attr("y1", availableHeight)
-				 		.attr("y2",0)
-				 		;
-				 	line.exit().remove();
+          line.enter()
+            .append("line")
+            .attr("class", "nv-guideline")
+            .attr("x1", function(d) { return d;})
+            .attr("x2", function(d) { return d;})
+            .attr("y1", availableHeight)
+            .attr("y2",0)
+            ;
+          line.exit().remove();
 
-				}
-		});
-	}
+        }
+    });
+  }
 
-	layer.dispatch = dispatch;
-	layer.tooltip = tooltip;
+  layer.dispatch = dispatch;
+  layer.tooltip = tooltip;
 
-	layer.margin = function(_) {
-	    if (!arguments.length) return margin;
-	    margin.top    = typeof _.top    != 'undefined' ? _.top    : margin.top;
-	    margin.left   = typeof _.left   != 'undefined' ? _.left   : margin.left;
-	    return layer;
+  layer.margin = function(_) {
+      if (!arguments.length) return margin;
+      margin.top    = typeof _.top    != 'undefined' ? _.top    : margin.top;
+      margin.left   = typeof _.left   != 'undefined' ? _.left   : margin.left;
+      return layer;
     };
 
-	layer.width = function(_) {
-		if (!arguments.length) return width;
-		width = _;
-		return layer;
-	};
+  layer.width = function(_) {
+    if (!arguments.length) return width;
+    width = _;
+    return layer;
+  };
 
-	layer.height = function(_) {
-		if (!arguments.length) return height;
-		height = _;
-		return layer;
-	};
+  layer.height = function(_) {
+    if (!arguments.length) return height;
+    height = _;
+    return layer;
+  };
 
-	layer.xScale = function(_) {
-		if (!arguments.length) return xScale;
-		xScale = _;
-		return layer;
-	};
+  layer.xScale = function(_) {
+    if (!arguments.length) return xScale;
+    xScale = _;
+    return layer;
+  };
 
-	layer.showGuideLine = function(_) {
-		if (!arguments.length) return showGuideLine;
-		showGuideLine = _;
-		return layer;
-	};
+  layer.showGuideLine = function(_) {
+    if (!arguments.length) return showGuideLine;
+    showGuideLine = _;
+    return layer;
+  };
 
-	layer.svgContainer = function(_) {
-		if (!arguments.length) return svgContainer;
-		svgContainer = _;
-		return layer;
-	};
+  layer.svgContainer = function(_) {
+    if (!arguments.length) return svgContainer;
+    svgContainer = _;
+    return layer;
+  };
 
 
-	return layer;
+  return layer;
 };
 
 /* Utility class that uses d3.bisect to find the index in a given array, where a search value can be inserted.
@@ -338,7 +338,7 @@ Has the following known issues:
    * Won't work if there are duplicate x coordinate values.
 */
 nv.interactiveBisect = function (values, searchVal, xAccessor) {
-	  "use strict";
+    "use strict";
       if (! values instanceof Array) return null;
       if (typeof xAccessor !== 'function') xAccessor = function(d,i) { return d.x;}
 
@@ -1083,7 +1083,6 @@ nv.utils.optionsFunc = function(args) {
 
       //TODO: consider calculating width/height based on whether or not label is added, for reference in charts using this component
 
-
       g.transition().call(axis);
 
       scale0 = scale0 || axis.scale();
@@ -1121,8 +1120,11 @@ nv.utils.optionsFunc = function(args) {
                   var v = fmt(d);
                   return ('' + v).match('NaN') ? '' : v;
                 });
+         
             axisMaxMin.transition()
                 .attr('transform', function(d,i) {
+                  axis = scale.range()[i];
+                  console.log(axis)
                   return 'translate(' + scale.range()[i] + ',0)'
                 });
           }
@@ -1178,6 +1180,7 @@ nv.utils.optionsFunc = function(args) {
                   return 'translate(' + (scale(d) + (isOrdinal ? scale.rangeBand() / 2 : 0)) + ',0)'
                 });
           }
+
           if (staggerLabels)
             xTicks
                 .attr('transform', function(d,i) { return 'translate(0,' + (i % 2 == 0 ? '0' : '12') + ')' });
@@ -12949,7 +12952,7 @@ nv.models.sparkline = function() {
               var yValues = data.map(function(d, i) { return getY(d,i); });
               function pointIndex(index) {
                   if (index != -1) {
-	              var result = data[index];
+                var result = data[index];
                       result.pointIndex = index;
                       return result;
                   } else {
@@ -13722,9 +13725,9 @@ nv.models.stackedArea = function() {
   };
 
   chart.interpolate = function(_) {
-	    if (!arguments.length) return interpolate;
-	    interpolate = _;
-	    return chart;
+      if (!arguments.length) return interpolate;
+      interpolate = _;
+      return chart;
   };
   //============================================================
 

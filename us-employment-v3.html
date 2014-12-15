@@ -1,0 +1,370 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/nvd3.css">
+    <script src="js/modernizer/modernizr-2.6.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/d3/nvd3.js"></script>
+
+    <style>
+
+    h1 {
+        font-family: 'arial',sans-serif;
+        padding: 0 70px;
+        color: #777;
+    }
+
+    #chart-title-controls {
+        float: right;
+    }
+
+    #chart-title {
+        font-family: 'arial',sans-serif;
+        color: #777;
+        margin: 0px;
+        float: right;
+    }
+
+    #chart-refresh svg {
+        height: 24px;
+        width: 32px;
+        padding-right: 80px;
+        float: right;
+        cursor: pointer;
+    }
+
+    #chart {
+        float: right;
+        clear: both;
+    }
+
+    #chart svg {
+      height: 400px;
+      width: 600px;
+      float: right;
+    }
+
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <h1>U.S Employment by Sector</h1>
+
+    <div id="chart-refresh">
+        <svg>
+        <path fill="#E9E9EA" d="M15.4,17.7l3.7-3.9l1.8,1.7l2.9-3.3l2,1.7l1.5-1.9l1.1,1.4c0,2.5,0,2.8,0,4.3C24.3,17.7,23.9,17.7,15.4,17.7 z"/>
+            <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="17.1" y1="16.6" x2="17.1" y2="17.7"/>
+            <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="18.9" y1="14.7" x2="18.9" y2="17.7"/>
+            <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="20.8" y1="15.5" x2="20.8" y2="17.7"/>
+            <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="22.7" y1="14.1" x2="22.7" y2="17.7"/>
+            <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="24.6" y1="13.7" x2="24.6" y2="17.7"/>
+            <line fill="none" stroke="#A7A9AC" stroke-width="0.25" stroke-miterlimit="10" x1="26.5" y1="13.7" x2="26.5" y2="17.7"/>
+            <polyline fill="none" stroke="#3C64A0" stroke-miterlimit="10" points="15.2,17.6 19,13.8 20.8,15.6 23.7,12.2 25.7,13.9 27.1,12.2 
+                28.3,13.4 "/>
+            <g id="Editor" sketch:type="MSPage">
+                <path id="redo" sketch:type="MSShapeGroup" fill="#686868" stroke="#686868" stroke-miterlimit="10" d="M30.5,14.9
+                    c0,4.7-3.8,8.5-8.5,8.5s-8.5-3.8-8.5-8.5s3.8-8.5,8.5-8.5v0.9c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5H30.5
+                    L30.5,14.9z M22,4.6v4.7L24.8,7L22,4.6z"/>
+            </g>
+        </svg>
+    </div>
+
+    <div id="chart-title-controls">
+        <h2 id="chart-title">All Jobs</h2>
+    </div>
+
+    <div id="chart">
+      <svg id="chart-svg"></svg>
+    </div>
+
+<script>
+
+$(document).ready(function() { 
+
+    // Bind refresh event to refresh button
+    $("#chart-refresh").on("click",function(){
+        $("#chart-title").text("All Jobs");
+        redrawGraph("Refresh");
+    });
+
+    var color = {
+                all: [ 
+                    "#E5D26F", "#A15E80", "#8799BD" 
+                ],
+                "All Goods": [
+                    "#FFF8E5", "#F2E5AA", "#E5D26F", "#D9C034", //mining
+                    "#FBCEA5", "#DB9D5E", "#BC6D18", //construction
+                    "#F5D9DC", "#4E0606",  //manufacturing 
+                ],
+                "All Government": [
+                    "#FFD8EC", "#DFAFC8", "#C086A4", "#A15E80", "#82355C", "#630D39", //government
+                ],
+                "All Services": [
+                    "#D6D6FE", "#A6A6D5", "#7676AC", "#464683", "#17175A", //leisure and hospitality
+                    "#D3E1FF", "#ADBDDE", "#8799BD", "#62759C", "#3C517B", "#172D5A" //healthcare
+                ]
+            }
+
+    d3.csv('data/_MASTER_Employment_Data.csv', function(data) {
+
+        //Restructure the data
+        transformed = data.map(function(obj){
+            // Define the new object structure
+            var result= {
+                key: obj.subcat + ": " +obj.key,
+                category: obj.cat,
+                subcategory: obj.subcat,
+                level: +obj.level,
+                values: []
+            }
+            // Iterate over data object, reassign keys to values array
+            for (var key in obj) {
+                //console.log(obj.key)
+              if (obj.hasOwnProperty(key) && key !== "key" && !isNaN(key) ) {
+                  result.values.push([+key, +obj[key]]);
+              }
+            }
+            //console.log(result);
+            return result;
+        });
+
+        var initialData = transformed.filter(function (obj) { 
+            return obj.subcategory == "All Government" || 
+                   obj.subcategory == "All Services" || 
+                   obj.subcategory == "All Goods"; 
+        })
+
+        nv.addGraph(function() {
+            var chart = nv.models.stackedAreaChart()
+                          .margin({right: 100})
+                          .x(function(d) { return d[0] })   //We can modify the data accessor functions...
+                          .y(function(d) { return d[1] })   //...in case your data is formatted differently.
+                          .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                          .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
+                          .transitionDuration(500)
+                          .showControls(true)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                          .clipEdge(false)
+                          .showLegend(false)
+                          .color( color.all );
+
+            //Format x-axis labels with custom function.
+            chart.xAxis
+                .tickFormat(function(d) { 
+                  return d3.time.format('%d-%b')(new Date(d)) 
+            });
+
+            chart.yAxis
+                .tickFormat(d3.format(',.0f'));
+
+            d3.select('#chart svg')
+              .datum(initialData)
+              .call(chart);
+
+            nv.utils.windowResize(chart.update);
+
+            ////////////////////////////////////
+            // DRILLDOWN
+            ////////////////////////////////////
+            chart.stacked.dispatch.on("areaClick.toggle", function(e) {
+                console.log("Enter area toggle")
+                var clickEl = d3.selectAll("tr.highlight.nv-pointer-events-none")
+                                .on("click",function(d){ return d.data.label;} )
+                var clickText = clickEl[0][0].textContent;
+                //remove characters following :
+                clickText = clickText.substring(0, clickText.indexOf(':'));
+                    console.log(clickText); 
+                var data = transformed.filter(function (obj) { return obj.category == clickText
+                    && obj.subcategory.indexOf("All") >= 0 && obj.subcategory !== clickText })
+
+                //if(clickText) {
+                    d3.selectAll("svg > #chart-svg").remove();
+                    
+                    d3.select('#chart svg').datum(data)
+                        .transition()
+                        .duration(500)
+                        .call(chart.color(color[clickText]));      
+                //} 
+            })
+
+            redrawGraph = function(link) {
+                console.log("Redraw")
+                    d3.selectAll("svg > #chart-svg").remove();
+                    
+                    d3.select('#chart svg').datum(initialData)
+                        .transition()
+                        .duration(500)
+                        .call(chart.color(color.all));
+                  
+            };
+
+            return chart;
+        });
+    });
+})
+
+    /*redrawOnClick = function(clickText) {
+        console.log("clickText", clickText)
+
+        transformed = data.map(function(obj){
+            // Define the new object structure
+            var result= {
+                key: obj.subcat + ": " +obj.key,
+                category: obj.cat,
+                subcategory: obj.subcat,
+                values: []
+            }
+            // Iterate over data object, reassign keys to values array
+            for (var key in obj) {
+                //console.log(obj.key)
+              if (obj.hasOwnProperty(key) && key !== "key" && !isNaN(key) ) {
+                  result.values.push([+key, +obj[key]]);
+              }
+            }
+            return result;
+        });
+
+        //console.log(transformed)
+        switch(clickText) {
+
+            /////////////////////
+            // LEVEL 1 Data - Government
+            /////////////////////
+            case "All Government":
+                var transformedFilter = transformed.filter(function (obj) { return obj.category == "All Government"
+                    && obj.subcategory.indexOf("All") >= 0 && obj.subcategory !== "All Government" })
+                var colorFilter = color.government;
+                break;
+
+            //---------------------//
+            // LEVEL 2 Data - Government
+            //---------------------//
+            case "All Local Government":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Local Government" })
+                var colorFilter = color.government;
+                break; 
+            case "All State Government":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All State Government" })
+                var colorFilter = color.government;
+                break; 
+            case "All Federal Government":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Federal Government" })
+                var colorFilter = color.government;
+                break; 
+            
+
+            /////////////////////
+            // LEVEL 1 Data - Services
+            /////////////////////
+            case "All Services":
+                var transformedFilter = transformed.filter(function (obj) { return obj.category == "All Services"
+                    && obj.subcategory.indexOf("All") >= 0 && obj.subcategory !== "All Services"; })
+                var colorFilter = color.services;
+                break;
+
+            //---------------------//
+            // LEVEL 2 Data - Services
+            //---------------------//
+            case "All Leisure and Hospitality Services":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Leisure and Hospitality Services" })
+                var colorFilter = color.services;
+                break;
+            case "All Healthcare Services":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Healthcare Services" })
+                var colorFilter = color.services;
+                break;
+
+
+            /////////////////////
+            // LEVEL 1 Data - Goods
+            /////////////////////
+            case "All Goods":
+                var transformedFilter = transformed.filter(function (obj) { return obj.category == "All Goods"
+                    && obj.subcategory.indexOf("All") >= 0 && obj.subcategory !== "All Goods"; })
+                var colorFilter = color.goods;
+                break;
+
+            //---------------------//
+            // LEVEL 2 Data - Goods
+            //---------------------//
+            case "All Mining":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Mining" })
+                var colorFilter = color.goods;
+                break;
+            case "All Construction":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Construction" })
+                var colorFilter = color.goods;
+                break;
+            case "All Manufacturing":
+                var transformedFilter = transformed.filter(function (obj) { return obj.subcategory == "All Manufacturing" })
+                var colorFilter = color.goods;
+                break;    
+            case "Refresh":
+                var transformedFilter = initialData;
+                var colorFilter = color.all;
+                break;
+            default:
+                var transformedFilter = transformed;
+                var colorFilter = color.all;
+                break;
+        }
+        
+        d3.selectAll("svg > #chart-svg").remove();
+        
+        d3.select('#chart svg').datum(transformedFilter)
+            .transition()
+            .duration(500)
+            .call(chart.color(colorFilter));   
+
+        chart.stacked.dispatch.on("areaClick.toggle", function(e) {
+            var highlight = d3.selectAll("tr.highlight.nv-pointer-events-none");
+
+            if(highlight.length < 1) {
+                var clickEl = highlight.on("click",function(d){ return d.data.label;} )
+                var clickText = clickEl[0][0].textContent;
+
+
+                //remove characters following :
+                clickText = clickText.substring(0, clickText.indexOf(':'));
+                //replace title
+                $("#chart-title").text(clickText);
+
+                redrawOnClick(clickText); 
+            }
+            redrawOnClick("Refresh");
+
+        }) 
+    }
+
+    redrawGraph = function(link) {
+        d3.selectAll("svg > #chart-svg").remove();
+        
+        d3.select('#chart svg').datum(initialData)
+            .transition()
+            .duration(500)
+            .call(chart.color(color.all));
+      
+    };*/
+
+
+
+
+</script>
+</body>
+</html>
