@@ -54,18 +54,22 @@
 <div style="height:20px" class="col-md-12"></div>
 
 
+<div class="row">
+  <div id="map" class="col-md-6"></div>
+  <div class="col-md-6">
+    <div id="campaign-totals" class="col-md-12" style="height:150px;border:1px solid white"></div>
+    <div id="presidential-totals" class="col-md-12" style="height:150px;border:1px solid white"></div>
+    <div id="totals" class="col-md-12" style="height:100px;border:1px solid white"></div>
+  </div>
+</div>
 
-<div id="map" class="col-md-6"></div>
-<div id="campaign-bubble" class="col-md-9"><svg style="width:100%;height:200px;border:1px solid white"></svg></div>
-
-  
-
-
-
-  
-  <div id="tooltip-container"></div>
-  
-  <div id="campaign-totals" class="col-md-6" style="height:300px"></div>
+<div class="row">
+  <div id="campaign-bubble" class="col-md-8"><svg style="width:100%;height:200px;border:1px solid white"></svg></div>
+  <div id="tooltip-container" class="col-md-4" style="height:200px">
+    <div id="tooltip-bubble"></div>
+    <div id="tooltip-map"></div>
+  </div>
+</div>
 
 </div>
 <script>
@@ -151,7 +155,7 @@
       .style("opacity","0")
     .remove();
 
-    $("#tooltip-container").empty();
+  $("#tooltip-container").empty();
     campaignBubbles(value);
     mapBubbles(value);
   }
@@ -463,7 +467,7 @@
       //Create circles!//
       var maxR = 0;
       var bubbles = bubbleLine.selectAll("circle")
-      //.data(data.sort(
+        //.data(data.sort(
         .data(data.sort(
           biggestFirst ?
               function(a,b){return b.r - a.r;} :
@@ -478,10 +482,10 @@
           .attr("cx",0)
           .transition().duration(2000)
           .attr("r", function(d){
-              var r=rScale(d.r);
-              maxR = Math.max(r,maxR);
-              return r;
-            })
+            var r=rScale(d.r);
+            maxR = Math.max(r,maxR);
+            return r;
+          })
           .each(function(d, i) {
               //for each circle, calculate it's position
               //then add it to the quadtree
@@ -500,53 +504,56 @@
               quadroot.add(d);  
           });
 
-    // Create tooltip
+          // Create tooltip
+          var tooltip = d3.select("#tooltip-bubble").selectAll("div")
+            .data(data)
+            .enter()
+            .append("div")
+            .attr("id",function(d,i) {
+              //console.log("tooltip: " + i); 
+              return "tooltip-" + i; 
+            })
+            .attr("class","tooltip")
+            .style("opacity",0)
+            .html(function(d) { 
+              return  "<table>" +
+              "<tr><td>Representative:</td><td> " + d.rep + "</td></tr>" +
+              "<tr><td>Party Scale:</td><td> " + d.x + "</td></tr>" +
+              "<tr><td>Campaign Receipts:</td><td> $" + d.rec + "M</td></tr>" +
+              "<tr><td>State:</td><td> " + d.st + "</td></tr>" + 
+              "<tr><td>District:</td><td> " + d.dist + "</td></tr>" +
+              "<tr><td>Year:</td><td> " + d.year + "</td></tr>"
+            });
 
-        //console.log(bubbles)
-
-        /*var tooltip = d3.selectAll("#tooltip-container")
-          .data(data)
-          .enter()
-          .append("div")
-          .attr("id",function(d,i) {
-            //console.log("tooltip: " + i); 
-            return "tooltip-" + i; 
-          })
-          .attr("class","tooltip")
-          .style({"position":"absolute","z-index":"10","visibility":"hidden","height":"auto","width":"auto","background-color":"#fff","padding":"10px","border-radius":"5px","border":"1px solid grey","font-family":"arial"})
-          .html(function(d) { return  "Representative: " + d.rep + "<br />" +
-                "Party Scale: " + d.x + "<br />" +
-                "Total Campaign Receipts (Millions): $" + d.rec + "<br />" +
-                "State: " + d.st + "<br />" + 
-                "District: " + d.dist + "<br />" +
-                "Year: " + d.year
-              })
-
-                
-        var tooltipTransition = tooltip.transition()
-          .duration(function(d) { return 1500; })
-          .style("opacity",1)
-
-
-        //Call tooltip
-        var toolitpMouseEvent = bubbles
-          .on("mouseover", function(d,i){ 
-            d3.select(this)
-              .style({"stroke":"white","stroke-width":"1"})
-
-            d3.select("#tooltip-" + i)
-              .style({"position":"absolute","z-index":"10","visibility":"visible","color":"#000"})
-          })
-
-          .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-          .on("mouseout", function(d,i){
-            d3.select(this)
-              .style({"stroke":"black","stroke-width":".5"});
-
-            tooltip
-              .style({"visibility":"hidden","opacity":1});
-          })*/
-
+          //Call tooltip
+          var toolitpMouseEvent = d3.selectAll(".bubble")
+            .on("mouseover", function(d,i){ 
+              //console.log(this)
+              d3.select(this)
+                .transition()
+                  .duration(250)
+                .style({"stroke":"white","stroke-width":".5"})
+                /*.attr("r", function(d,i) {
+                  return Math.sqrt(parseInt(+d.rec) * 20);
+                })*/
+              d3.selectAll("#tooltip-" + i)
+                .transition()
+                .duration(function(d) { return 250; })
+                .style("opacity",1)
+            })
+            .on("mouseout", function(d,i){
+              d3.select(this)
+                .style({"stroke":"black","stroke-width":".5"})
+                /*.attr("r", function(d){
+                  var r=rScale(d.r);
+                  maxR = Math.max(r,maxR);
+                  return r;
+                })*/
+              d3.selectAll("#tooltip-" + i)
+                .transition()
+                .duration(function(d) { return 250; })
+                .style("opacity",0)
+            })
       })     
   };
 
@@ -554,14 +561,14 @@
 
 
   //Map Width and height
-  var w = 600;
+  var w = 550;
   var h = 400;
   var active = d3.select(null);
 
   //Define map projection
   var projection = d3.geo.albersUsa()
                .translate([w/2, h/2])
-               .scale([800]);
+               .scale([750]);
 
   //Define path generator
   var path = d3.geo.path()
@@ -576,7 +583,7 @@
         .attr("width", w)
         .attr("height", h);
 
-  map.append("rect")
+  var mapBackground = map.append("rect")
     .attr("class", "map-background")
     .attr("width", w)
     .style("fill-opacity",0)
@@ -584,8 +591,21 @@
     .attr("height", h)
     .on("click", reset);
 
+  
+
+  
+
   var g = map.append("g")
     .style("stroke-width", "1.5px");
+
+    g.append("circle")
+    .attr("cx",510)
+    .attr("cy",360)
+    .attr("r",12)
+    .attr("stroke","#999")
+    .attr("stroke-width",1)
+    .attr("fill","#252525")
+    .attr("class","map-legend");
 
   function clicked(d) {
           if (active.node() === this) return reset();
@@ -599,9 +619,6 @@
               y = (bounds[0][1] + bounds[1][1]) / 2,
               scale = .9 / Math.max(dx / w, dy / h),
               translate = [w / 2 - scale * x, h / 2 - scale * y];
-              console.log(bounds);
-              console.log(scale);
-              console.log(translate)
 
           g.transition()
               .duration(750)
@@ -620,8 +637,9 @@
         }
 
 var mapBubbles = function(value) {
+  var biggestFirst = true;
 
-var colorScale = d3.scale.threshold()
+  var colorScale = d3.scale.threshold()
           .domain([-.75, -.5, -.25, 0, .25, .5, .75])
           .range(["#343ab4", "#6a81f2", "#97a7fb", "#d5dcff", "#ffdbdb", "#fdbaba", "#ed7979", "#d84c4c"]);
 
@@ -629,17 +647,16 @@ var colorScale = d3.scale.threshold()
   d3.json("data/geo/us-states.json", function(json) {
     
     //Bind data and create one path per GeoJSON feature
-    g.selectAll("path")
+    g.append("g")
+      .attr("id", "states")
+      .selectAll("path")
        .data(json.features)
       .enter()
        .append("path")
        .attr("d", path)
-       .style("fill", "#fff")
-       //.style("opacity","#252525")
-       .style("stroke","#252525")
-       .style("stroke-width",".5px")
       .on("click", clicked);;
 
+      // Add city labels
     /*d3.csv("data/geo/us-capitals.csv", function(cities) {
       //console.log(cities)
       g.selectAll("circle")
@@ -664,7 +681,8 @@ var colorScale = d3.scale.threshold()
       g.selectAll(".place-label")
         .attr("x", function(d) { return d.longitude > -1 ? 6 : -6; })
         .style("text-anchor", function(d) { return d.longitude > -1 ? "start" : "end"; });
-    })   */
+    })   
+    */
 
     //Load in cities data
     d3.csv("data/candidate-summary-test.csv", function(data) {
@@ -690,21 +708,43 @@ var colorScale = d3.scale.threshold()
 
         data = data.filter(function(d){ return d.year == value; });
 
-        //console.log("data",data)
+          // Create tooltip
+          var tooltip = d3.select("#tooltip-map").selectAll("div")
+            .data(data.sort(
+              biggestFirst ?
+                  function(a,b){return b.r - a.r;} :
+                  function(a,b){return a.r - b.r;}
+              ))
+            .enter()
+            .append("div")
+            .attr("id",function(d,i) {
+              //console.log("tooltip: " + i); 
+              return "tooltip-map-" + i; 
+            })
+            .attr("class","tooltip")
+            .style("opacity",0)
+            .html(function(d) { 
+              return  "<table>" +
+              "<tr><td>Representative:</td><td> " + d.rep + "</td></tr>" +
+              "<tr><td>Party Scale:</td><td> " + d.x + "</td></tr>" +
+              "<tr><td>Campaign Receipts:</td><td> $" + d.rec + "M</td></tr>" +
+              "<tr><td>State:</td><td> " + d.st + "</td></tr>" + 
+              "<tr><td>District:</td><td> " + d.dist + "</td></tr>" +
+              "<tr><td>Year:</td><td> " + d.year + "</td></tr>"
+            });
 
-    var tooltip = d3.select("body")
-      .append("div")
-      .style("position", "absolute")
-      .style("z-index", "10")
-      .style("visibility", "hidden");   
-      
       var circles = g.selectAll("circle")
-         .data(data)
+         .data(data.sort(
+          biggestFirst ?
+              function(a,b){return b.r - a.r;} :
+              function(a,b){return a.r - b.r;}
+          ))
          .enter()
          .append("circle")
          .attr("cx", w / 2)
          .attr("cy", h / 2)
          .attr("r", 1)
+         .attr("class",function(d,i){return i})
          .style("fill-opacity", 0)
          .style("opacity", 0);
 
@@ -726,45 +766,75 @@ var colorScale = d3.scale.threshold()
          .style("opacity", 1);
 
 
-      circles.on("mouseover", function(d) {
-          d3.select(this)
-            .transition()
-              .duration(250)
-            .style("opacity", 1)
-            //.style("fill", "orange")
-            //.data(data)
-            //.enter()
-            //.append('p')
-            //.style("visibility", "visible")
-            .attr("r", function(d) {
-              return Math.sqrt(parseInt(d.rec) * 20);
-            })
-            .text( function(d) {
-              return d.rep;
-            });   
-        })
-        .on("mouseout", function() {
-          d3.select(this)
-            .transition()
-              .duration(250)
-            .style("opacity", 0.75)
-            .attr("r", function(d) {
-              return Math.sqrt(parseInt(d.rec) * 10);
-            });
-            //.style("fill", "steelblue");
-          //return tooltip.style("visibility", "hidden");  
-        })
-        //.on("mousedown", function(d) {
-        //  d3.select(this)
-        //    .style("fill", "red");
-        //})
-        //.on("mouseup", function(d) {
-        //  d3.select(this)
-        //    .style("fill", "orange");
-        //});  
 
-        
-  
+          //Call tooltip
+          /*var toolitpMouseEvent = d3.selectAll(".bubble")
+            .on("mouseover", function(d,i){ 
+              //console.log(this)
+              d3.select(this)
+                .transition()
+                  .duration(250)
+                .style({"stroke":"white","stroke-width":".5"})
+              d3.selectAll("#tooltip-" + i)
+                .transition()
+                .duration(function(d) { return 250; })
+                .style("opacity",1)
+            })
+            .on("mouseout", function(d,i){
+              d3.select(this)
+                .style({"stroke":"black","stroke-width":".5"})
+              d3.selectAll("#tooltip-" + i)
+                .transition()
+                .duration(function(d) { return 250; })
+                .style("opacity",0)
+            })*/
+
+
+      circles.on("mouseover", function(d,i) {
+        //console.log(this)
+        d3.select(this)
+          .transition()
+            .duration(250)
+          .style("opacity", 1)
+          .attr("r", function(d) {
+            return Math.sqrt(parseInt(d.rec) * 20);
+          })
+          .text( function(d) {
+            return d.rep;
+          })   
+
+        d3.selectAll("#tooltip-map-" + i)
+          .transition()
+          .duration(function(d) { return 250; })
+          .style("opacity",1)
+
+        d3.selectAll("#bubble-" + i)
+          .transition()
+          .duration(function(d) { return 250; })
+          .style("stroke","#fff")
+          .style("stroke-width",2)
+
+      }).on("mouseout", function(d,i) {
+        d3.select(this)
+          .transition()
+            .duration(250)
+          .style("opacity", 0.75)
+          .attr("r", function(d) {
+            return Math.sqrt(parseInt(d.rec) * 10);
+          })
+
+        d3.selectAll("#tooltip-map-" + i)
+          .transition()
+          .duration(function(d) { return 250; })
+          .style("opacity",0) 
+
+        d3.selectAll("#bubble-" + i)
+          .transition()
+          .duration(function(d) { return 250; })
+          .style("stroke","#252525")
+          .style("stroke-width",.5)
+
+      })
     });
   });
 };
