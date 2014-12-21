@@ -9,6 +9,9 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+        <link href='http://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
         <link rel="stylesheet" href="css/normalize.css">        
         <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="css/campaign-finance.css">
@@ -37,10 +40,10 @@
 <body>
 
 <div id="main-container" class="col-md-10 col-md-offset-1">
-  <h2>Political campaign contributions compared with strength of political party affiliation.</h2>
+<h2>Does Party Affiliation Impact the Cost of Elections?</h2>
 
 
-<div id="animation-controller" class="col-md-6 col-md-offset-3">
+<!-- <div id="animation-controller" class="col-md-6 col-md-offset-3">
   <div id="animation-buttons" class="col-md-6">
     <button type="button" id="play" class="active" onclick="animateBubbles()">PLAY</button>
     <button type="button" id="stop" class="" onclick="stopInterval()">STOP</button>
@@ -50,29 +53,74 @@
     <output for=year id="year-output">1994</output>
   </div>
   <input id="year-range" type="range" min="1994" max="2012" value="1994" step="2" onmouseup="redraw(value)" onclick="rangeClick()">
-</div>
+</div> -->
 <div style="height:20px" class="col-md-12"></div>
 
 
 <div class="row">
-  <div id="map" class="col-md-6"></div>
-  <div class="col-md-6">
-    <div id="campaign-totals" class="col-md-12" style="height:150px;border:1px solid white"></div>
-    <div id="presidential-totals" class="col-md-12" style="height:150px;border:1px solid white"></div>
-    <div id="totals" class="col-md-12" style="height:100px;border:1px solid white"></div>
+  <div id="map" class="col-md-7"></div>
+  <div class="col-md-5">
+
+    <!-- <div id="tooltip-header" class="col-md-12"></div> -->
+    <div id="tooltip-container" class="col-md-12 col-sm-6">
+      <!-- <div id="tooltip-message">
+        <p>The size to the bubbles are relative to the amount of compaign financing raised during the given election cycle.</p>
+        <p>The bottom chart represents the strength of each congressional member's party affiliation</p>
+        <p>Please hover over any item to get more information. You may click on the map to zoom in.</p>
+
+      </div> -->
+      <div id="tooltip-message">
+        <p id="tooltip-rep">Claire McCassil</p>
+        <h1 id="tooltip-rec">$34,000,000</h1>
+        <div id="tooltip-content-wrapper">
+          <!-- <div id="border-left">{</div> -->
+          <table>
+            <tr><td>Party:</td><td id="tooltip-party">Republican</td></tr>
+            <tr><td>Party:</td><td id="tooltip-house">House of Representatives</td></tr>
+            <tr><td>Party Scale:</td><td id="tooltip-rank">.654</td></tr>
+            <tr><td>State:</td><td id="tooltip-state">Maryland</td></tr>
+            <tr><td>District:</td><td id="tooltip-ditrict">4</td></tr>
+            <tr><td>Election Cycle:</td><td id="tooltip-year">2012</td></tr>
+          </table>
+          <!-- <div id="border-right">}</div> -->
+        </div>
+        <div id="tooltip-link"><a id="tooltip-link-url" target="_blank"href="http://www.fec.gov/fecviewer/CandidateCommitteeDetail.do?candidateCommitteeId=H6AL04098&tabIndex=1">More Information</a></div>
+
+      </div>
+    </div>
+    <div id="animation-controller" class="col-md-12">
+      <div id="animation-buttons" class="col-md-6">
+        <button type="button" id="play" class="active" onclick="animateBubbles()">PLAY</button>
+        <button type="button" id="stop" class="" onclick="stopInterval()">STOP</button>
+      </div>
+      <div id="animation-labels" class="col-md-6">
+        <label for="year">Year: </label>
+        <output for=year id="year-output">2008</output>
+      </div>
+      <input id="year-range" type="range" min="2008" max="2012" value="2008" step="2" onmouseup="redraw(value)" onclick="rangeClick()">
+    </div>
+    <!-- <div id="campaign-totals" class="col-md-12" style="height:100px;border:1px solid white"></div> -->
+    <!-- <div id="presidential-totals" class="col-md-12" style="height:100px;border:1px solid white"></div> -->
   </div>
 </div>
 
 <div class="row">
-  <div id="campaign-bubble" class="col-md-8"><svg style="width:100%;height:200px;border:1px solid white"></svg></div>
-  <div id="tooltip-container" class="col-md-4" style="height:200px">
-    <div id="tooltip-bubble"></div>
-    <div id="tooltip-map"></div>
-  </div>
+  <div id="campaign-bubble" class="col-md-12"><svg style="width:100%;height:250px;"></svg></div>
 </div>
+
+<div id="source">
+  <p>Data retrieved from:</p>
+  <a href="http://www.fec.gov/data/CandidateSummary.do">Federal Election Commission - Candidate Summary</a><br />
+  <a href="http://voteview.com/DWNOMIN.HTM">Vote View - DW Nominate Scores with Bootstrapped Standard Errors</a>
+</div>
+
 
 </div>
 <script>
+
+
+  var round = d3.format(".2f");
+  var thous = d3.format("0,000");
 
   var chart = c3.generate({
       bindto: '#campaign-totals',
@@ -145,17 +193,23 @@
 
   var redraw = function(value) {
     var value = $("#year-range").attr("value").toString()
-    //console.log(value);
+    console.log(value);
     $("#year-output").html(value)
     //var value = document.querySelector('#year-output').value;
 
     d3.select("#campaign-bubble svg")
+      .selectAll(".g")
+      .transition().duration(2000)
+      .style("opacity","0")
+    .remove();
+
+    d3.select("#map svg")
       .selectAll(".bubble")
       .transition().duration(2000)
       .style("opacity","0")
     .remove();
 
-  $("#tooltip-container").empty();
+
     campaignBubbles(value);
     mapBubbles(value);
   }
@@ -175,7 +229,9 @@
       //Author name and link to this page is sufficient attribution.
 
 
-      d3.csv('data/candidate-summary-test.csv', function(data) {    
+
+
+    d3.csv('data/candidate-summary-2008-2012.csv', function(data) {    
       //create data array//
 
       //console.log(data)
@@ -186,21 +242,28 @@
             var result= {
                 x: +obj.IdeologicalRank,
                 r: +obj.TotalReceipts/1000000,
-                rec: +obj.TotalReceipts/1000000,
-                rep: obj.Representative,
+                rec: +obj.TotalReceipts,
+                rep: obj.RepName_ipcsr,
                 party: obj.Party_name,
+                house: obj.House,
                 st: obj.State_full,
-                dist: obj.District,
-                year: obj.Year,
-                lat: +obj.Lat,
-                long: +obj.Long
+                dist: +obj.District,
+                year: +obj.Year,
+                lat: +obj.Dist_lat,
+                long: +obj.Dist_long,
+                url: obj.URL_FEC
             }
-            //console.log(result)
+
             return result;
         });
 
         data = data.filter(function(d){ return d.year == value; });
-        //console.log(JSON.stringify(data))
+
+        data = data.sort(
+                      function(a,b){
+                          return a[0] - b[0];
+                      });
+        //console.log(data)
 
         var partyNested = d3.nest()
           .key(function(d) {
@@ -270,7 +333,7 @@
       var digits = /(\d*)/;
       var margin = 50; //space in pixels from edges of SVG
       var padding = 1; //space in pixels between circles
-      var maxRadius = 2;
+      var maxRadius = 3;
       var biggestFirst = true; //should largest circles be added first?
 
       var width = window.getComputedStyle(svgBub[0][0])["width"];
@@ -319,7 +382,7 @@
           //Add gridlines
           svgBub.append("g")
             .attr("class", "grid")
-            .attr("transform", "translate(0," + 175 + ")")
+            .attr("transform", "translate(0," + 225 + ")")
             .call(d3.svg.axis().scale(xScale).ticks(5).tickSize(-height+100))
       
       //draw the baseline x-axis    
@@ -475,13 +538,11 @@
           ))          
         .enter()
           .append("circle")
-          /*.filter(function(d){
-            return d.year == value;
-          })*/
           .attr("r",0)
           .attr("cx",0)
           .transition().duration(2000)
-          .attr("r", function(d){
+          .attr("r", function(d,i){
+            //console.log(i,"Name:",d.rep);
             var r=rScale(d.r);
             maxR = Math.max(r,maxR);
             return r;
@@ -504,66 +565,143 @@
               quadroot.add(d);  
           });
 
-          // Create tooltip
-          var tooltip = d3.select("#tooltip-bubble").selectAll("div")
+
+          var tooltipHeader = d3.select("#tooltip-header").selectAll("div")
             .data(data)
             .enter()
             .append("div")
             .attr("id",function(d,i) {
               //console.log("tooltip: " + i); 
-              return "tooltip-" + i; 
+              return "tooltip-header-" + i; 
             })
-            .attr("class","tooltip")
             .style("opacity",0)
+            .style("position","absolute")
             .html(function(d) { 
-              return  "<table>" +
-              "<tr><td>Representative:</td><td> " + d.rep + "</td></tr>" +
-              "<tr><td>Party Scale:</td><td> " + d.x + "</td></tr>" +
-              "<tr><td>Campaign Receipts:</td><td> $" + d.rec + "M</td></tr>" +
-              "<tr><td>State:</td><td> " + d.st + "</td></tr>" + 
-              "<tr><td>District:</td><td> " + d.dist + "</td></tr>" +
-              "<tr><td>Year:</td><td> " + d.year + "</td></tr>"
+              return  d.rep;
             });
+
 
           //Call tooltip
           var toolitpMouseEvent = d3.selectAll(".bubble")
             .on("mouseover", function(d,i){ 
               //console.log(this)
+              d3.select("#tooltip-rep").style("opacity",0);
+              d3.select("#tooltip-rep").html(d.rep);
+              d3.select("#tooltip-rep").transition().duration(500).style("background-color",function(){ return colorScale(d.x); });
+              d3.select("#tooltip-rep").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-rec").style("opacity",0);
+              d3.select("#tooltip-rec").html("$"+thous(d.rec));
+              d3.select("#tooltip-rec").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-party").style("opacity",0);
+              d3.select("#tooltip-party").html(d.party);
+              d3.select("#tooltip-party").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-house").style("opacity",0);
+              d3.select("#tooltip-house").html(d.house);
+              d3.select("#tooltip-house").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-rank").style("opacity",0);
+              d3.select("#tooltip-rank").html(d.x);
+              d3.select("#tooltip-rank").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-state").style("opacity",0);
+              d3.select("#tooltip-state").html(d.st);
+              d3.select("#tooltip-state").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-district").style("opacity",0);
+              d3.select("#tooltip-district").html(d.dist);
+              d3.select("#tooltip-district").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-year").style("opacity",0);
+              d3.select("#tooltip-year").html(d.year);
+              d3.select("#tooltip-year").transition().duration(500).style("opacity",1);
+
+              d3.select("#tooltip-link-url").style("opacity",0);
+              d3.select("#tooltip-link-url").attr("href",d.url);
+              d3.select("#tooltip-link-url").transition().duration(500).style("opacity",1);
+              
+
+
               d3.select(this)
                 .transition()
                   .duration(250)
-                .style({"stroke":"white","stroke-width":".5"})
-                /*.attr("r", function(d,i) {
-                  return Math.sqrt(parseInt(+d.rec) * 20);
-                })*/
+                .attr("r",d.r*2)
+                .style("stroke","#fff")
+                .style("stroke-width",2)
+
+              /*d3.selectAll("#tooltip-message")
+                .transition()
+                  .duration(250)
+                .style("display", "none")*/
+
+              d3.selectAll("#bubble-map-" + i)
+                .transition()
+                  .duration(250)
+                .style("opacity", 1)
+                .style("stroke","#000")
+                .style("stroke-width",1)
+                .attr("r", function(d) {
+                  return Math.sqrt(parseInt(d.r) * 20);
+                })
+
+              d3.selectAll("#tooltip-header-" + i)
+                .transition()
+                  .duration(function(d) { return 250; })
+                .style("opacity",1)
+
               d3.selectAll("#tooltip-" + i)
                 .transition()
-                .duration(function(d) { return 250; })
+                  .duration(function(d) { return 250; })
                 .style("opacity",1)
             })
             .on("mouseout", function(d,i){
               d3.select(this)
-                .style({"stroke":"black","stroke-width":".5"})
-                /*.attr("r", function(d){
-                  var r=rScale(d.r);
-                  maxR = Math.max(r,maxR);
-                  return r;
-                })*/
-              d3.selectAll("#tooltip-" + i)
                 .transition()
-                .duration(function(d) { return 250; })
-                .style("opacity",0)
+                  .duration(function(d) { return 250; })
+                .attr("r", function(d){
+                  var r=rScale(d.r);
+                  //maxR = Math.max(r,maxR);
+                  console.log(r)
+                  return r;
+                })
+                .style({"stroke":"black","stroke-width":".5"})
+
+              d3.select("#bubble-map-" + i)
+                .transition()
+                  .duration(250)
+                .style("opacity", 0.75)
+                .style({"stroke":"black","stroke-width":".5"})
+                .attr("r", function(d) {
+                  //console.log(Math.sqrt(parseInt(d.r) * 10))
+                  return Math.sqrt(parseInt(d.r) * 10);
+                })
+
             })
       })     
   };
 
 
+//
+//
+//
+//     MAP MAP MAP MAP MAP
+//     MAP MAP MAP MAP MAP
+//     MAP MAP MAP MAP MAP
+//     MAP MAP MAP MAP MAP
+//
+//
+//
+//
+//
 
 
   //Map Width and height
   var w = 550;
-  var h = 400;
+  var h = 350;
   var active = d3.select(null);
+
 
   //Define map projection
   var projection = d3.geo.albersUsa()
@@ -587,20 +725,20 @@
     .attr("class", "map-background")
     .attr("width", w)
     .style("fill-opacity",0)
-    .style("stroke","#fff")
+    //.style("stroke","#fff")
     .attr("height", h)
     .on("click", reset);
 
-  
-
-  
-
   var g = map.append("g")
-    .style("stroke-width", "1.5px");
+    .style("stroke-width", "1.5px")
+    .attr("id","map-legend-container");
 
-    g.append("circle")
+$("#map-legend-container").append("<text id='map-legend'>Range</text>" +
+  "<circle r='12' cx='510' cy='280'></circle><circle r='3' cx='500' cy='280'></circle>")
+//var legend = '<circle r="20" cx="250" cy="300"></circle><circle r="10" cx="230" cy="300"></circle>'
+  g.append("circle")
     .attr("cx",510)
-    .attr("cy",360)
+    .attr("cy",280)
     .attr("r",12)
     .attr("stroke","#999")
     .attr("stroke-width",1)
@@ -626,22 +764,46 @@
               .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
         }
 
-        function reset() {
-          active.classed("active", false);
-          active = d3.select(null);
+  function reset() {
+    active.classed("active", false);
+    active = d3.select(null);
 
-          g.transition()
-              .duration(750)
-              .style("stroke-width", "1.5px")
-              .attr("transform", "");
-        }
+    g.transition()
+        .duration(750)
+        .style("stroke-width", "1.5px")
+        .attr("transform", "");
+  }
 
 var mapBubbles = function(value) {
+  console.log(value)
+
   var biggestFirst = true;
+  var maxRadius = 3;
+  var maxR = 0;
+
+  //var rScale = d3.scale.sqrt(10)  
+  var rScale = d3.scale.pow(1).exponent(1)  
+          //make radius proportional to square root of data r
+          .domain([-1,1])
+          .range([1,maxRadius]);
 
   var colorScale = d3.scale.threshold()
           .domain([-.75, -.5, -.25, 0, .25, .5, .75])
           .range(["#343ab4", "#6a81f2", "#97a7fb", "#d5dcff", "#ffdbdb", "#fdbaba", "#ed7979", "#d84c4c"]);
+
+
+  var zoom = d3.behavior.zoom()
+    .translate([0, 0])
+    .scale(1)
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);
+
+  function zoomed() {
+    console.log("zooming")
+    circles.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    //circles.select(".state-border").style("stroke-width", 1.5 / d3.event.scale + "px");
+    //circles.select(".county-border").style("stroke-width", .5 / d3.event.scale + "px");
+  }
 
   //Load in GeoJSON data
   d3.json("data/geo/us-states.json", function(json) {
@@ -656,36 +818,7 @@ var mapBubbles = function(value) {
        .attr("d", path)
       .on("click", clicked);;
 
-      // Add city labels
-    /*d3.csv("data/geo/us-capitals.csv", function(cities) {
-      //console.log(cities)
-      g.selectAll("circle")
-        .data(cities)
-        .enter()
-        .append("circle")
-        .style("fill","#252525")
-        .attr("cx", function(d) { return projection([d.longitude, d.latitude])[0]; })
-        .attr("cy", function(d) { return projection([d.longitude, d.latitude])[1]; })
-        .attr("r", 2)
-        .attr("class","capital-city");
-
-      g.selectAll(".place-label")
-        .data(cities)
-      .enter().append("text")
-        .attr("class", "place-label")
-        .attr("transform", function(d) { return "translate(" + projection([d.longitude, d.latitude]) + ")"; })
-        .attr("dy", ".35em")
-        .text(function(d) { return d.capital; })
-        .style({"font-size":".5em","fill":"#777"});
-
-      g.selectAll(".place-label")
-        .attr("x", function(d) { return d.longitude > -1 ? 6 : -6; })
-        .style("text-anchor", function(d) { return d.longitude > -1 ? "start" : "end"; });
-    })   
-    */
-
-    //Load in cities data
-    d3.csv("data/candidate-summary-test.csv", function(data) {
+    d3.csv("data/candidate-summary-2008-2012.csv", function(data) {
       
 
       data = data.map(function(obj){
@@ -694,44 +827,28 @@ var mapBubbles = function(value) {
             var result= {
                 x: +obj.IdeologicalRank,
                 r: +obj.TotalReceipts/1000000,
-                rec: +obj.TotalReceipts/1000000,
-                rep: obj.Representative,
+                rec: +obj.TotalReceipts,
+                rep: obj.RepName_ipcsr,
                 party: obj.Party_name,
+                house: obj.House,
                 st: obj.State_full,
-                dist: obj.District,
-                year: obj.Year,
+                dist: +obj.District,
+                year: +obj.Year,
                 lat: +obj.Dist_lat,
-                long: +obj.Dist_long
+                long: +obj.Dist_long,
+                url: obj.URL_FEC
             }
+            //console.log(+obj.Dist_lat,+obj.Dist_long);
             return result;
         });
 
-        data = data.filter(function(d){ return d.year == value; });
+        data = data.filter(function(d){ console.log(value); return d.year == value; });
 
-          // Create tooltip
-          var tooltip = d3.select("#tooltip-map").selectAll("div")
-            .data(data.sort(
-              biggestFirst ?
-                  function(a,b){return b.r - a.r;} :
-                  function(a,b){return a.r - b.r;}
-              ))
-            .enter()
-            .append("div")
-            .attr("id",function(d,i) {
-              //console.log("tooltip: " + i); 
-              return "tooltip-map-" + i; 
-            })
-            .attr("class","tooltip")
-            .style("opacity",0)
-            .html(function(d) { 
-              return  "<table>" +
-              "<tr><td>Representative:</td><td> " + d.rep + "</td></tr>" +
-              "<tr><td>Party Scale:</td><td> " + d.x + "</td></tr>" +
-              "<tr><td>Campaign Receipts:</td><td> $" + d.rec + "M</td></tr>" +
-              "<tr><td>State:</td><td> " + d.st + "</td></tr>" + 
-              "<tr><td>District:</td><td> " + d.dist + "</td></tr>" +
-              "<tr><td>Year:</td><td> " + d.year + "</td></tr>"
-            });
+        data = data.sort(
+          function(a,b){
+              return a[0] - b[0];
+          });
+        console.log(data);
 
       var circles = g.selectAll("circle")
          .data(data.sort(
@@ -744,93 +861,113 @@ var mapBubbles = function(value) {
          .attr("cx", w / 2)
          .attr("cy", h / 2)
          .attr("r", 1)
-         .attr("class",function(d,i){return i})
+         .attr("class",function(d,i){return "bubble"})
+         .attr("id",function(d,i){return "bubble-map-" + i})
          .style("fill-opacity", 0)
          .style("opacity", 0);
 
       circles.transition()
          .duration(1000)
-         .attr("cx", function(d) {
+         .attr("cx", function(d,i) {
+            console.log("Drawing Circles")
            return projection([d.long, d.lat])[0];
          })
          .attr("cy", function(d) {
            return projection([d.long, d.lat])[1];
          })
-         .attr("r", function(d) {
-          return Math.sqrt(parseInt(d.rec) * 10);
+         .attr("r", function(d,i) {
+          //console.log(i,"Name:",d.rep);
+          return Math.sqrt(parseInt(d.r) * 10);
          })
          .style("fill", function(d) { return isNaN(d.x) ? null : colorScale(d.x); })
          .style("stroke", "black")
          .style("stroke-width",.5)
-         .style("fill-opacity", 0.75)
-         .style("opacity", 1);
-
-
-
-          //Call tooltip
-          /*var toolitpMouseEvent = d3.selectAll(".bubble")
-            .on("mouseover", function(d,i){ 
-              //console.log(this)
-              d3.select(this)
-                .transition()
-                  .duration(250)
-                .style({"stroke":"white","stroke-width":".5"})
-              d3.selectAll("#tooltip-" + i)
-                .transition()
-                .duration(function(d) { return 250; })
-                .style("opacity",1)
-            })
-            .on("mouseout", function(d,i){
-              d3.select(this)
-                .style({"stroke":"black","stroke-width":".5"})
-              d3.selectAll("#tooltip-" + i)
-                .transition()
-                .duration(function(d) { return 250; })
-                .style("opacity",0)
-            })*/
+         .style("fill-opacity", 1)
+         .style("opacity", .75);
 
 
       circles.on("mouseover", function(d,i) {
         //console.log(this)
+
+        d3.select("#tooltip-rep").style("opacity",0);
+        d3.select("#tooltip-rep").html(d.rep);
+        d3.select("#tooltip-rep").transition().duration(500).style("background",function(){ return colorScale(this.x); });
+        d3.select("#tooltip-rep").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-rec").style("opacity",0);
+        d3.select("#tooltip-rec").html("$"+thous(d.rec));
+        d3.select("#tooltip-rec").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-party").style("opacity",0);
+        d3.select("#tooltip-party").html(d.party);
+        d3.select("#tooltip-party").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-house").style("opacity",0);
+        d3.select("#tooltip-house").html(d.house);
+        d3.select("#tooltip-house").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-rank").style("opacity",0);
+        d3.select("#tooltip-rank").html(d.x);
+        d3.select("#tooltip-rank").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-state").style("opacity",0);
+        d3.select("#tooltip-state").html(d.st);
+        d3.select("#tooltip-state").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-district").style("opacity",0);
+        d3.select("#tooltip-district").html(d.dist);
+        d3.select("#tooltip-district").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-year").style("opacity",0);
+        d3.select("#tooltip-year").html(d.year);
+        d3.select("#tooltip-year").transition().duration(500).style("opacity",1);
+
+        d3.select("#tooltip-link-url").style("opacity",0);
+        d3.select("#tooltip-link-url").attr("href",d.url);
+        d3.select("#tooltip-link-url").transition().duration(500).style("opacity",1);
+
         d3.select(this)
           .transition()
             .duration(250)
           .style("opacity", 1)
+          .style("stroke","#000")
+          .style("stroke-width",1)
           .attr("r", function(d) {
-            return Math.sqrt(parseInt(d.rec) * 20);
+            return Math.sqrt(parseInt(d.r) * 20);
           })
           .text( function(d) {
             return d.rep;
           })   
 
-        d3.selectAll("#tooltip-map-" + i)
-          .transition()
-          .duration(function(d) { return 250; })
-          .style("opacity",1)
-
         d3.selectAll("#bubble-" + i)
           .transition()
           .duration(function(d) { return 250; })
+          .attr("r",d.r*2)
           .style("stroke","#fff")
           .style("stroke-width",2)
+          .classed("blink",true)
 
       }).on("mouseout", function(d,i) {
         d3.select(this)
           .transition()
             .duration(250)
-          .style("opacity", 0.75)
+          .style("opacity", 1)
+          .style("stroke","#252525")
+          .style("stroke-width",.5)
           .attr("r", function(d) {
-            return Math.sqrt(parseInt(d.rec) * 10);
+            //console.log(Math.sqrt(parseInt(d.r) * 10))
+            return Math.sqrt(parseInt(d.r) * 10);
           })
-
-        d3.selectAll("#tooltip-map-" + i)
-          .transition()
-          .duration(function(d) { return 250; })
-          .style("opacity",0) 
 
         d3.selectAll("#bubble-" + i)
           .transition()
           .duration(function(d) { return 250; })
+          .attr("r", function(d){
+            var r=rScale(d.r);
+            //maxR = Math.max(r,maxR);
+            console.log(r)
+            return r;
+          })
           .style("stroke","#252525")
           .style("stroke-width",.5)
 
