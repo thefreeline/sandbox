@@ -39,18 +39,18 @@
 
 <body>
 
-<div id="main-container" class="col-md-10 col-md-offset-1">
+<div id="main-container" class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
   <div id="header" class="col-md-12 col-sm-12">
-    <div id="header-content" class="col-md-7">
+    <div id="header-content" class="col-md-7 col-sm-7">
       <h1>Money in Politics</h1>
       <h2>Exploring the Cost of Elections and Congressional Voting Patterns</h2>
     </div>
-    <div id="animation-controller" class="col-md-4 col-md-offset-1">
+    <div id="animation-controller" class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
       <!-- <div id="animation-buttons" class="col-md-6">
         <button type="button" id="play" class="active" onclick="animateBubbles()">PLAY</button>
         <button type="button" id="stop" class="" onclick="stopInterval()">STOP</button>
       </div> -->
-      <div id="animation-labels" class="col-md-12">
+      <div id="animation-labels" class="col-md-12 col-sm-12">
         <label id="rangeText" for="year">Selected Year: </label>
         <output for=year id="year-output">2008</output>
       </div>
@@ -63,16 +63,16 @@
     </div>
   </div>
 
-  <div style="height:20px" class="col-md-12"></div>
+  <div style="height:20px" class="col-md-12 col-sm-12"></div>
 
 
 
   <div class="row">
-    <div id="map" class="col-md-7"></div>
-    <div class="col-md-5">
+    <div id="map" class="col-md-7 col-sm-7"></div>
+    <div class="col-md-5 col-sm-5">
 
       <!-- <div id="tooltip-header" class="col-md-12"></div> -->
-      <div id="tooltip-container" class="col-md-12 col-sm-6">
+      <div id="tooltip-container" class="col-md-12 col-sm-12">
         <!-- <div id="tooltip-message">
           <p>The size to the bubbles are relative to the amount of compaign financing raised during the given election cycle.</p>
           <p>The bottom chart represents the strength of each congressional member's party affiliation</p>
@@ -147,6 +147,7 @@
   var updateRange = function() {
       $('#rangeText').text(rangeValues[$('#rangeInput').val()]);
       $('#rangeInput').on('change', function () {
+        console.log('here')
           $('#rangeText').text(rangeValues[$(this).val()]);
       });
   };
@@ -157,11 +158,22 @@
   // Control the scroll position of the fixed information container
   $(window).scroll(function(){
     var pos = $(this).scrollTop();
+    var winWidth = $(window).width();
+    //console.log("scrollTop",pos)
+    //console.log("width",winWidth);
+    /*if (winWidth < 767 ) {
+      $("#tooltip-message").css({"position":"relative","top":"0px"});
+    } else {
+      $("#tooltip-message").css({"position":"fixed","top":"125px"});
+    }*/
+
+
     if (pos > 245) {
-      $("#tooltip-message").css({"position":"relative","top":"205px"});
+        $("#tooltip-message").css({"position":"relative","top":"205px"});
     } else {
       $("#tooltip-message").css({"position":"fixed","top":"125px"});
     }
+
   });
 
   var rangeClick = function() {
@@ -228,6 +240,51 @@
     rollupSpending(value);
   }
 
+  d3.select(window).on('resize', resize);
+
+  function resize() {
+      // adjust things when the window size changes
+      width = parseInt(d3.select('#map').style('width'));
+      width = width - margin.left - margin.right;
+      height = width * mapRatio;
+
+      // update projection
+      projection
+          .translate([width / 2, height / 2])
+          .scale(width);
+
+      // resize the map container
+      map
+          .style('width', width + 'px')
+          .style('height', height + 'px');
+
+      // resize the map
+      map.select('.land').attr('d', path);
+      map.selectAll('.state').attr('d', path);
+
+      d3.csv("data/candidate-summary-2008-2012.csv", function(data) {
+
+        var circles = d3.select("#states").selectAll("circle")
+
+        circles.transition()
+           .duration(1000)
+           .attr("cx", function(d,i) {
+             return projection([d.long, d.lat])[0];
+           })
+           .attr("cy", function(d) {
+             return projection([d.long, d.lat])[1];
+           })
+           .attr("r", function(d,i) {
+            //console.log(i,"Name:",d.rep);
+            return Math.sqrt(parseInt(d.r) * 10);
+           })
+           .style("fill", function(d) { return isNaN(d.x) ? null : colorScale(d.x); })
+           .style("stroke", "black")
+           .style("stroke-width",.5)
+           .style("fill-opacity", 1)
+           .style("opacity", .75);
+      })
+  }
 
   var rollupSpending = function(value) {
     
@@ -425,9 +482,6 @@
       //http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html
       //Freely released for any purpose under Creative Commons Attribution licence: http://creativecommons.org/licenses/by/3.0/
       //Author name and link to this page is sufficient attribution.
-
-
-
 
     d3.csv('data/candidate-summary-2008-2012.csv', function(data) {    
       //create data array//
@@ -805,12 +859,46 @@
 //
 //
 
+  //set zoom function for map
+  function clicked(d) {
+          if (active.node() === this) return reset();
+          active.classed("active", false);
+          active = d3.select(this).classed("active", true);
+
+          var bounds = path.bounds(d),
+              dx = bounds[1][0] - bounds[0][0],
+              dy = bounds[1][1] - bounds[0][1],
+              x = (bounds[0][0] + bounds[1][0]) / 2,
+              y = (bounds[0][1] + bounds[1][1]) / 2,
+              scale = .9 / Math.max(dx / w, dy / h),
+              translate = [w / 2 - scale * x, h / 2 - scale * y];
+
+          g.transition()
+              .duration(750)
+              .style("stroke-width", 1.5 / scale + "px")
+              .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+        }
+
+  //set zoom reset function for map
+  function reset() {
+    active.classed("active", false);
+    active = d3.select(null);
+
+    g.transition()
+        .duration(750)
+        .style("stroke-width", "1.5px")
+        .attr("transform", "");
+  }
 
   //Map Width and height
-  var w = 700;
-  var h = 350;
-  var active = d3.select(null);
-
+  //var w = 700;
+  //var h = 350;
+  var margin = {top: 10, left: 10, bottom: 10, right: 10}
+  , w = parseInt(d3.select('#map').style('width'))
+  , w = w - margin.left - margin.right
+  , mapRatio = .5
+  , h = w * mapRatio
+  , active = d3.select(null);
 
   //Define map projection
   var projection = d3.geo.albersUsa()
@@ -844,39 +932,10 @@
     .style("stroke-width", "1.5px")
     .attr("id","map-legend-container");
 
-$("#map-legend-container").append("<text id='map-legend'>Range</text>" +
-  "<circle r='12' cx='510' cy='280'></circle><circle r='3' cx='500' cy='280'></circle>")
-//var legend = '<circle r="20" cx="250" cy="300"></circle><circle r="10" cx="230" cy="300"></circle>'
+  //$("#map-legend-container").append("<text id='map-legend'>Range</text>" +
+  //  "<circle r='12' cx='510' cy='280'></circle><circle r='3' cx='500' cy='280'></circle>")
+  //var legend = '<circle r="20" cx="250" cy="300"></circle><circle r="10" cx="230" cy="300"></circle>'
 
-
-  function clicked(d) {
-          if (active.node() === this) return reset();
-          active.classed("active", false);
-          active = d3.select(this).classed("active", true);
-
-          var bounds = path.bounds(d),
-              dx = bounds[1][0] - bounds[0][0],
-              dy = bounds[1][1] - bounds[0][1],
-              x = (bounds[0][0] + bounds[1][0]) / 2,
-              y = (bounds[0][1] + bounds[1][1]) / 2,
-              scale = .9 / Math.max(dx / w, dy / h),
-              translate = [w / 2 - scale * x, h / 2 - scale * y];
-
-          g.transition()
-              .duration(750)
-              .style("stroke-width", 1.5 / scale + "px")
-              .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-        }
-
-  function reset() {
-    active.classed("active", false);
-    active = d3.select(null);
-
-    g.transition()
-        .duration(750)
-        .style("stroke-width", "1.5px")
-        .attr("transform", "");
-  }
 
 var mapBubbles = function(value) {
 
@@ -910,14 +969,16 @@ var mapBubbles = function(value) {
 var data = {};
   //Load in GeoJSON data
   d3.json("data/geo/us-states.json", function(json) {
-    
+    //console.log(json);
     //Bind data and create one path per GeoJSON feature
-    g.append("g")
+    map.append("g")
       .attr("id", "states")
       .selectAll("path")
        .data(json.features)
       .enter()
        .append("path")
+       .attr("class","state")
+       .attr("id", function(d){ return d.properties.name; })
        .attr("d", path)
       .on("click", clicked);;
 
@@ -946,33 +1007,27 @@ var data = {};
             return result;
         });
 
-        data = data.filter(function(d){ return d.year == value; });
+        //data = data.filter(function(d){ return d.year == value; });
 
         data = data.sort(
           function(a,b){
               return a[0] - b[0];
           });
 
-      /*var legend = g.selectAll("circle")
-        .data(data)
-        .enter()
-      .append("circle")
-        .attr("cx",510)
-        .attr("cy",280)
-        .attr("r",function(d){ return d3.max(d.r)})
-        .attr("stroke","#999")
-        .attr("stroke-width",1)
-        .attr("fill","#252525")
-        .attr("class","map-legend");*/
+        console.log(data);
 
-      var circles = g.selectAll("circle")
+      var circles = map.selectAll("circle")
          .data(data.sort(
           biggestFirst ?
               function(a,b){return b.r - a.r;} :
               function(a,b){return a.r - b.r;}
-          ))
-         .enter()
-         .append("circle")
+          ));
+
+      // /circles.exit().remove();
+
+      var circlesBound = circles.enter()
+        .append("circle")
+        .filter(function(d){ console.log(value,d); return +d.year == +value; })
          .attr("cx", w / 2)
          .attr("cy", h / 2)
          .attr("r", 1)
@@ -981,7 +1036,7 @@ var data = {};
          .style("fill-opacity", 0)
          .style("opacity", 0);
 
-      circles.transition()
+      circlesBound.transition()
          .duration(1000)
          .attr("cx", function(d,i) {
            return projection([d.long, d.lat])[0];
@@ -999,8 +1054,7 @@ var data = {};
          .style("fill-opacity", 1)
          .style("opacity", .75);
 
-
-      circles.on("mouseover", function(d,i) {
+      circlesBound.on("mouseover", function(d,i) {
         //console.log(this)
 
         d3.select("#tooltip-content-wrapper").style("display","inline-block");
@@ -1094,8 +1148,5 @@ var data = {};
   
 </script>
 
-</body>
-
-    
 </body>
 </html>
