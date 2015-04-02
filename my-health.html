@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My Health</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link href='http://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/normalize.css">        
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="css/cal-heatmap/cal-heatmap.css">
+        <link rel="stylesheet" href="css/my-health.css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="js/cal-heatmap/cal-heatmap.min.js"></script>
+        
+        <style type="text/css">
+        h1 {
+            color: #fff;
+            padding: 5px 20px;
+        }
+
+        body {
+            background-color: #3A3D47;
+        }
+
+        </style>
+
+
+</head>    
+
+<body>
+
+<h1>Gotta quick smoking. You can do it!!</h1>
+
+<div id='cal-heatmap'></div>
+
+</body>
+
+<script type="text/javascript">
+
+d3.csv('data/my-health.csv',function(error, data){
+
+    var parseDate = d3.time.format("%m/%d/%y").parse;
+
+    var stats = {};
+
+    data.forEach(function(d){
+        var date = Date.parse(parseDate(d["Date"])).toString(),
+            newDate = date.substring(0,date.length - 3);
+        console.log(newDate)
+        stats[newDate] = +d["Cigs"]; 
+        return stats;
+    })
+
+    var cal = new CalHeatMap();
+    cal.init({
+        // data: stats,
+        data: stats,
+        start: new Date(2015, 02),
+        id : "cal-heatmap",
+        scale: [0,10],    // Custom threshold for the scale
+        legend:[1,4,7,10],
+        domainGutter: 0,
+        domainMargin:0,
+        domain: "year",
+        subDomain: "day",
+        cellSize: 15,
+        subDomainTextFormat: "%d",
+        cellradius: 2,
+        domain : "month",           // Group data by month
+        subDomain : "day",          // Split each month by days
+        range : 10,                 // Just display 3 months
+        tooltip: true,
+        itemName: "smoke"
+    });    
+})
+
+</script>
+
+
+
+</html>

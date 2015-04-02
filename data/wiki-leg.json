@@ -1,0 +1,2235 @@
+[
+  {
+    "query-continue": {
+      "revisions": {
+        "rvcontinue": 526405957
+      }
+    }, 
+    "query": {
+      "pages": {
+        "7811761": {
+          "ns": 0, 
+          "pageid": 7811761, 
+          "revisions": [
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2015-03-29T20:10:14Z", 
+              "userid": 0, 
+              "revid": 654078401, 
+              "anon": "", 
+              "user": "68.194.85.167", 
+              "parentid": 652791579, 
+              "size": 38999
+            }, 
+            {
+              "comment": "Dating maintenance tags: {{Dubious}}", 
+              "tags": [], 
+              "timestamp": "2015-03-20T21:42:13Z", 
+              "userid": 7611264, 
+              "revid": 652791579, 
+              "user": "AnomieBOT", 
+              "parentid": 652788782, 
+              "minor": "", 
+              "size": 39002
+            }, 
+            {
+              "comment": "/* Early life, education, and academic career */ flagged dubious statement", 
+              "tags": [], 
+              "timestamp": "2015-03-20T21:21:14Z", 
+              "userid": 5350778, 
+              "revid": 652788782, 
+              "user": "Piledhigheranddeeper", 
+              "parentid": 648540858, 
+              "minor": "", 
+              "size": 38986
+            }, 
+            {
+              "comment": "/* Committee assignments (113th Congress) */", 
+              "tags": [], 
+              "timestamp": "2015-02-23T22:08:55Z", 
+              "userid": 0, 
+              "revid": 648540858, 
+              "anon": "", 
+              "user": "66.67.32.161", 
+              "parentid": 647795550, 
+              "size": 38975
+            }, 
+            {
+              "comment": "/* Issues */", 
+              "tags": [], 
+              "timestamp": "2015-02-19T01:12:20Z", 
+              "userid": 0, 
+              "revid": 647795550, 
+              "anon": "", 
+              "user": "50.102.39.60", 
+              "parentid": 647795445, 
+              "size": 38962
+            }, 
+            {
+              "comment": "/* Isues */", 
+              "tags": [], 
+              "timestamp": "2015-02-19T01:11:30Z", 
+              "userid": 0, 
+              "revid": 647795445, 
+              "anon": "", 
+              "user": "50.102.39.60", 
+              "parentid": 647769020, 
+              "size": 38961
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-18T21:42:19Z", 
+              "userid": 23233811, 
+              "revid": 647769020, 
+              "user": "Spongebob1944", 
+              "parentid": 647734027, 
+              "size": 38962
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/Ihatedemocratsbecauseofobama|Ihatedemocratsbecauseofobama]] ([[User talk:Ihatedemocratsbecauseofobama|talk]]) to last revision by ClueBot NG ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2015-02-18T17:23:52Z", 
+              "userid": 820190, 
+              "revid": 647734027, 
+              "user": "IronGargoyle", 
+              "parentid": 647733929, 
+              "minor": "", 
+              "size": 38951
+            }, 
+            {
+              "comment": "Added content", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-18T17:23:14Z", 
+              "userid": 24165612, 
+              "revid": 647733929, 
+              "user": "Ihatedemocratsbecauseofobama", 
+              "parentid": 647733372, 
+              "size": 38953
+            }, 
+            {
+              "comment": "Reverting possible vandalism by [[Special:Contributions/Ihatedemocratsbecauseofobama|Ihatedemocratsbecauseofobama]] to version by Spongebob1944. False positive? [[User:ClueBot NG/FalsePositives|Report it]]. Thanks, [[User:ClueBot NG|ClueBot NG]]. (2131...", 
+              "tags": [], 
+              "timestamp": "2015-02-18T17:19:13Z", 
+              "userid": 13286072, 
+              "revid": 647733372, 
+              "user": "ClueBot NG", 
+              "parentid": 647733364, 
+              "minor": "", 
+              "size": 38951
+            }, 
+            {
+              "comment": "Fixed typo", 
+              "tags": [
+                "canned edit summary", 
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-18T17:19:11Z", 
+              "userid": 24165612, 
+              "revid": 647733364, 
+              "user": "Ihatedemocratsbecauseofobama", 
+              "parentid": 647502665, 
+              "size": 38964
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-17T04:31:05Z", 
+              "userid": 23233811, 
+              "revid": 647502665, 
+              "user": "Spongebob1944", 
+              "parentid": 647491859, 
+              "size": 38951
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-17T02:36:35Z", 
+              "userid": 23233811, 
+              "revid": 647491859, 
+              "user": "Spongebob1944", 
+              "parentid": 646856931, 
+              "size": 38948
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-12T22:06:59Z", 
+              "userid": 23233811, 
+              "revid": 646856931, 
+              "user": "Spongebob1944", 
+              "parentid": 645244273, 
+              "size": 38945
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2015-02-02T01:58:43Z", 
+              "userid": 1522828, 
+              "revid": 645244273, 
+              "user": "Therequiembellishere", 
+              "parentid": 641294771, 
+              "minor": "", 
+              "size": 38913
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2015-01-06T20:35:03Z", 
+              "userid": 0, 
+              "revid": 641294771, 
+              "anon": "", 
+              "user": "24.188.196.25", 
+              "parentid": 638428406, 
+              "size": 38907
+            }, 
+            {
+              "comment": "removal: quoted line not in citation", 
+              "tags": [], 
+              "timestamp": "2014-12-17T00:27:45Z", 
+              "userid": 0, 
+              "revid": 638428406, 
+              "anon": "", 
+              "user": "71.68.61.89", 
+              "parentid": 638128243, 
+              "size": 38907
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-12-15T01:36:58Z", 
+              "userid": 1522828, 
+              "revid": 638128243, 
+              "user": "Therequiembellishere", 
+              "parentid": 638128113, 
+              "minor": "", 
+              "size": 39275
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-12-15T01:35:58Z", 
+              "userid": 1522828, 
+              "revid": 638128113, 
+              "user": "Therequiembellishere", 
+              "parentid": 638040038, 
+              "size": 39264
+            }, 
+            {
+              "comment": "add new Ranking Member status", 
+              "tags": [], 
+              "timestamp": "2014-12-14T12:28:15Z", 
+              "userid": 454904, 
+              "revid": 638040038, 
+              "user": "Dauster", 
+              "parentid": 634652266, 
+              "size": 38955
+            }, 
+            {
+              "comment": "clean up; http->https or pr-URI, per [[Wikipedia:Village_pump_(policy)/Archive_111#As_WP_uses_HTTPS.2C_should_.28some.29_external_links.2C_too.3F|VPP]] using [[Project:AWB|AWB]]", 
+              "tags": [], 
+              "timestamp": "2014-11-20T05:14:58Z", 
+              "userid": 88026, 
+              "revid": 634652266, 
+              "user": "Bender235", 
+              "parentid": 632824807, 
+              "minor": "", 
+              "size": 38510
+            }, 
+            {
+              "comment": "Revert to revision 630563386 dated 2014-10-21 20:40:24 by Bgwhite using [[:en:Wikipedia:Tools/Navigation_popups|popups]]", 
+              "tags": [], 
+              "timestamp": "2014-11-07T13:32:13Z", 
+              "userid": 5513235, 
+              "revid": 632824807, 
+              "user": "Gnome de plume", 
+              "parentid": 632790099, 
+              "size": 38540
+            }, 
+            {
+              "comment": "/* Elections */", 
+              "tags": [], 
+              "timestamp": "2014-11-07T04:53:05Z", 
+              "userid": 23093283, 
+              "revid": 632790099, 
+              "user": "Watchdog12345", 
+              "parentid": 631895069, 
+              "size": 39239
+            }, 
+            {
+              "comment": "/* Health care */", 
+              "tags": [], 
+              "timestamp": "2014-10-31T15:07:48Z", 
+              "userid": 23017727, 
+              "revid": 631895069, 
+              "user": "Agency94", 
+              "parentid": 630563386, 
+              "size": 38849
+            }, 
+            {
+              "comment": "fix table using [[Project:AWB|AWB]] (10480)", 
+              "tags": [], 
+              "timestamp": "2014-10-21T20:40:24Z", 
+              "userid": 264323, 
+              "revid": 630563386, 
+              "user": "Bgwhite", 
+              "parentid": 629994315, 
+              "size": 38540
+            }, 
+            {
+              "comment": "/* External links */work through redir USRSB to USRepSuccessionBox, replaced: USRSB \u2192 USRepSuccessionBox using [[Project:AWB|AWB]]", 
+              "tags": [], 
+              "timestamp": "2014-10-17T15:41:23Z", 
+              "userid": 6561336, 
+              "revid": 629994315, 
+              "user": "Bazj", 
+              "parentid": 627317835, 
+              "minor": "", 
+              "size": 38638
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [], 
+              "timestamp": "2014-09-27T20:09:21Z", 
+              "userid": 1994682, 
+              "revid": 627317835, 
+              "user": "KConWiki", 
+              "parentid": 626390067, 
+              "size": 38625
+            }, 
+            {
+              "comment": "Grammar nitpick", 
+              "tags": [], 
+              "timestamp": "2014-09-20T21:14:59Z", 
+              "userid": 2422472, 
+              "revid": 626390067, 
+              "user": "Peter Chastain", 
+              "parentid": 625969089, 
+              "minor": "", 
+              "size": 38626
+            }, 
+            {
+              "comment": "Reverted 1 edit by [[Special:Contributions/98.102.64.81|98.102.64.81]] identified as test/vandalism using [[WP:STiki|STiki]]", 
+              "tags": [], 
+              "timestamp": "2014-09-17T16:50:18Z", 
+              "userid": 14882394, 
+              "revid": 625969089, 
+              "user": "MusikAnimal", 
+              "parentid": 625959054, 
+              "minor": "", 
+              "size": 38629
+            }, 
+            {
+              "comment": "/* Gay rights */", 
+              "tags": [], 
+              "timestamp": "2014-09-17T15:24:12Z", 
+              "userid": 0, 
+              "revid": 625959054, 
+              "anon": "", 
+              "user": "98.102.64.81", 
+              "parentid": 625243510, 
+              "size": 38774
+            }, 
+            {
+              "comment": "/* Foreign policy */ bill he introduced", 
+              "tags": [], 
+              "timestamp": "2014-09-12T14:25:43Z", 
+              "userid": 17295145, 
+              "revid": 625243510, 
+              "user": "HistoricMN44", 
+              "parentid": 624467949, 
+              "size": 38629
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-09-06T22:13:24Z", 
+              "userid": 9441415, 
+              "revid": 624467949, 
+              "user": "Americus55", 
+              "parentid": 623529804, 
+              "size": 37709
+            }, 
+            {
+              "comment": "/* Health care */ Remove unsourced promotional material", 
+              "tags": [], 
+              "timestamp": "2014-08-31T03:36:01Z", 
+              "userid": 16379964, 
+              "revid": 623529804, 
+              "user": "Champaign Supernova", 
+              "parentid": 623529680, 
+              "size": 37616
+            }, 
+            {
+              "comment": "/* Bank and finance industry consolidation */", 
+              "tags": [], 
+              "timestamp": "2014-08-31T03:34:19Z", 
+              "userid": 16379964, 
+              "revid": 623529680, 
+              "user": "Champaign Supernova", 
+              "parentid": 621446697, 
+              "minor": "", 
+              "size": 37762
+            }, 
+            {
+              "comment": "/* Gay rights */", 
+              "tags": [], 
+              "timestamp": "2014-08-16T04:50:28Z", 
+              "userid": 0, 
+              "revid": 621446697, 
+              "anon": "", 
+              "user": "67.210.39.203", 
+              "parentid": 621440386, 
+              "size": 37759
+            }, 
+            {
+              "comment": "/* Trade */", 
+              "tags": [], 
+              "timestamp": "2014-08-16T03:24:21Z", 
+              "userid": 21920172, 
+              "revid": 621440386, 
+              "user": "FactCheck147", 
+              "parentid": 620472170, 
+              "size": 37761
+            }, 
+            {
+              "comment": "added [[Category:Democratic Party members of the United States House of Representatives]] using [[WP:HC|HotCat]]", 
+              "tags": [], 
+              "timestamp": "2014-08-09T07:02:28Z", 
+              "userid": 6454287, 
+              "revid": 620472170, 
+              "user": "Good Olfactory", 
+              "parentid": 618749651, 
+              "size": 37393
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2014-07-28T01:17:20Z", 
+              "userid": 21770567, 
+              "revid": 618749651, 
+              "user": "Doorcar", 
+              "parentid": 617832331, 
+              "size": 37309
+            }, 
+            {
+              "comment": "Improved language", 
+              "tags": [], 
+              "timestamp": "2014-07-21T11:27:50Z", 
+              "userid": 21828575, 
+              "revid": 617832331, 
+              "user": "Tenthrow", 
+              "parentid": 617796369, 
+              "size": 37285
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-07-21T04:20:57Z", 
+              "userid": 0, 
+              "revid": 617796369, 
+              "anon": "", 
+              "user": "166.147.72.164", 
+              "parentid": 617668394, 
+              "size": 37283
+            }, 
+            {
+              "comment": "minor typo", 
+              "tags": [], 
+              "timestamp": "2014-07-20T05:15:29Z", 
+              "userid": 0, 
+              "revid": 617668394, 
+              "anon": "", 
+              "user": "222.155.140.31", 
+              "parentid": 616180134, 
+              "size": 37242
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/Veto118|Veto118]] ([[User talk:Veto118|talk]]): addition of [[WP:CITE|unsourced content]] ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2014-07-09T04:38:03Z", 
+              "userid": 21673524, 
+              "revid": 616180134, 
+              "user": "The Last Arietta", 
+              "parentid": 616180102, 
+              "minor": "", 
+              "size": 37243
+            }, 
+            {
+              "comment": "/* Trade */", 
+              "tags": [], 
+              "timestamp": "2014-07-09T04:37:47Z", 
+              "userid": 21781708, 
+              "revid": 616180102, 
+              "user": "Veto118", 
+              "parentid": 612207695, 
+              "size": 37453
+            }, 
+            {
+              "comment": "/* Personal life */", 
+              "tags": [
+                "gettingstarted edit"
+              ], 
+              "timestamp": "2014-06-09T12:47:48Z", 
+              "userid": 21584756, 
+              "revid": 612207695, 
+              "user": "Nolakoddie", 
+              "parentid": 612207618, 
+              "size": 37243
+            }, 
+            {
+              "comment": "/* Personal life */", 
+              "tags": [
+                "gettingstarted edit"
+              ], 
+              "timestamp": "2014-06-09T12:46:54Z", 
+              "userid": 21584756, 
+              "revid": 612207618, 
+              "user": "Nolakoddie", 
+              "parentid": 612207552, 
+              "size": 37246
+            }, 
+            {
+              "comment": "/* Personal life */", 
+              "tags": [
+                "gettingstarted edit"
+              ], 
+              "timestamp": "2014-06-09T12:46:19Z", 
+              "userid": 21584756, 
+              "revid": 612207552, 
+              "user": "Nolakoddie", 
+              "parentid": 612207482, 
+              "size": 37243
+            }, 
+            {
+              "comment": "/* Personal life */", 
+              "tags": [
+                "gettingstarted edit"
+              ], 
+              "timestamp": "2014-06-09T12:45:43Z", 
+              "userid": 21584756, 
+              "revid": 612207482, 
+              "user": "Nolakoddie", 
+              "parentid": 606957150, 
+              "size": 37242
+            }, 
+            {
+              "comment": "[[WP:CHECKWIKI]] error fixes using [[Project:AWB|AWB]] (10093)", 
+              "tags": [], 
+              "timestamp": "2014-05-03T23:02:32Z", 
+              "userid": 7328338, 
+              "revid": 606957150, 
+              "user": "Yobot", 
+              "parentid": 606357620, 
+              "minor": "", 
+              "size": 37042
+            }, 
+            {
+              "comment": "/* U.S. House of Representatives */ secretary of state signature document", 
+              "tags": [], 
+              "timestamp": "2014-04-29T17:25:07Z", 
+              "userid": 21293854, 
+              "revid": 606357620, 
+              "user": "Incroyidible", 
+              "parentid": 604095599, 
+              "minor": "", 
+              "size": 37044
+            }, 
+            {
+              "comment": "/* Elections */CiteCompletion, dates: 1,  using [[Project:AWB|AWB]] (10067)", 
+              "tags": [], 
+              "timestamp": "2014-04-14T01:58:12Z", 
+              "userid": 10996774, 
+              "revid": 604095599, 
+              "user": "RjwilmsiBot", 
+              "parentid": 602659278, 
+              "minor": "", 
+              "size": 36858
+            }, 
+            {
+              "comment": "Although the article claimed that Brown was born in Avon, the source given states he was born in Mansfield.", 
+              "tags": [], 
+              "timestamp": "2014-04-04T00:41:41Z", 
+              "userid": 0, 
+              "revid": 602659278, 
+              "anon": "", 
+              "user": "65.186.200.164", 
+              "parentid": 594461515, 
+              "size": 36837
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2014-02-08T03:00:42Z", 
+              "userid": 0, 
+              "revid": 594461515, 
+              "anon": "", 
+              "user": "98.112.121.46", 
+              "parentid": 594046617, 
+              "size": 36827
+            }, 
+            {
+              "comment": "Undid revision 593937877 by [[Special:Contributions/70.235.86.228|70.235.86.228]] ([[User talk:70.235.86.228|talk]])See [[User talk:70.235.86.228]]", 
+              "tags": [], 
+              "timestamp": "2014-02-05T14:00:54Z", 
+              "userid": 0, 
+              "revid": 594046617, 
+              "anon": "", 
+              "user": "71.23.178.214", 
+              "parentid": 593937877, 
+              "size": 36827
+            }, 
+            {
+              "comment": "standard headers", 
+              "tags": [], 
+              "timestamp": "2014-02-04T20:14:08Z", 
+              "userid": 0, 
+              "revid": 593937877, 
+              "anon": "", 
+              "user": "70.235.86.228", 
+              "parentid": 593897300, 
+              "size": 36703
+            }, 
+            {
+              "comment": "/* External links */ Further reading, removed dead link", 
+              "tags": [], 
+              "timestamp": "2014-02-04T15:23:03Z", 
+              "userid": 0, 
+              "revid": 593897300, 
+              "anon": "", 
+              "user": "71.23.178.214", 
+              "parentid": 586850780, 
+              "size": 36827
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-12-19T21:59:17Z", 
+              "userid": 44020, 
+              "revid": 586850780, 
+              "user": "Everyking", 
+              "parentid": 581269162, 
+              "minor": "", 
+              "size": 36838
+            }, 
+            {
+              "comment": "Reverting possible vandalism by [[Special:Contributions/72.11.18.7|72.11.18.7]] to version by 71.67.171.194. False positive? [[User:ClueBot NG/FalsePositives|Report it]]. Thanks, [[User:ClueBot NG|ClueBot NG]]. (1581150) (Bot)", 
+              "tags": [], 
+              "timestamp": "2013-11-12T01:41:00Z", 
+              "userid": 13286072, 
+              "revid": 581269162, 
+              "user": "ClueBot NG", 
+              "parentid": 581269154, 
+              "minor": "", 
+              "size": 36810
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-11-12T01:40:52Z", 
+              "userid": 0, 
+              "revid": 581269154, 
+              "anon": "", 
+              "user": "72.11.18.7", 
+              "parentid": 579204317, 
+              "size": 36818
+            }, 
+            {
+              "comment": "/* Early life, education, and academic career */", 
+              "tags": [], 
+              "timestamp": "2013-10-29T01:22:55Z", 
+              "userid": 0, 
+              "revid": 579204317, 
+              "anon": "", 
+              "user": "71.67.171.194", 
+              "parentid": 579204164, 
+              "size": 36810
+            }, 
+            {
+              "comment": "/* Early life, education, and academic career */", 
+              "tags": [], 
+              "timestamp": "2013-10-29T01:21:56Z", 
+              "userid": 0, 
+              "revid": 579204164, 
+              "anon": "", 
+              "user": "71.67.171.194", 
+              "parentid": 577491046, 
+              "size": 36815
+            }, 
+            {
+              "comment": "/* Electoral history */ grammar", 
+              "tags": [], 
+              "timestamp": "2013-10-16T22:18:15Z", 
+              "userid": 0, 
+              "revid": 577491046, 
+              "anon": "", 
+              "user": "107.214.30.15", 
+              "parentid": 575299643, 
+              "size": 36820
+            }, 
+            {
+              "comment": "/* Health care */ notably, he didn't accept the perk of his Congressional health care package", 
+              "tags": [], 
+              "timestamp": "2013-10-01T15:12:57Z", 
+              "userid": 2868122, 
+              "revid": 575299643, 
+              "user": "Johnpdeever", 
+              "parentid": 574179103, 
+              "size": 36816
+            }, 
+            {
+              "comment": "CiteCompletion, dates: 1, works/pubs: 1, authors: 3, titles: 1,  using [[Project:AWB|AWB]] (9488)", 
+              "tags": [], 
+              "timestamp": "2013-09-23T13:22:42Z", 
+              "userid": 10996774, 
+              "revid": 574179103, 
+              "user": "RjwilmsiBot", 
+              "parentid": 573997086, 
+              "minor": "", 
+              "size": 36670
+            }, 
+            {
+              "comment": "minor fixes, mostly [[Wikipedia:Disambiguation pages with links|disambig links]] using [[Project:AWB|AWB]]", 
+              "tags": [], 
+              "timestamp": "2013-09-22T03:20:26Z", 
+              "userid": 196446, 
+              "revid": 573997086, 
+              "user": "BD2412", 
+              "parentid": 573855341, 
+              "minor": "", 
+              "size": 36490
+            }, 
+            {
+              "comment": "/* Elections */clean up, replaced: the little known \u2192 the little-known using [[Project:AWB|AWB]]", 
+              "tags": [], 
+              "timestamp": "2013-09-21T01:34:42Z", 
+              "userid": 16460235, 
+              "revid": 573855341, 
+              "user": "Khazar2", 
+              "parentid": 569740994, 
+              "minor": "", 
+              "size": 36530
+            }, 
+            {
+              "comment": "/* External links */ conglinks", 
+              "tags": [], 
+              "timestamp": "2013-08-22T16:04:34Z", 
+              "userid": 0, 
+              "revid": 569740994, 
+              "anon": "", 
+              "user": "184.78.81.245", 
+              "parentid": 569426128, 
+              "size": 36530
+            }, 
+            {
+              "comment": "Added signature to infobox", 
+              "tags": [], 
+              "timestamp": "2013-08-20T16:14:48Z", 
+              "userid": 5507602, 
+              "revid": 569426128, 
+              "user": "Jarrad24k", 
+              "parentid": 562809756, 
+              "size": 36429
+            }, 
+            {
+              "comment": "[[User:Evano1van/India_LinkRot_Fix|Fixing]] ToI link", 
+              "tags": [], 
+              "timestamp": "2013-07-04T09:28:23Z", 
+              "userid": 18417984, 
+              "revid": 562809756, 
+              "user": "Evano1van", 
+              "parentid": 562144180, 
+              "minor": "", 
+              "size": 36385
+            }, 
+            {
+              "comment": "Merely being a pro-LGBT-rights politician isn't really a good reason to put anyone in this category - many Dems would be in there and that does not help navigate", 
+              "tags": [], 
+              "timestamp": "2013-06-29T18:37:19Z", 
+              "userid": 555794, 
+              "revid": 562144180, 
+              "user": "Roscelese", 
+              "parentid": 562104429, 
+              "size": 36381
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-06-29T12:31:43Z", 
+              "userid": 0, 
+              "revid": 562104429, 
+              "anon": "", 
+              "user": "24.62.194.1", 
+              "parentid": 558998261, 
+              "size": 36439
+            }, 
+            {
+              "comment": "/* Early life, education, and academic career */", 
+              "tags": [], 
+              "timestamp": "2013-06-09T03:05:23Z", 
+              "userid": 0, 
+              "revid": 558998261, 
+              "anon": "", 
+              "user": "161.253.74.8", 
+              "parentid": 558832509, 
+              "size": 36445
+            }, 
+            {
+              "comment": "/* External links */  updating precedence box to reflect death of [[Frank Lautenberg]]", 
+              "tags": [], 
+              "timestamp": "2013-06-07T23:20:08Z", 
+              "userid": 7799659, 
+              "revid": 558832509, 
+              "user": "Carolina wren", 
+              "parentid": 552364549, 
+              "minor": "", 
+              "size": 36429
+            }, 
+            {
+              "comment": "/* External links */ conglinks", 
+              "tags": [], 
+              "timestamp": "2013-04-27T02:50:03Z", 
+              "userid": 0, 
+              "revid": 552364549, 
+              "anon": "", 
+              "user": "184.78.81.245", 
+              "parentid": 547348112, 
+              "size": 36429
+            }, 
+            {
+              "comment": "/* Controversial remarks */", 
+              "tags": [], 
+              "timestamp": "2013-03-27T23:24:58Z", 
+              "userid": 15607200, 
+              "revid": 547348112, 
+              "user": "Van Gulik", 
+              "parentid": 542621428, 
+              "minor": "", 
+              "size": 36444
+            }, 
+            {
+              "comment": "Undid revision 542619255 by [[Special:Contributions/74.69.11.229|74.69.11.229]] ([[User talk:74.69.11.229|talk]])", 
+              "tags": [], 
+              "timestamp": "2013-03-07T17:24:35Z", 
+              "userid": 5993972, 
+              "revid": 542621428, 
+              "user": "Chimino", 
+              "parentid": 542619255, 
+              "size": 36443
+            }, 
+            {
+              "comment": "/* Controversial remarks */", 
+              "tags": [], 
+              "timestamp": "2013-03-07T17:10:38Z", 
+              "userid": 0, 
+              "revid": 542619255, 
+              "anon": "", 
+              "user": "74.69.11.229", 
+              "parentid": 542391884, 
+              "size": 36455
+            }, 
+            {
+              "comment": "Updating 2012 vote totals reflecting final numbers from Ohio Secretary of State http://www.sos.state.oh.us/SOS/elections/Research/electResultsMain/2012Results.aspx", 
+              "tags": [], 
+              "timestamp": "2013-03-06T16:28:48Z", 
+              "userid": 3770363, 
+              "revid": 542391884, 
+              "user": "Icfische", 
+              "parentid": 541137569, 
+              "minor": "", 
+              "size": 36443
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2013-02-28T04:08:09Z", 
+              "userid": 0, 
+              "revid": 541137569, 
+              "anon": "", 
+              "user": "68.199.227.144", 
+              "parentid": 541137295, 
+              "size": 36443
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2013-02-28T04:06:58Z", 
+              "userid": 0, 
+              "revid": 541137295, 
+              "anon": "", 
+              "user": "68.199.227.144", 
+              "parentid": 541137031, 
+              "size": 36426
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2013-02-28T04:05:52Z", 
+              "userid": 0, 
+              "revid": 541137031, 
+              "anon": "", 
+              "user": "68.199.227.144", 
+              "parentid": 541135360, 
+              "size": 36666
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2013-02-28T03:58:03Z", 
+              "userid": 0, 
+              "revid": 541135360, 
+              "anon": "", 
+              "user": "68.199.227.144", 
+              "parentid": 540836319, 
+              "size": 36941
+            }, 
+            {
+              "comment": "per IP on talk, and http://www.brown.senate.gov/biography/committees but it looks like some of these have been slightly renamed", 
+              "tags": [], 
+              "timestamp": "2013-02-27T04:14:18Z", 
+              "userid": 18534821, 
+              "revid": 540836319, 
+              "user": "Josh Joaquin", 
+              "parentid": 540282270, 
+              "size": 36667
+            }, 
+            {
+              "comment": "[[User:Addbot|Bot:]] Migrating 15 interwiki links, now provided by [[Wikipedia:Wikidata|Wikidata]] on [[d:q381880]] ([[User talk:Addbot|Report Errors]])", 
+              "tags": [], 
+              "timestamp": "2013-02-25T15:58:49Z", 
+              "userid": 6569922, 
+              "revid": 540282270, 
+              "user": "Addbot", 
+              "parentid": 537991076, 
+              "minor": "", 
+              "size": 36681
+            }, 
+            {
+              "comment": "/* Bank and finance industry consolidation */ unexpected support from George Will", 
+              "tags": [], 
+              "timestamp": "2013-02-13T04:30:40Z", 
+              "userid": 18440755, 
+              "revid": 537991076, 
+              "user": "Neo Poz", 
+              "parentid": 537087992, 
+              "size": 37031
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/Jacob Hamm|Jacob Hamm]] ([[User talk:Jacob Hamm|talk]]) to last revision by Bmclaughlin9 ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2013-02-07T18:25:21Z", 
+              "userid": 3484802, 
+              "revid": 537087992, 
+              "user": "Ilyushka88", 
+              "parentid": 537087643, 
+              "minor": "", 
+              "size": 36530
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-02-07T18:22:36Z", 
+              "userid": 18407425, 
+              "revid": 537087643, 
+              "user": "Jacob Hamm", 
+              "parentid": 537087206, 
+              "size": 36744
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2013-02-07T18:18:29Z", 
+              "userid": 18407425, 
+              "revid": 537087206, 
+              "user": "Jacob Hamm", 
+              "parentid": 536616786, 
+              "size": 36721
+            }, 
+            {
+              "comment": "/* External links */   mod seniority for Kerry resignation", 
+              "tags": [], 
+              "timestamp": "2013-02-05T01:16:17Z", 
+              "userid": 9887272, 
+              "revid": 536616786, 
+              "user": "Bmclaughlin9", 
+              "parentid": 535398964, 
+              "size": 36530
+            }, 
+            {
+              "comment": "/* Personal life */ more NPOV", 
+              "tags": [], 
+              "timestamp": "2013-01-28T20:36:10Z", 
+              "userid": 1218712, 
+              "revid": 535398964, 
+              "user": "Karichisholm", 
+              "parentid": 533838714, 
+              "size": 36535
+            }, 
+            {
+              "comment": "[[Help:Reverting|Reverted]] edits by [[Special:Contributions/Gboo12|Gboo12]] ([[User talk:Gboo12|talk]]) to last version by RFD", 
+              "tags": [], 
+              "timestamp": "2013-01-19T12:44:09Z", 
+              "userid": 1749459, 
+              "revid": 533838714, 
+              "user": "MER-C", 
+              "parentid": 533281934, 
+              "minor": "", 
+              "size": 36573
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2013-01-15T23:54:07Z", 
+              "userid": 18076480, 
+              "revid": 533281934, 
+              "user": "Gboo12", 
+              "parentid": 531682485, 
+              "minor": "", 
+              "size": 36673
+            }, 
+            {
+              "comment": "/* External links */ category", 
+              "tags": [], 
+              "timestamp": "2013-01-06T21:50:19Z", 
+              "userid": 668422, 
+              "revid": 531682485, 
+              "user": "RFD", 
+              "parentid": 531572250, 
+              "size": 36573
+            }, 
+            {
+              "comment": "Undid revision 531568408 by [[Special:Contributions/Whoaitsmike|Whoaitsmike]] ([[User talk:Whoaitsmike|talk]]) Remove redundant statement.  \"Outside sources\" always spend on campaigns.  Nothing about this statement is notable.", 
+              "tags": [], 
+              "timestamp": "2013-01-06T05:18:41Z", 
+              "userid": 8199704, 
+              "revid": 531572250, 
+              "user": "OlYeller21", 
+              "parentid": 531568408, 
+              "size": 36542
+            }, 
+            {
+              "comment": "/* Elections */", 
+              "tags": [], 
+              "timestamp": "2013-01-06T04:44:47Z", 
+              "userid": 17199933, 
+              "revid": 531568408, 
+              "user": "Whoaitsmike", 
+              "parentid": 531138377, 
+              "size": 36739
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2013-01-03T20:03:32Z", 
+              "userid": 0, 
+              "revid": 531138377, 
+              "anon": "", 
+              "user": "68.194.99.17", 
+              "parentid": 530987995, 
+              "size": 36542
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2013-01-02T22:23:48Z", 
+              "userid": 0, 
+              "revid": 530987995, 
+              "anon": "", 
+              "user": "99.8.193.4", 
+              "parentid": 530024558, 
+              "size": 36542
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2012-12-27T19:47:39Z", 
+              "userid": 0, 
+              "revid": 530024558, 
+              "anon": "", 
+              "user": "99.8.193.4", 
+              "parentid": 527795365, 
+              "size": 36542
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2012-12-13T01:56:51Z", 
+              "userid": 0, 
+              "revid": 527795365, 
+              "anon": "", 
+              "user": "204.210.253.138", 
+              "parentid": 527795259, 
+              "size": 36542
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2012-12-13T01:55:56Z", 
+              "userid": 0, 
+              "revid": 527795259, 
+              "anon": "", 
+              "user": "204.210.253.138", 
+              "parentid": 527524501, 
+              "size": 36539
+            }, 
+            {
+              "comment": "clean up, References after punctuation per [[WP:REFPUNC]] and [[WP:CITEFOOT]] using [[Project:AWB|AWB]] (8792)", 
+              "tags": [], 
+              "timestamp": "2012-12-11T13:00:44Z", 
+              "userid": 7328338, 
+              "revid": 527524501, 
+              "user": "Yobot", 
+              "parentid": 526405957, 
+              "minor": "", 
+              "size": 36542
+            }
+          ], 
+          "title": "Sherrod Brown"
+        }
+      }
+    }, 
+    "warnings": {
+      "query": {
+        "*": "Formatting of continuation data will be changing soon. To continue using the current formatting, use the 'rawcontinue' parameter. To begin using the new format, pass an empty string for 'continue' in the initial query."
+      }
+    }
+  }, 
+  {
+    "query-continue": {
+      "revisions": {
+        "rvcontinue": 545226611
+      }
+    }, 
+    "query": {
+      "pages": {
+        "333605": {
+          "ns": 0, 
+          "pageid": 333605, 
+          "revisions": [
+            {
+              "comment": "Reverted [[WP:AGF|good faith]] edits by [[Special:Contributions/Raven-willow jenni|Raven-willow jenni]] ([[User talk:Raven-willow jenni|talk]]): This seems trivial (cherry-picked from an exit poll of 1743 people). ([[WP:TW|TW]])", 
+              "tags": [], 
+              "timestamp": "2015-02-23T09:56:39Z", 
+              "userid": 784330, 
+              "revid": 648456562, 
+              "user": "Gobonobo", 
+              "parentid": 648429230, 
+              "size": 49353
+            }, 
+            {
+              "comment": "/* U.S. Senate (2001-Present) */", 
+              "tags": [], 
+              "timestamp": "2015-02-23T04:42:16Z", 
+              "userid": 24213367, 
+              "revid": 648429230, 
+              "user": "Raven-willow jenni", 
+              "parentid": 648428947, 
+              "size": 49550
+            }, 
+            {
+              "comment": "/* U.S. Senate (2001-Present) */", 
+              "tags": [], 
+              "timestamp": "2015-02-23T04:39:54Z", 
+              "userid": 24213367, 
+              "revid": 648428947, 
+              "user": "Raven-willow jenni", 
+              "parentid": 648428727, 
+              "size": 49552
+            }, 
+            {
+              "comment": "/* Elections */", 
+              "tags": [], 
+              "timestamp": "2015-02-23T04:38:09Z", 
+              "userid": 24213367, 
+              "revid": 648428727, 
+              "user": "Raven-willow jenni", 
+              "parentid": 647151302, 
+              "size": 49550
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2015-02-14T20:56:16Z", 
+              "userid": 0, 
+              "revid": 647151302, 
+              "anon": "", 
+              "user": "24.0.111.227", 
+              "parentid": 646857938, 
+              "size": 49353
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2015-02-12T22:13:55Z", 
+              "userid": 23233811, 
+              "revid": 646857938, 
+              "user": "Spongebob1944", 
+              "parentid": 646184368, 
+              "size": 49426
+            }, 
+            {
+              "comment": "Cantwell called herself Chairwoman - see http://web.archive.org/web/20141002234045/http://www.cantwell.senate.gov/public/index.cfm/committees", 
+              "tags": [], 
+              "timestamp": "2015-02-08T13:15:18Z", 
+              "userid": 8368770, 
+              "revid": 646184368, 
+              "user": "Tiller54", 
+              "parentid": 645246302, 
+              "size": 49386
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2015-02-02T02:18:26Z", 
+              "userid": 1522828, 
+              "revid": 645246302, 
+              "user": "Therequiembellishere", 
+              "parentid": 645246270, 
+              "minor": "", 
+              "size": 49372
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2015-02-02T02:18:00Z", 
+              "userid": 1522828, 
+              "revid": 645246270, 
+              "user": "Therequiembellishere", 
+              "parentid": 642707602, 
+              "minor": "", 
+              "size": 49351
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2015-01-16T04:17:50Z", 
+              "userid": 0, 
+              "revid": 642707602, 
+              "anon": "", 
+              "user": "24.230.164.88", 
+              "parentid": 641378341, 
+              "size": 49354
+            }, 
+            {
+              "comment": "Do [[Wikipedia:GENFIXES|general fixes]] and cleanup. - using [[Project:AWB|AWB]] (10687)", 
+              "tags": [], 
+              "timestamp": "2015-01-07T08:56:05Z", 
+              "userid": 264323, 
+              "revid": 641378341, 
+              "user": "Bgwhite", 
+              "parentid": 641291816, 
+              "size": 49357
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2015-01-06T20:17:34Z", 
+              "userid": 0, 
+              "revid": 641291816, 
+              "anon": "", 
+              "user": "24.188.196.25", 
+              "parentid": 641122648, 
+              "size": 49410
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2015-01-05T18:50:22Z", 
+              "userid": 0, 
+              "revid": 641122648, 
+              "anon": "", 
+              "user": "50.202.176.111", 
+              "parentid": 640984199, 
+              "size": 49461
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2015-01-04T20:02:06Z", 
+              "userid": 0, 
+              "revid": 640984199, 
+              "anon": "", 
+              "user": "2602:304:CD60:DDA0:7DB8:D80D:83E0:EEC5", 
+              "parentid": 639977225, 
+              "size": 49738
+            }, 
+            {
+              "comment": "Jeanine H. Long is her official name: http://leg.wa.gov/History/Legislative/Documents/MembersOfLeg2014.pdf", 
+              "tags": [], 
+              "timestamp": "2014-12-28T19:06:40Z", 
+              "userid": 12626056, 
+              "revid": 639977225, 
+              "user": "Champ68", 
+              "parentid": 639931244, 
+              "size": 49738
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-12-28T10:59:09Z", 
+              "userid": 8368770, 
+              "revid": 639931244, 
+              "user": "Tiller54", 
+              "parentid": 639727353, 
+              "size": 49720
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2014-12-26T20:30:40Z", 
+              "userid": 23233811, 
+              "revid": 639727353, 
+              "user": "Spongebob1944", 
+              "parentid": 639727251, 
+              "size": 49721
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2014-12-26T20:29:46Z", 
+              "userid": 23233811, 
+              "revid": 639727251, 
+              "user": "Spongebob1944", 
+              "parentid": 639727176, 
+              "size": 49720
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2014-12-26T20:28:51Z", 
+              "userid": 23233811, 
+              "revid": 639727176, 
+              "user": "Spongebob1944", 
+              "parentid": 639678085, 
+              "size": 49721
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-12-26T10:50:04Z", 
+              "userid": 1522828, 
+              "revid": 639678085, 
+              "user": "Therequiembellishere", 
+              "parentid": 639666369, 
+              "minor": "", 
+              "size": 49720
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2014-12-26T07:53:15Z", 
+              "userid": 1522828, 
+              "revid": 639666369, 
+              "user": "Therequiembellishere", 
+              "parentid": 639665028, 
+              "minor": "", 
+              "size": 49735
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-12-26T07:31:06Z", 
+              "userid": 1522828, 
+              "revid": 639665028, 
+              "user": "Therequiembellishere", 
+              "parentid": 639495088, 
+              "size": 49735
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-12-24T17:54:33Z", 
+              "userid": 12626056, 
+              "revid": 639495088, 
+              "user": "Champ68", 
+              "parentid": 638685804, 
+              "size": 49981
+            }, 
+            {
+              "comment": "removed [[Category:People from Indianapolis, Indiana]]; added [[Category:Politicians from Indianapolis, Indiana]] using [[WP:HC|HotCat]]", 
+              "tags": [], 
+              "timestamp": "2014-12-18T20:29:03Z", 
+              "userid": 2602832, 
+              "revid": 638685804, 
+              "user": "Aboutmovies", 
+              "parentid": 635007718, 
+              "size": 49957
+            }, 
+            {
+              "comment": "/* External links */ tidying up", 
+              "tags": [], 
+              "timestamp": "2014-11-22T20:47:05Z", 
+              "userid": 10218004, 
+              "revid": 635007718, 
+              "user": "Roseohioresident", 
+              "parentid": 632823801, 
+              "size": 49952
+            }, 
+            {
+              "comment": "Revert to revision 631048430 dated 2014-10-25 11:37:50 by Bazj using [[:en:Wikipedia:Tools/Navigation_popups|popups]]", 
+              "tags": [], 
+              "timestamp": "2014-11-07T13:19:16Z", 
+              "userid": 5513235, 
+              "revid": 632823801, 
+              "user": "Gnome de plume", 
+              "parentid": 632792572, 
+              "size": 49636
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [
+                "HHVM"
+              ], 
+              "timestamp": "2014-11-07T05:29:59Z", 
+              "userid": 23093014, 
+              "revid": 632792572, 
+              "user": "Redistricting648", 
+              "parentid": 631760089, 
+              "size": 50417
+            }, 
+            {
+              "comment": "/* Personal life */", 
+              "tags": [], 
+              "timestamp": "2014-10-30T15:07:14Z", 
+              "userid": 23017795, 
+              "revid": 631760089, 
+              "user": "Liberalism215", 
+              "parentid": 631048430, 
+              "size": 50014
+            }, 
+            {
+              "comment": "/* External links */[[WP:SBS/T]], replaced: {{Incumbent succession box \u2192 {{subst:Incumbent succession box using [[Project:AWB|AWB]]", 
+              "tags": [], 
+              "timestamp": "2014-10-25T11:37:50Z", 
+              "userid": 6561336, 
+              "revid": 631048430, 
+              "user": "Bazj", 
+              "parentid": 630649269, 
+              "minor": "", 
+              "size": 49636
+            }, 
+            {
+              "comment": "/* External links */ separate line of template on separate line of code", 
+              "tags": [
+                "HHVM"
+              ], 
+              "timestamp": "2014-10-22T13:14:20Z", 
+              "userid": 6561336, 
+              "revid": 630649269, 
+              "user": "Bazj", 
+              "parentid": 630618718, 
+              "size": 49629
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2014-10-22T06:26:36Z", 
+              "userid": 1788296, 
+              "revid": 630618718, 
+              "user": "Nevermore27", 
+              "parentid": 627885653, 
+              "minor": "", 
+              "size": 49628
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-10-01T23:23:54Z", 
+              "userid": 8093169, 
+              "revid": 627885653, 
+              "user": "Rural Legend", 
+              "parentid": 627885475, 
+              "minor": "", 
+              "size": 49627
+            }, 
+            {
+              "comment": "Included more accurate election results, per FEC.", 
+              "tags": [], 
+              "timestamp": "2014-10-01T23:21:36Z", 
+              "userid": 8093169, 
+              "revid": 627885475, 
+              "user": "Rural Legend", 
+              "parentid": 623404104, 
+              "size": 49627
+            }, 
+            {
+              "comment": "\"See also\" already included in article, not her latest election, in any event.", 
+              "tags": [], 
+              "timestamp": "2014-08-30T04:49:47Z", 
+              "userid": 16379964, 
+              "revid": 623404104, 
+              "user": "Champaign Supernova", 
+              "parentid": 623404010, 
+              "size": 49445
+            }, 
+            {
+              "comment": "Page Six really isn't a sufficient source for personal life gossip, this is a [[WP:BLP]]", 
+              "tags": [], 
+              "timestamp": "2014-08-30T04:48:37Z", 
+              "userid": 16379964, 
+              "revid": 623404010, 
+              "user": "Champaign Supernova", 
+              "parentid": 623082822, 
+              "size": 49502
+            }, 
+            {
+              "comment": "/* Committee assignments */", 
+              "tags": [], 
+              "timestamp": "2014-08-27T20:34:50Z", 
+              "userid": 0, 
+              "revid": 623082822, 
+              "anon": "", 
+              "user": "41.216.218.162", 
+              "parentid": 621243606, 
+              "size": 50124
+            }, 
+            {
+              "comment": "Dating maintenance tags: {{Citation needed}}", 
+              "tags": [], 
+              "timestamp": "2014-08-14T18:25:49Z", 
+              "userid": 7611264, 
+              "revid": 621243606, 
+              "user": "AnomieBOT", 
+              "parentid": 621229858, 
+              "minor": "", 
+              "size": 50425
+            }, 
+            {
+              "comment": "Minor edit - move {{citation needed}} to before comma", 
+              "tags": [], 
+              "timestamp": "2014-08-14T16:25:39Z", 
+              "userid": 0, 
+              "revid": 621229858, 
+              "anon": "", 
+              "user": "12.8.188.241", 
+              "parentid": 621217489, 
+              "size": 50408
+            }, 
+            {
+              "comment": "Need source to show that HSUS is a \"part of the United Nations\", according to http://www.humanesociety.org/about/overview/annual_reports_financial_statements.html, HSUS is a non-profit 501(c)(3) US Corporation", 
+              "tags": [], 
+              "timestamp": "2014-08-14T14:45:28Z", 
+              "userid": 0, 
+              "revid": 621217489, 
+              "anon": "", 
+              "user": "12.8.188.241", 
+              "parentid": 621149872, 
+              "size": 50408
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [], 
+              "timestamp": "2014-08-14T02:15:17Z", 
+              "userid": 21920185, 
+              "revid": 621149872, 
+              "user": "Judicial review171", 
+              "parentid": 619080263, 
+              "size": 50389
+            }, 
+            {
+              "comment": "added [[Category:Democratic Party members of the United States House of Representatives]] using [[WP:HC|HotCat]]", 
+              "tags": [], 
+              "timestamp": "2014-07-30T05:20:04Z", 
+              "userid": 6454287, 
+              "revid": 619080263, 
+              "user": "Good Olfactory", 
+              "parentid": 618732117, 
+              "size": 49928
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-07-27T22:26:52Z", 
+              "userid": 9441415, 
+              "revid": 618732117, 
+              "user": "Americus55", 
+              "parentid": 618354872, 
+              "size": 49844
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-07-25T01:27:34Z", 
+              "userid": 0, 
+              "revid": 618354872, 
+              "anon": "", 
+              "user": "68.33.83.14", 
+              "parentid": 618308007, 
+              "size": 49796
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2014-07-24T18:40:34Z", 
+              "userid": 21770567, 
+              "revid": 618308007, 
+              "user": "Doorcar", 
+              "parentid": 617130715, 
+              "size": 49821
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/Veto118|Veto118]] ([[User talk:Veto118|talk]]): addition of [[WP:CITE|unsourced content]] ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2014-07-16T02:48:34Z", 
+              "userid": 21673524, 
+              "revid": 617130715, 
+              "user": "The Last Arietta", 
+              "parentid": 617130509, 
+              "minor": "", 
+              "size": 49798
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [], 
+              "timestamp": "2014-07-16T02:45:57Z", 
+              "userid": 21781708, 
+              "revid": 617130509, 
+              "user": "Veto118", 
+              "parentid": 615358686, 
+              "size": 49974
+            }, 
+            {
+              "comment": "/* Early life, education, and early political career */ ce", 
+              "tags": [
+                "visualeditor"
+              ], 
+              "timestamp": "2014-07-02T23:13:55Z", 
+              "userid": 13311235, 
+              "revid": 615358686, 
+              "user": "Wukai", 
+              "parentid": 615350454, 
+              "size": 49798
+            }, 
+            {
+              "comment": "/* Early life, education, and early political career */", 
+              "tags": [
+                "gettingstarted edit"
+              ], 
+              "timestamp": "2014-07-02T21:44:11Z", 
+              "userid": 21746472, 
+              "revid": 615350454, 
+              "user": "Cascadienne", 
+              "parentid": 615087627, 
+              "minor": "", 
+              "size": 49835
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "mobile edit", 
+                "mobile web edit"
+              ], 
+              "timestamp": "2014-07-01T00:20:54Z", 
+              "userid": 21541651, 
+              "revid": 615087627, 
+              "user": "Strickland198", 
+              "parentid": 614336223, 
+              "size": 49751
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-06-25T08:30:09Z", 
+              "userid": 0, 
+              "revid": 614336223, 
+              "anon": "", 
+              "user": "62.153.67.200", 
+              "parentid": 603207770, 
+              "size": 49751
+            }, 
+            {
+              "comment": "copyedit; 16-year-olds are not women, by definition", 
+              "tags": [
+                "visualeditor"
+              ], 
+              "timestamp": "2014-04-07T21:03:12Z", 
+              "userid": 13311235, 
+              "revid": 603207770, 
+              "user": "Wukai", 
+              "parentid": 603177216, 
+              "size": 49726
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [], 
+              "timestamp": "2014-04-07T17:17:43Z", 
+              "userid": 0, 
+              "revid": 603177216, 
+              "anon": "", 
+              "user": "76.206.50.109", 
+              "parentid": 602136847, 
+              "size": 49787
+            }, 
+            {
+              "comment": "rv vandalism", 
+              "tags": [], 
+              "timestamp": "2014-03-31T17:21:20Z", 
+              "userid": 153790, 
+              "revid": 602136847, 
+              "user": "Fdewaele", 
+              "parentid": 602122428, 
+              "size": 49792
+            }, 
+            {
+              "comment": "/* U.S. House of Representatives (1993-1995) */", 
+              "tags": [], 
+              "timestamp": "2014-03-31T15:33:39Z", 
+              "userid": 0, 
+              "revid": 602122428, 
+              "anon": "", 
+              "user": "168.212.129.56", 
+              "parentid": 602122229, 
+              "size": 49515
+            }, 
+            {
+              "comment": "/* U.S. House of Representatives (1993-1995) */", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2014-03-31T15:32:08Z", 
+              "userid": 0, 
+              "revid": 602122229, 
+              "anon": "", 
+              "user": "168.212.129.56", 
+              "parentid": 599326016, 
+              "size": 49673
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-03-12T19:07:05Z", 
+              "userid": 8368770, 
+              "revid": 599326016, 
+              "user": "Tiller54", 
+              "parentid": 599325255, 
+              "size": 49792
+            }, 
+            {
+              "comment": "/* External links */ Rm pointless boxes", 
+              "tags": [], 
+              "timestamp": "2014-03-12T19:00:23Z", 
+              "userid": 8368770, 
+              "revid": 599325255, 
+              "user": "Tiller54", 
+              "parentid": 595659216, 
+              "size": 49347
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2014-02-16T00:14:50Z", 
+              "userid": 0, 
+              "revid": 595659216, 
+              "anon": "", 
+              "user": "68.33.83.14", 
+              "parentid": 595387616, 
+              "size": 49650
+            }, 
+            {
+              "comment": "/* Committee assignments */ fix formatting", 
+              "tags": [], 
+              "timestamp": "2014-02-14T01:35:59Z", 
+              "userid": 1955864, 
+              "revid": 595387616, 
+              "user": "Esprqii", 
+              "parentid": 595386974, 
+              "size": 49645
+            }, 
+            {
+              "comment": "update committee chair", 
+              "tags": [], 
+              "timestamp": "2014-02-14T01:30:08Z", 
+              "userid": 1955864, 
+              "revid": 595386974, 
+              "user": "Esprqii", 
+              "parentid": 594457333, 
+              "size": 49650
+            }, 
+            {
+              "comment": "/* External links */", 
+              "tags": [], 
+              "timestamp": "2014-02-08T02:13:54Z", 
+              "userid": 0, 
+              "revid": 594457333, 
+              "anon": "", 
+              "user": "98.112.121.46", 
+              "parentid": 594043755, 
+              "size": 49407
+            }, 
+            {
+              "comment": "Undid revision 593908267 by [[Special:Contributions/70.235.86.228|70.235.86.228]] ([[User talk:70.235.86.228|talk]])See [[User talk:70.235.86.228]]", 
+              "tags": [], 
+              "timestamp": "2014-02-05T13:32:51Z", 
+              "userid": 0, 
+              "revid": 594043755, 
+              "anon": "", 
+              "user": "71.23.178.214", 
+              "parentid": 593908267, 
+              "size": 49407
+            }, 
+            {
+              "comment": "Undid revision 593880071 by [[Special:Contributions/71.23.178.214|71.23.178.214]] ([[User talk:71.23.178.214|talk]])standard headers", 
+              "tags": [], 
+              "timestamp": "2014-02-04T16:51:27Z", 
+              "userid": 0, 
+              "revid": 593908267, 
+              "anon": "", 
+              "user": "70.235.86.228", 
+              "parentid": 593880071, 
+              "size": 49276
+            }, 
+            {
+              "comment": "/* External links */ Further reading", 
+              "tags": [], 
+              "timestamp": "2014-02-04T12:45:45Z", 
+              "userid": 0, 
+              "revid": 593880071, 
+              "anon": "", 
+              "user": "71.23.178.214", 
+              "parentid": 587848316, 
+              "size": 49407
+            }, 
+            {
+              "comment": "Reverted 1 edit by [[Special:Contributions/108.195.184.85|108.195.184.85]] ([[User talk:108.195.184.85|talk]]): Unsourced and gossip-y. [Using [[WP:TW|Twinkle]].]", 
+              "tags": [], 
+              "timestamp": "2013-12-27T02:58:01Z", 
+              "userid": 2267950, 
+              "revid": 587848316, 
+              "user": "SuperMarioMan", 
+              "parentid": 587846711, 
+              "size": 49276
+            }, 
+            {
+              "comment": "/* Personal life */", 
+              "tags": [], 
+              "timestamp": "2013-12-27T02:46:17Z", 
+              "userid": 0, 
+              "revid": 587846711, 
+              "anon": "", 
+              "user": "108.195.184.85", 
+              "parentid": 587539537, 
+              "size": 49406
+            }, 
+            {
+              "comment": "/* Personal life */ Wikilink", 
+              "tags": [], 
+              "timestamp": "2013-12-24T18:01:27Z", 
+              "userid": 14711, 
+              "revid": 587539537, 
+              "user": "Lou Sander", 
+              "parentid": 587195966, 
+              "minor": "", 
+              "size": 49276
+            }, 
+            {
+              "comment": "Session dates incorrect http://www.leg.wa.gov/History/Legislative/Documents/Members_of_Leg_2009.pdf", 
+              "tags": [], 
+              "timestamp": "2013-12-22T06:49:51Z", 
+              "userid": 12626056, 
+              "revid": 587195966, 
+              "user": "Champ68", 
+              "parentid": 584427737, 
+              "size": 49272
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/98.225.6.149|98.225.6.149]] ([[User talk:98.225.6.149|talk]]) to last revision by Bigpoliticsfan ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2013-12-03T21:34:12Z", 
+              "userid": 82432, 
+              "revid": 584427737, 
+              "user": "Discospinster", 
+              "parentid": 584427698, 
+              "minor": "", 
+              "size": 49219
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-12-03T21:33:59Z", 
+              "userid": 0, 
+              "revid": 584427698, 
+              "anon": "", 
+              "user": "98.225.6.149", 
+              "parentid": 583797719, 
+              "size": 49180
+            }, 
+            {
+              "comment": "/* Committee assignments */ update", 
+              "tags": [], 
+              "timestamp": "2013-11-29T15:48:25Z", 
+              "userid": 19088180, 
+              "revid": 583797719, 
+              "user": "Bigpoliticsfan", 
+              "parentid": 579692682, 
+              "minor": "", 
+              "size": 49219
+            }, 
+            {
+              "comment": "Reverting possible vandalism by [[Special:Contributions/75.92.156.217|75.92.156.217]] to version by 170.185.29.19. False positive? [[User:ClueBot NG/FalsePositives|Report it]]. Thanks, [[User:ClueBot NG|ClueBot NG]]. (1565386) (Bot)", 
+              "tags": [], 
+              "timestamp": "2013-11-01T02:42:31Z", 
+              "userid": 13286072, 
+              "revid": 579692682, 
+              "user": "ClueBot NG", 
+              "parentid": 579692675, 
+              "minor": "", 
+              "size": 49231
+            }, 
+            {
+              "comment": "/* Washington House of Representatives (1987-1993) */", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2013-11-01T02:42:26Z", 
+              "userid": 0, 
+              "revid": 579692675, 
+              "anon": "", 
+              "user": "75.92.156.217", 
+              "parentid": 578543707, 
+              "size": 49445
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2013-10-24T13:02:58Z", 
+              "userid": 0, 
+              "revid": 578543707, 
+              "anon": "", 
+              "user": "170.185.29.19", 
+              "parentid": 578543612, 
+              "size": 49231
+            }, 
+            {
+              "comment": "", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2013-10-24T13:02:01Z", 
+              "userid": 0, 
+              "revid": 578543612, 
+              "anon": "", 
+              "user": "170.185.29.19", 
+              "parentid": 570481977, 
+              "size": 49232
+            }, 
+            {
+              "comment": "/* External links */ format", 
+              "tags": [], 
+              "timestamp": "2013-08-28T02:55:20Z", 
+              "userid": 0, 
+              "revid": 570481977, 
+              "anon": "", 
+              "user": "184.78.81.245", 
+              "parentid": 569512778, 
+              "size": 49231
+            }, 
+            {
+              "comment": "/* Early life, education, and early political career */", 
+              "tags": [], 
+              "timestamp": "2013-08-21T02:35:25Z", 
+              "userid": 12844116, 
+              "revid": 569512778, 
+              "user": "Geo47", 
+              "parentid": 569512644, 
+              "size": 49223
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-08-21T02:34:06Z", 
+              "userid": 12844116, 
+              "revid": 569512644, 
+              "user": "Geo47", 
+              "parentid": 568332530, 
+              "size": 49250
+            }, 
+            {
+              "comment": "/* External links */ conglinks", 
+              "tags": [], 
+              "timestamp": "2013-08-13T09:17:05Z", 
+              "userid": 0, 
+              "revid": 568332530, 
+              "anon": "", 
+              "user": "184.78.81.245", 
+              "parentid": 568332381, 
+              "size": 49238
+            }, 
+            {
+              "comment": "/* External links */ conglinks", 
+              "tags": [], 
+              "timestamp": "2013-08-13T09:15:26Z", 
+              "userid": 0, 
+              "revid": 568332381, 
+              "anon": "", 
+              "user": "184.78.81.245", 
+              "parentid": 561627853, 
+              "size": 49240
+            }, 
+            {
+              "comment": "the E may stand for something", 
+              "tags": [], 
+              "timestamp": "2013-06-26T05:55:17Z", 
+              "userid": 1865063, 
+              "revid": 561627853, 
+              "user": "Connormah", 
+              "parentid": 560384685, 
+              "size": 49051
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [], 
+              "timestamp": "2013-06-18T02:21:11Z", 
+              "userid": 0, 
+              "revid": 560384685, 
+              "anon": "", 
+              "user": "24.170.234.241", 
+              "parentid": 557718005, 
+              "size": 49069
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-05-31T18:13:32Z", 
+              "userid": 0, 
+              "revid": 557718005, 
+              "anon": "", 
+              "user": "98.243.223.46", 
+              "parentid": 557229521, 
+              "size": 49089
+            }, 
+            {
+              "comment": "Undid revision 557211695 by [[Special:Contributions/168.212.129.18|168.212.129.18]] ([[User talk:168.212.129.18|talk]]) rv unsourced", 
+              "tags": [], 
+              "timestamp": "2013-05-28T20:55:14Z", 
+              "userid": 13311235, 
+              "revid": 557229521, 
+              "user": "Wukai", 
+              "parentid": 557211695, 
+              "size": 49069
+            }, 
+            {
+              "comment": "/* Early life, education, and early political career */", 
+              "tags": [], 
+              "timestamp": "2013-05-28T18:53:57Z", 
+              "userid": 0, 
+              "revid": 557211695, 
+              "anon": "", 
+              "user": "168.212.129.18", 
+              "parentid": 556193970, 
+              "size": 49087
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-05-22T01:21:40Z", 
+              "userid": 0, 
+              "revid": 556193970, 
+              "anon": "", 
+              "user": "98.243.223.46", 
+              "parentid": 554892895, 
+              "size": 49069
+            }, 
+            {
+              "comment": "fix link - previous was to an Aus article, now to DAB", 
+              "tags": [], 
+              "timestamp": "2013-05-13T14:31:56Z", 
+              "userid": 3072955, 
+              "revid": 554892895, 
+              "user": "Kelapstick", 
+              "parentid": 554819224, 
+              "size": 49089
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-05-13T02:22:03Z", 
+              "userid": 0, 
+              "revid": 554819224, 
+              "anon": "", 
+              "user": "98.243.223.46", 
+              "parentid": 554819134, 
+              "size": 49081
+            }, 
+            {
+              "comment": "", 
+              "tags": [], 
+              "timestamp": "2013-05-13T02:21:08Z", 
+              "userid": 0, 
+              "revid": 554819134, 
+              "anon": "", 
+              "user": "98.243.223.46", 
+              "parentid": 552376524, 
+              "size": 49084
+            }, 
+            {
+              "comment": "/* External links */ conglinks", 
+              "tags": [], 
+              "timestamp": "2013-04-27T04:52:16Z", 
+              "userid": 0, 
+              "revid": 552376524, 
+              "anon": "", 
+              "user": "184.78.81.245", 
+              "parentid": 551187620, 
+              "size": 49081
+            }, 
+            {
+              "comment": "/* Electoral history */", 
+              "tags": [], 
+              "timestamp": "2013-04-19T20:49:45Z", 
+              "userid": 11124023, 
+              "revid": 551187620, 
+              "user": "Myownworst", 
+              "parentid": 550886548, 
+              "size": 49085
+            }, 
+            {
+              "comment": "/* Electoral history */", 
+              "tags": [], 
+              "timestamp": "2013-04-17T22:49:11Z", 
+              "userid": 11124023, 
+              "revid": 550886548, 
+              "user": "Myownworst", 
+              "parentid": 550669282, 
+              "size": 49081
+            }, 
+            {
+              "comment": "/* Electoral history */", 
+              "tags": [], 
+              "timestamp": "2013-04-16T17:05:40Z", 
+              "userid": 11124023, 
+              "revid": 550669282, 
+              "user": "Myownworst", 
+              "parentid": 550668860, 
+              "size": 49060
+            }, 
+            {
+              "comment": "/* Electoral history */", 
+              "tags": [], 
+              "timestamp": "2013-04-16T17:02:30Z", 
+              "userid": 11124023, 
+              "revid": 550668860, 
+              "user": "Myownworst", 
+              "parentid": 545444934, 
+              "size": 49302
+            }, 
+            {
+              "comment": "Reverting possible vandalism by [[Special:Contributions/168.212.129.18|168.212.129.18]] to version by Vrenator. False positive? [[User:ClueBot NG/FalsePositives|Report it]]. Thanks, [[User:ClueBot NG|ClueBot NG]]. (1562515) (Bot)", 
+              "tags": [], 
+              "timestamp": "2013-03-19T15:15:50Z", 
+              "userid": 13286072, 
+              "revid": 545444934, 
+              "user": "ClueBot NG", 
+              "parentid": 545444910, 
+              "minor": "", 
+              "size": 48602
+            }, 
+            {
+              "comment": "/* Early life, education, and early political career */", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2013-03-19T15:15:40Z", 
+              "userid": 0, 
+              "revid": 545444910, 
+              "anon": "", 
+              "user": "168.212.129.18", 
+              "parentid": 545444099, 
+              "size": 48607
+            }, 
+            {
+              "comment": "/* Early life, education, and early political career */", 
+              "tags": [
+                "possible libel or vandalism"
+              ], 
+              "timestamp": "2013-03-19T15:09:35Z", 
+              "userid": 0, 
+              "revid": 545444099, 
+              "anon": "", 
+              "user": "168.212.129.18", 
+              "parentid": 545227117, 
+              "size": 48548
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/168.212.129.18|168.212.129.18]] ([[User talk:168.212.129.18|talk]]) to last revision by Arctic Kangaroo ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2013-03-18T15:39:09Z", 
+              "userid": 10509096, 
+              "revid": 545227117, 
+              "user": "Vrenator", 
+              "parentid": 545227088, 
+              "minor": "", 
+              "size": 48602
+            }, 
+            {
+              "comment": "/* Tenure */", 
+              "tags": [], 
+              "timestamp": "2013-03-18T15:38:53Z", 
+              "userid": 0, 
+              "revid": 545227088, 
+              "anon": "", 
+              "user": "168.212.129.18", 
+              "parentid": 545226717, 
+              "size": 48606
+            }, 
+            {
+              "comment": "Reverted edits by [[Special:Contributions/168.212.129.18|168.212.129.18]] ([[User talk:168.212.129.18|talk]]) to last revision by Alansohn ([[WP:HG|HG]])", 
+              "tags": [], 
+              "timestamp": "2013-03-18T15:36:08Z", 
+              "userid": 17261873, 
+              "revid": 545226717, 
+              "user": "Graphium", 
+              "parentid": 545226611, 
+              "minor": "", 
+              "size": 48602
+            }
+          ], 
+          "title": "Maria Cantwell"
+        }
+      }
+    }, 
+    "warnings": {
+      "query": {
+        "*": "Formatting of continuation data will be changing soon. To continue using the current formatting, use the 'rawcontinue' parameter. To begin using the new format, pass an empty string for 'continue' in the initial query."
+      }
+    }
+  }
+]

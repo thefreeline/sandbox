@@ -1,0 +1,13 @@
+h1, h2 {
+  color: #fff
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #252525;
+  color: #fff;
+}
+
+svg rect {
+  fill: #fff;
+}
