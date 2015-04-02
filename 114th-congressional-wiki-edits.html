@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Political Affiliation and Campaign Finance</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link href='http://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/normalize.css">        
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+        <style>
+
+          body {
+            font: 10px sans-serif;
+          }
+
+          .bar rect {
+            fill: steelblue;
+            shape-rendering: crispEdges;
+          }
+
+          .bar text {
+            fill: #fff;
+          }
+
+          .axis path, .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+          }
+
+        </style>
+
+</head>    
+
+<body>
+
+
+
+<script>
+
+d3.json("data/wiki-leg.json",function(error,data){
+
+  // Formatters for counts and times (converting numbers to Dates).
+var formatCount = d3.format(",.0f"),
+    formatTime = d3.time.format("%b-%Y"),
+    startDate = new Date(2012, 0, 1),
+    endDate = new Date(2015, 0, 12),
+    formatYears = function(d) { return formatTime(new Date(2012, 0, 1, 0, d)); },
+    members = [];
+  
+  
+  data.forEach(function(d,i){
+    // console.log(d);
+    obj = d.query.pages;
+    for ( key in obj ) {
+      timestampsAll = {};
+      
+      if( obj.hasOwnProperty(key) ) {
+        var revisions = obj[key].revisions;
+        timestampsAll.member = obj[key].title;
+        timestampsAll.timestamp = [];
+        timestampsAll.parsedTime = [];
+        for ( key in revisions ) {
+          if( revisions.hasOwnProperty(key) ) {
+            var timestamp = revisions[key].timestamp;
+            // timestamp = Date.parse(timestamp) - startDate;
+            timestamp = Date.parse(timestamp);
+            // timestamp = new Date(timestamp)
+            // month = timestamp.getMonth();
+            // year = timestamp.getFullYear();
+            // var parsedTime = month + "-" + year;
+            console.log(timestamp);
+            // timestampsAll.parsedTime.push(parsedTime);
+            timestampsAll.timestamp.push(timestamp);
+          }
+        } 
+      }
+    members.push(timestampsAll);
+
+    }
+  })
+  // console.log(members[0].timestamp)
+data = members[0].timestamp
+
+// Generate a log-normal distribution with a median of 30 minutes.
+var values = d3.range(1000).map(d3.random.logNormal(Math.log(30), .4));
+
+
+
+var margin = {top: 10, right: 30, bottom: 50, left: 30},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.time.scale()
+    .domain([startDate, endDate])
+    .range([0, width]);
+
+// Generate a histogram using twenty uniformly-spaced bins.
+var data = d3.layout.histogram()
+    .bins(x.ticks(60))
+    // (values);
+    (data);
+
+var y = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return d.y; })])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickFormat(formatTime)
+    .ticks(60);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+var bar = svg.selectAll(".bar")
+    .data(data)
+  .enter().append("g")
+    .attr("class", "bar")
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+
+    bar.append("rect")
+        .attr("x", 1)
+        // .attr("width", function(d,i) { return x(data[0].dx)-1;})
+        .attr("width", 25)
+        .attr("height", function(d) { return height - y(d.y); });
+
+    bar.append("text")
+        .attr("dy", ".75em")
+        .attr("y", 6)
+        .attr("x", x(data[0].dx) / 2)
+        .attr("text-anchor", "middle")
+        .text(function(d) { return formatCount(d.y); });
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .selectAll("text")
+        .attr("y",0)
+        .attr("x", -9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "end");
+  })
+
+
+</script>
+
+</body>
+</html>
