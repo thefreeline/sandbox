@@ -18,6 +18,9 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <!-- <script src="js/jquery/jquery-1.10.2.min.js"></script> 
+        <!-- <script src="js/bootstrap.min.js"></script>  -->  
+        <!-- <script src="js/d3/d3.v3.min.js"></script> -->
 
         <style>
 
@@ -93,15 +96,13 @@ var formatCount = d3.format(",.0f"),
   })
   // console.log(members[0].timestamp)
 data = members[0].timestamp
-
-// Generate a log-normal distribution with a median of 30 minutes.
-var values = d3.range(1000).map(d3.random.logNormal(Math.log(30), .4));
-
-
+data_all = members
+console.log(data);
+console.log(data_all);
 
 var margin = {top: 10, right: 30, bottom: 50, left: 30},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 150 - margin.top - margin.bottom;
 
 var x = d3.time.scale()
     .domain([startDate, endDate])
@@ -131,7 +132,7 @@ var svg = d3.select("body").append("svg")
 
 
 var bar = svg.selectAll(".bar")
-    .data(data)
+    .data(data/*, function(d,i){ console.log(d,i);}*/)
   .enter().append("g")
     .attr("class", "bar")
     .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; })
@@ -180,6 +181,6 @@ function hist(d){
 
 
 </script>
-
+ 
 </body>
 </html>
