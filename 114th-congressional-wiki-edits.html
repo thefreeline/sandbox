@@ -81,7 +81,7 @@ var formatCount = d3.format(",.0f"),
             // month = timestamp.getMonth();
             // year = timestamp.getFullYear();
             // var parsedTime = month + "-" + year;
-            console.log(timestamp);
+            // console.log(timestamp);
             // timestampsAll.parsedTime.push(parsedTime);
             timestampsAll.timestamp.push(timestamp);
           }
@@ -134,10 +134,34 @@ var bar = svg.selectAll(".bar")
     .data(data)
   .enter().append("g")
     .attr("class", "bar")
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; })
+    .call(hist);
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis)
+  .selectAll("text")
+    .attr("y",0)
+    .attr("x", -9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(-90)")
+    .style("text-anchor", "end");  
 
 
-    bar.append("rect")
+//////////////////////////////
+///////SMALL MULTIPLES////////
+//////////////////////////////
+function hist(d){
+  console.log(d)
+
+  hist = d3.selectAll(".bar");
+
+  hist.each(function(d, i) { 
+
+    var bar = d3.select(this);
+
+        bar.append("rect")
         .attr("x", 1)
         // .attr("width", function(d,i) { return x(data[0].dx)-1;})
         .attr("width", 25)
@@ -149,18 +173,10 @@ var bar = svg.selectAll(".bar")
         .attr("x", x(data[0].dx) / 2)
         .attr("text-anchor", "middle")
         .text(function(d) { return formatCount(d.y); });
-
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
-      .selectAll("text")
-        .attr("y",0)
-        .attr("x", -9)
-        .attr("dy", ".35em")
-        .attr("transform", "rotate(-90)")
-        .style("text-anchor", "end");
   })
+} // End f(hist)
+
+})
 
 
 </script>
